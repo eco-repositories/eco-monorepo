@@ -1,0 +1,9 @@
+{
+  "name": "try-monorepo",
+  "version": "0.0.1",
+  "author": "Dmytro Parzhytskyi <parzhitsky@gmail.com>",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
