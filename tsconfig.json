@@ -2,7 +2,8 @@
   "compilerOptions": {
     // Output
     "target": "es2020",
-    "moduleResolution": "node",
+    "module": "esnext",
+    "moduleResolution": "NodeNext",
     "sourceMap": true,
     "noEmit": true, // TODO: override in the derived configs if needed
 
