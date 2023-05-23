@@ -1,7 +1,7 @@
 import { Routes, Route, BrowserRouter } from 'react-router-dom'
-import { useSelector } from './store/index.js'
-import { Home } from './modules/home/index.js'
-import { PageNotFound } from './modules/page-not-found/index.js'
+import { useSelector } from './store/store.js'
+import { Home } from './modules/home/home.js'
+import { PageNotFound } from './modules/page-not-found/page-not-found.js'
 import { Loader } from './modules/common/loader/loader.js'
 
 export const App: React.FC = () => {
