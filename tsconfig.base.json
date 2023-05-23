@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    // Output
+    "target": "es2020",
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "noEmit": true, // TODO: override in the derived configs if needed
+
+    // Development
+    "strict": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "skipLibCheck": true,
+  }
+}

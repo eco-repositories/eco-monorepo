@@ -1,0 +1,30 @@
+{
+  "name": "client",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "echo \"No tests specified\" && exit 1",
+    "preview": "vite preview",
+    "dev": "vite",
+    "lint": "eslint **/*.{ts,tsx}",
+    "clean": "rm -rf dist/*",
+    "build:ts": "tsc",
+    "build:vite": "vite build",
+    "prebuild": "npm run clean",
+    "build": "npm run build:ts && npm run build:vite"
+  },
+  "dependencies": {
+    "@reduxjs/toolkit": "1.9.5",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-redux": "8.0.5"
+  },
+  "devDependencies": {
+    "@types/react": "18.2.6",
+    "@types/react-dom": "18.2.4",
+    "@vitejs/plugin-react": "3.1.0",
+    "eslint-plugin-react": "7.32.2",
+    "vite": "4.3.8"
+  }
+}

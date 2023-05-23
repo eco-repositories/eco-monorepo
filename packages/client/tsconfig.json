@@ -1,0 +1,20 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    // Output
+    "module": "esnext",
+    "esModuleInterop": true,
+
+    // Development
+    "jsx": "react-jsx",
+    "lib": [
+      "dom",
+      "esnext",
+    ],
+    "baseUrl": ".",
+    "paths": {
+      "@@/*": ["../*"],
+      "@/*": ["./src/*"],
+    }
+  }
+}
