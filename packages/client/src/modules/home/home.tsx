@@ -1,7 +1,9 @@
-import { HelloWorld } from './hello-world/hello-world.ts'
+import { Counter } from './counter/counter.tsx'
 
 export const Home: React.FC = () => {
   return (
-    <HelloWorld/>
+    <main>
+      <Counter/>
+    </main>
   )
 }
