@@ -4,8 +4,7 @@ import { Provider } from 'react-redux'
 import { store } from './store/store.ts'
 import { App } from './app.ts'
 
-// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-const container = document.getElementById('root')!
+const container = document.getElementById('root') as HTMLElement
 const root = createRoot(container)
 
 root.render(
