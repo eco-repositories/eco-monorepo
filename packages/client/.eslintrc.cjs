@@ -10,6 +10,7 @@ module.exports = {
   parserOptions: {
     project: [
       resolve(__dirname, "tsconfig.json"),
+      resolve(__dirname, "tsconfig.external.json"),
     ],
   },
 };
