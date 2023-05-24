@@ -1,4 +1,4 @@
-import { HelloWorld } from './hello-world/hello-world.js'
+import { HelloWorld } from './hello-world/hello-world.ts'
 
 export const Home: React.FC = () => {
   return (

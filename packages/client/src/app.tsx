@@ -1,8 +1,8 @@
 import { Routes, Route, BrowserRouter } from 'react-router-dom'
-import { useSelector } from './store/store.js'
-import { Home } from './modules/home/home.js'
-import { PageNotFound } from './modules/page-not-found/page-not-found.js'
-import { Loader } from './modules/common/loader/loader.js'
+import { useSelector } from './store/store.ts'
+import { Home } from './modules/home/home.ts'
+import { PageNotFound } from './modules/page-not-found/page-not-found.ts'
+import { Loader } from './modules/common/loader/loader.ts'
 
 export const App: React.FC = () => {
   const isLoading = useSelector((state) => state.app.loading)

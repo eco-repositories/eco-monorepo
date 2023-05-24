@@ -1,8 +1,8 @@
 import * as reactRedux from 'react-redux'
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
-import { app } from './app/slice.js'
-import { listener } from './listener.js'
-import * as appActions from './app/actions.js'
+import { app } from './app/slice.ts'
+import { listener } from './listener.ts'
+import * as appActions from './app/actions.ts'
 
 /** @private */
 const rootReducer = combineReducers({

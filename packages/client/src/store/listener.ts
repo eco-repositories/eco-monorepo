@@ -1,5 +1,5 @@
 import { createListenerMiddleware } from '@reduxjs/toolkit'
-import * as appActions from './app/actions.js'
+import * as appActions from './app/actions.ts'
 
 export const listener = createListenerMiddleware()
 
