@@ -21,7 +21,15 @@ module.exports = {
     '@typescript-eslint/comma-dangle': ['error', 'always-multiline'],
 
     'indent': 'off',
-    '@typescript-eslint/indent': ['error', 2],
+    '@typescript-eslint/indent': ['error', 2, {
+      'SwitchCase': 1,
+      'flatTernaryExpressions': false,
+      'ignoredNodes': [
+        'PropertyDefinition[decorators]',
+        'TSUnionType',
+        'FunctionExpression[params]:has(Identifier[decorators])',
+      ],
+    }],
 
     '@typescript-eslint/interface-name-prefix': 'off',
     '@typescript-eslint/space-before-function-paren': 'off',
