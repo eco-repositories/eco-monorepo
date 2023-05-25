@@ -6,7 +6,12 @@ module.exports = {
   ],
   env: {
     browser: true,
+    jest: true,
   },
+  ignorePatterns: [
+    '*.snap.ts',
+    '*.snap.tsx',
+  ],
   parserOptions: {
     project: [
       resolve(__dirname, "tsconfig.json"),
