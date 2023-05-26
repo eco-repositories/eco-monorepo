@@ -1,7 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-/** @private */
-interface State {
+export interface State {
   loading: boolean
 }
 
