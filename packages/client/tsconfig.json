@@ -8,9 +8,12 @@
   ],
   "compilerOptions": {
     // Output
+    "module": "esnext",
+    "moduleResolution": "NodeNext",
     "esModuleInterop": true,
 
     // Development
+    "allowImportingTsExtensions": true,
     "jsx": "react-jsx",
     "lib": [
       "dom",
