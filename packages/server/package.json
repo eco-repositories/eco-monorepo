@@ -1,0 +1,44 @@
+{
+  "name": "server",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "prebuild": "rm -rf dist/*",
+    "build": "nest build",
+    "postbuild": "tsc-alias --project tsconfig.build.json",
+    "start": "node --enable-source-maps dist/main.js",
+    "_no_aliases_in_watch_mode": "echo \"NestJS's '--watch' mode resolves path aliases using tsconfig-paths, which does not support ESM\" && exit 1",
+    "dev": "npm run _no_aliases_in_watch_mode && nest start --watch",
+    "debug": "npm run _no_aliases_in_watch_mode && nest start --watch --debug",
+    "lint": "eslint \"src/**/*.ts\"",
+    "test": "vitest"
+  },
+  "dependencies": {
+    "@nestjs/common": "9.4.2",
+    "@nestjs/config": "2.3.2",
+    "@nestjs/core": "9.4.2",
+    "@nestjs/platform-express": "9.4.2",
+    "class-transformer": "0.5.1",
+    "class-validator": "0.14.0",
+    "express-rate-limit": "6.7.0",
+    "morgan": "1.10.0",
+    "reflect-metadata": "0.1.13",
+    "rxjs": "7.8.1"
+  },
+  "devDependencies": {
+    "@nestjs/cli": "9.5.0",
+    "@nestjs/schematics": "9.2.0",
+    "@nestjs/testing": "9.4.2",
+    "@types/express": "4.17.17",
+    "@types/morgan": "1.9.4",
+    "@types/supertest": "2.0.12",
+    "source-map-support": "0.5.21",
+    "supertest": "6.3.3",
+    "ts-loader": "9.4.3",
+    "ts-node": "10.9.1",
+    "tsc-alias": "1.8.6",
+    "tsconfig-paths": "4.2.0",
+    "vitest": "0.31.1"
+  }
+}
