@@ -7,7 +7,7 @@
     "packages/*"
   ],
   "scripts": {
-    "dc:start": "docker compose --env-file docker-compose.env.local up --build --detach",
+    "dc:start": "docker compose --env-file docker-compose.env.local up --build --detach --remove-orphans",
     "dc:stop": "docker compose down"
   },
   "devDependencies": {
