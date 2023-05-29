@@ -3,10 +3,12 @@ import { ConfigModule } from './config/config.module.js'
 import { HttpExceptionFilter } from './common/http-exception/http-exception.filter.js'
 import { HttpLoggerMiddleware } from './common/http-logger/http-logger.middleware.js'
 import { HttpRateLimiterMiddleware } from './common/http-rate-limiter/http-rate-limiter.middleware.js'
+import { TestModule } from './test/test.module.js'
 
 @Module({
   imports: [
     ConfigModule,
+    TestModule,
   ],
   providers: [
     HttpExceptionFilter,

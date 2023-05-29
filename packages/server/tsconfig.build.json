@@ -3,6 +3,10 @@
   "include": [
     "src",
   ],
+  "exclude": [
+    "src/**/*.spec.ts",
+    "src/**/*.e2e-spec.ts",
+  ],
   "compilerOptions": {
     "noEmit": false,
     "outDir": "dist",

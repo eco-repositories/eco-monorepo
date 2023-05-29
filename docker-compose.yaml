@@ -1,0 +1,22 @@
+version: '3.9'
+
+services:
+  server:
+    build:
+      context: '.'
+      dockerfile: server.dockerfile
+    environment:
+      PORT: '${SERVER_PORT_CONTAINER}'
+    ports:
+      - '${SERVER_PORT_HOST}:${SERVER_PORT_CONTAINER}'
+
+  client:
+    depends_on:
+      - server
+    build:
+      context: '.'
+      dockerfile: client.dockerfile
+      args:
+        VITE_SERVER_BASE_URL: 'http://localhost:${SERVER_PORT_CONTAINER}/'
+    ports:
+      - '${CLIENT_PORT_HOST}:80'
