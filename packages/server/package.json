@@ -8,9 +8,9 @@
     "build": "nest build",
     "postbuild": "tsc-alias --project tsconfig.build.json",
     "start": "node --enable-source-maps dist/main.js",
-    "_no_aliases_in_watch_mode": "echo \"NestJS's '--watch' mode resolves path aliases using tsconfig-paths, which does not support ESM\" && exit 1",
-    "dev": "npm run _no_aliases_in_watch_mode && nest start --watch",
-    "debug": "npm run _no_aliases_in_watch_mode && nest start --watch --debug",
+    "_sorry_no_watch_mode": "echo \u001b[31mError\u001b[0m: Package \u001b[1mtsconfig-paths\u001b[0m (used by NestJS's '--watch' mode) \u001b[1mdoes not support ESM\u001b[0m && exit 1",
+    "dev": "npm run --silent _sorry_no_watch_mode && nest start --watch",
+    "debug": "npm run --silent _sorry_no_watch_mode && nest start --watch --debug",
     "lint": "eslint \"src/**/*.ts\"",
     "test": "vitest"
   },
