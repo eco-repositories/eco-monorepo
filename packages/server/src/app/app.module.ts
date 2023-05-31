@@ -1,9 +1,9 @@
 import { type MiddlewareConsumer, Module, type NestModule } from '@nestjs/common'
-import { ConfigModule } from './config/config.module.js'
-import { HttpExceptionFilter } from './common/http-exception/http-exception.filter.js'
-import { HttpLoggerMiddleware } from './common/http-logger/http-logger.middleware.js'
-import { HttpRateLimiterMiddleware } from './common/http-rate-limiter/http-rate-limiter.middleware.js'
-import { HealthModule } from './health/health.module.js'
+import { ConfigModule } from '@/config/config.module.js'
+import { HealthModule } from '@/health/health.module.js'
+import { HttpExceptionFilter } from './http-exception.filter.js'
+import { HttpLoggerMiddleware } from './http-logger.middleware.js'
+import { HttpRateLimiterMiddleware } from './http-rate-limiter.middleware.js'
 
 @Module({
   imports: [

@@ -1,7 +1,7 @@
 import { Type } from 'class-transformer'
 import { IsInt, IsPort, IsPositive, Min } from 'class-validator'
-import { IsValidEnum } from '@/common/is-valid-enum/is-valid-enum.decorator.js'
 import { EnvName } from './env-name.js'
+import { IsValidEnum } from './is-valid-enum.decorator.js'
 
 declare global {
   // eslint-disable-next-line @typescript-eslint/no-namespace

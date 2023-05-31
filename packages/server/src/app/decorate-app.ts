@@ -1,7 +1,7 @@
 import { type INestApplication, ValidationPipe, VersioningType } from '@nestjs/common'
-import { HttpExceptionFilter } from './common/http-exception/http-exception.filter.js'
+import { HttpExceptionFilter } from './http-exception.filter.js'
 
-export function configureApp(app: INestApplication): void {
+export function decorateApp(app: INestApplication): void {
   app.enableCors()
 
   app.enableShutdownHooks()

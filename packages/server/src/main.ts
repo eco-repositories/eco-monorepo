@@ -1,15 +1,14 @@
 import { NestFactory } from '@nestjs/core'
-import { AppModule } from './app.module.js'
-import { createLogger } from './common/create-logger/create-logger.js'
-import { configureApp } from './configure-app.js'
+import { AppModule } from './app/app.module.js'
+import { decorateApp } from './app/decorate-app.js'
+import { createLogger } from './common/create-logger.js'
 import { ConfigService } from './config/config.service.js'
 
 async function bootstrap(): Promise<void> {
   const logger = createLogger(bootstrap.name)
-
   const app = await NestFactory.create(AppModule, { logger })
 
-  configureApp(app)
+  decorateApp(app)
 
   const config = app.get(ConfigService)
   const port = config.get(config.keys.PORT)
