@@ -9,16 +9,5 @@
   "scripts": {
     "dc:start": "docker compose --env-file docker-compose.env.local up --build --detach --remove-orphans",
     "dc:stop": "docker compose down"
-  },
-  "devDependencies": {
-    "@types/node": "18.16.14",
-    "@typescript-eslint/eslint-plugin": "5.59.7",
-    "@typescript-eslint/parser": "5.59.7",
-    "eslint": "8.41.0",
-    "eslint-config-standard-with-typescript": "34.0.1",
-    "eslint-plugin-import": "2.27.5",
-    "eslint-plugin-n": "15.7.0",
-    "eslint-plugin-promise": "6.1.1",
-    "typescript": "5.0.4"
   }
 }
