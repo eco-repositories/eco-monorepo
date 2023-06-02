@@ -1,5 +1,5 @@
-import { ApiTester } from './api-tester/api-tester.tsx'
-import { Counter } from './counter/counter.tsx'
+import { ApiTester } from './api-tester/api-tester.js'
+import { Counter } from './counter/counter.js'
 
 export const Home: React.FC = () => {
   return (

@@ -1,5 +1,5 @@
 import { createAction } from '@reduxjs/toolkit'
-import { app } from './slice.ts'
+import { app } from './slice.js'
 
 export const {
   startLoading,

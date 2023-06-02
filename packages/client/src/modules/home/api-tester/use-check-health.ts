@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from 'react'
-import { type HealthCheck, checkHealth } from '@/api/check-health.ts'
+import { type HealthCheck, checkHealth } from '@/api/check-health.js'
 
 /** @private */
 const effectTriggerInitial = Symbol('effectTriggerInitial')

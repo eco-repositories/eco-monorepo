@@ -1,5 +1,5 @@
 import { type AxiosRequestConfig } from 'axios'
-import { client } from './client.ts'
+import { client } from './client.js'
 
 /** @deprecated Refer to types on the server or from `@nestjs/terminus` */
 export type HealthCheck<ServiceName extends string = string> = {

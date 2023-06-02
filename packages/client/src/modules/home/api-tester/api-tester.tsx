@@ -1,5 +1,5 @@
-import { Loader } from '@/modules/common/loader/loader.tsx'
-import { useCheckHealth } from './use-check-health.ts'
+import { Loader } from '@/modules/common/loader/loader.js'
+import { useCheckHealth } from './use-check-health.js'
 
 export const ApiTester: React.FC = () => {
   const { healthCheck, healthCheckError, fetchInProgress, triggerFetch } = useCheckHealth()

@@ -1,5 +1,5 @@
 import { render, fireEvent } from '@testing-library/react'
-import { Counter } from './counter.tsx'
+import { Counter } from './counter.js'
 
 describe('Counter', () => {
   it('should render correctly', () => {
