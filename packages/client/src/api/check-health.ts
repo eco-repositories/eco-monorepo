@@ -9,7 +9,7 @@ export type HealthCheck<ServiceName extends string = string> = {
 }
 
 export async function checkHealth(config?: AxiosRequestConfig): Promise<HealthCheck> {
-  const { data: healthCheck } = await client.get<HealthCheck>('/v1/health', config)
+  const { data } = await client.get<{ result: HealthCheck }>('/v1/health', config)
 
-  return healthCheck
+  return data.result
 }
