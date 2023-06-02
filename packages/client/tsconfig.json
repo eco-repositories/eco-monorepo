@@ -8,8 +8,6 @@
   ],
   "compilerOptions": {
     // Output
-    "module": "esnext",
-    "moduleResolution": "NodeNext",
     "esModuleInterop": true,
 
     // Development

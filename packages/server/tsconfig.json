@@ -7,14 +7,6 @@
     { "path": "tsconfig.external.json" },
   ],
   "compilerOptions": {
-    // Output
-    "target": "es2020",
-    "module": "NodeNext",
-    "moduleResolution": "NodeNext",
-
-    // Development
-    // "allowImportingTsExtensions": true, // TODO: seek to apply
-
     // Alias
     "baseUrl": ".",
     "paths": {
