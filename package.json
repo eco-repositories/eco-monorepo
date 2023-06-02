@@ -7,7 +7,10 @@
     "packages/*"
   ],
   "scripts": {
-    "dc:start": "docker compose --env-file docker-compose.env.local up --build --detach --remove-orphans",
-    "dc:stop": "docker compose down"
+    "dc:build-base": "docker build -t base:latest -f base.dockerfile .",
+    "dc:up": "docker compose --env-file docker-compose.env.local up --build --detach --remove-orphans",
+    "prestart": "npm run dc:build-base",
+    "start": "npm run dc:up",
+    "stop": "docker compose --env-file docker-compose.env.local down"
   }
 }

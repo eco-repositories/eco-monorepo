@@ -5,6 +5,7 @@
   ],
   "references": [
     { "path": "tsconfig.external.json" },
+    { "path": "../shared/tsconfig.build.json" },
   ],
   "compilerOptions": {
     // Output
@@ -20,7 +21,7 @@
     // Alias
     "baseUrl": ".",
     "paths": {
-      "@@/*": ["../*"],
+      "@@/*": ["../shared/dist/src/*"],
       "@/*": ["./src/*"],
     },
   },

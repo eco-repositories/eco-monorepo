@@ -1,5 +1,3 @@
-// TODO: move to shared package
-
 /** @private */
 interface ResultSuccess<Value> {
   value: Value

@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useState } from 'react'
+import { entriesOf } from '@@/entries-of.js'
 import { type HealthCheck, checkHealth } from '@/api/check-health.js'
 
 /** @private */
@@ -37,6 +38,12 @@ export function useCheckHealth(): UseCheckHealthResult {
         })
 
         setHealthCheck(healthCheck)
+
+        console.log('entries:')
+
+        for (const [key, value] of entriesOf(healthCheck)) {
+          console.log({ key, value })
+        }
       } catch (caught) {
         if (caught instanceof Error) {
           setHealthCheckError(caught)

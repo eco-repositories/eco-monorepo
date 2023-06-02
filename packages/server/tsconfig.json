@@ -1,16 +1,18 @@
 {
   "extends": "../../tsconfig.json",
   "exclude": [
+    "dist/*",
     "vitest.config.ts",
   ],
   "references": [
     { "path": "tsconfig.external.json" },
+    { "path": "../shared/tsconfig.build.json" },
   ],
   "compilerOptions": {
     // Alias
     "baseUrl": ".",
     "paths": {
-      "@@/*": ["../*"],
+      "@@/*": ["../shared/dist/src/*"],
       "@/*": ["./src/*"],
     },
   },

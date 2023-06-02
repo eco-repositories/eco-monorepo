@@ -11,7 +11,7 @@ export default defineConfig({
     alias: [
       {
         find: /^@@\/(.*)$/,
-        replacement: resolve(__dirname, '../$1'),
+        replacement: resolve(__dirname, '..', './shared/dist/src/$1'),
       },
       {
         find: /^@\/(.*)$/,
