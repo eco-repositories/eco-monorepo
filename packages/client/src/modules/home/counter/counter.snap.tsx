@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Counter should increment the count on button click 1`] = `
+exports[`Counter > should increment the count on button click 1`] = `
 <div>
   <p>
     Count: 
@@ -16,7 +16,7 @@ exports[`Counter should increment the count on button click 1`] = `
 </div>
 `;
 
-exports[`Counter should render correctly 1`] = `
+exports[`Counter > should render correctly 1`] = `
 <div>
   <p>
     Count: 
