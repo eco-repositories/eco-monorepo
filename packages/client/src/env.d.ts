@@ -1,4 +1,5 @@
 import 'vite/client'
+import 'vitest/globals'
 
 declare global {
   interface ImportMetaEnv {
