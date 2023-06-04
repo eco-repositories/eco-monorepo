@@ -10,7 +10,7 @@ export default defineConfig({
   resolve: {
     alias: [
       {
-        find: /^@@\/(.*)$/,
+        find: /^@@shared\/(.*)$/,
         replacement: resolve(__dirname, '..', 'shared/dist/src/$1'),
       },
       {

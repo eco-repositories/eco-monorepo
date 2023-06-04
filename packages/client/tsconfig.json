@@ -21,7 +21,7 @@
     // Alias
     "baseUrl": ".",
     "paths": {
-      "@@/*": ["../shared/dist/src/*"],
+      "@@shared/*": ["../shared/dist/src/*"],
       "@/*": ["./src/*"],
     },
   },
