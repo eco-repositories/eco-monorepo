@@ -1,7 +1,7 @@
 import { type ClassConstructor, type ClassTransformOptions, plainToInstance } from 'class-transformer'
 import { validateSync, type ValidationError, type ValidatorOptions } from 'class-validator'
-import { type Result } from '@@shared/result.js'
-import { entriesOf } from '@@shared/entries-of.js'
+import { type Result } from '@@shared/result/result.js'
+import { entriesOf } from '@@shared/entries-of/entries-of.js'
 
 /** @private */
 interface Params {

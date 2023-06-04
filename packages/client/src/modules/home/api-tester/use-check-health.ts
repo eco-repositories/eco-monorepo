@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from 'react'
-import { entriesOf } from '@@shared/entries-of.js'
+import { entriesOf } from '@@shared/entries-of/entries-of.js'
 import { type HealthCheck, checkHealth } from '@/api/check-health.js'
 
 /** @private */
