@@ -9,8 +9,15 @@
   "scripts": {
     "dc:build-base": "docker build -t base:latest -f base.dockerfile .",
     "dc:up": "docker compose --env-file docker-compose.env.local up --build --detach --remove-orphans",
+    "dc:down": "docker compose --env-file docker-compose.env.local down",
     "prestart": "npm run dc:build-base",
     "start": "npm run dc:up",
-    "stop": "docker compose --env-file docker-compose.env.local down"
+    "stop": "npm run dc:down"
+  },
+  "overrides": {
+    "esbuild": "$esbuild"
+  },
+  "devDependencies": {
+    "esbuild": "0.17.19"
   }
 }

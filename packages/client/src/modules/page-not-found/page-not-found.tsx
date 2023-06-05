@@ -4,6 +4,8 @@ export const PageNotFound: React.FC = () => {
   const location = useLocation()
 
   return (
-    <span>Error: location {location.pathname} does not exist.</span>
+    <span>
+      Error: the path <code>{location.pathname}</code> does not exist.
+    </span>
   )
 }

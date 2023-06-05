@@ -13,7 +13,6 @@ export const app = createSlice({
   name: 'app',
   initialState,
   reducers: {
-    // "story" actions rather than setters
     startLoading(state) {
       state.loading = true
     },

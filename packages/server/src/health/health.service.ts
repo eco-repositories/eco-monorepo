@@ -11,7 +11,7 @@ export class HealthService {
 
   async getHealthCheck(): Promise<HealthCheckResult> {
     const healthCheck = await this.healthCheckService.check([
-      async () => await this.basicHealth.isHealthy(),
+      async () => await this.basicHealth.checkHealth(),
     ])
 
     return healthCheck

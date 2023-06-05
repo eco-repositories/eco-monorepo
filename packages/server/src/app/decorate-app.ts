@@ -1,5 +1,5 @@
 import { type INestApplication, ValidationPipe, VersioningType } from '@nestjs/common'
-import { HttpExceptionFilter } from './http-exception.filter.js'
+import { AppErrorFilter } from './app-error/app-error.filter.js'
 
 export function decorateApp(app: INestApplication): void {
   app.enableCors()
@@ -13,7 +13,7 @@ export function decorateApp(app: INestApplication): void {
   })
 
   app.useGlobalFilters(
-    app.get(HttpExceptionFilter),
+    app.get(AppErrorFilter),
   )
 
   app.useGlobalPipes(

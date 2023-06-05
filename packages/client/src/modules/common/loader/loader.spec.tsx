@@ -1,9 +1,9 @@
 import { render } from '@testing-library/react'
-import { Home } from './home.js'
+import { Loader } from './loader.js'
 
-describe('Home', () => {
+describe('Loader', () => {
   it('should render correctly', () => {
-    const { container } = render(<Home />)
+    const { container } = render(<Loader />)
     expect(container).toMatchSnapshot()
   })
 })

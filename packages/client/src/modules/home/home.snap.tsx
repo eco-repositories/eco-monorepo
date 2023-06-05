@@ -3,16 +3,7 @@
 exports[`Home > should render correctly 1`] = `
 <div>
   <main>
-    <section>
-      <div
-        class="Counter"
-      />
-    </section>
-    <section>
-      <div
-        class="ApiTester"
-      />
-    </section>
+    Home
   </main>
 </div>
 `;

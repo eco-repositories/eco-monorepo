@@ -1,13 +1,11 @@
 import { Injectable } from '@nestjs/common'
-import { HealthIndicator, type HealthIndicatorResult } from '@nestjs/terminus'
+import { CustomHealthIndicator } from './custom-health-indicator.abstract.js'
 
 @Injectable()
-export class BasicHealthIndicator extends HealthIndicator {
-  protected readonly statusKey: string = 'app'
+export class BasicHealthIndicator extends CustomHealthIndicator {
+  protected override readonly statusKey: string = 'app'
 
-  async isHealthy(): Promise<HealthIndicatorResult> {
-    const status = this.getStatus(this.statusKey, true)
-
-    return status
+  protected isHealthy(): boolean {
+    return true
   }
 }
