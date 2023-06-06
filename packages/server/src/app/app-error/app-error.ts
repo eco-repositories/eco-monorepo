@@ -7,14 +7,30 @@ type ClientErrorStatusCode = `4${Digit}${Digit}`
 /** @private */
 type ServerErrorStatusCode = `5${Digit}${Digit}`
 
+/** @private */
+interface Detail {
+  readonly public: boolean
+  readonly message: string
+}
+
+/** @private */
+interface GetDetailsParams {
+  readonly publicOnly?: boolean
+}
+
 export abstract class AppError extends globalThis.Error {
   readonly id = randomUUID()
   readonly code = this.constructor.name
   abstract readonly statusCode: ClientErrorStatusCode | ServerErrorStatusCode
-  protected readonly details: string[] = []
+  protected readonly details: Detail[] = []
+  protected readonly detailsPublic: Detail[] = []
 
-  addDetail(detail: string): this {
+  addDetail(detail: Detail): this {
     this.details.push(detail)
+
+    if (detail.public) {
+      this.detailsPublic.push(detail)
+    }
 
     return this
   }
@@ -23,8 +39,13 @@ export abstract class AppError extends globalThis.Error {
     return `${this.code} (${this.id}): ${this.message}`
   }
 
-  getDetails(): readonly string[] {
-    return this.details
+  getDetails({
+    publicOnly = true,
+  }: GetDetailsParams = {}): readonly string[] {
+    const details = publicOnly ? this.detailsPublic : this.details
+    const messages = details.map((detail) => detail.message)
+
+    return messages
   }
 }
 

@@ -17,18 +17,10 @@ interface HttpExceptionBody {
 export class AppErrorFilter extends BaseExceptionFilter {
   protected readonly logger = createLogger(this.constructor.name)
 
-  private logAppErrorHead(error: AppError): void {
-    const head = error.getHead()
-
-    if (error instanceof ClientError) {
-      this.logger.warn(head)
-    } else {
-      this.logger.error(head)
-    }
-  }
-
   private logServerError(error: ServerError): void {
-    for (const detail of error.getDetails()) {
+    const details = error.getDetails({ publicOnly: false })
+
+    for (const detail of details) {
       this.logger.error(detail)
     }
 
@@ -45,31 +37,37 @@ export class AppErrorFilter extends BaseExceptionFilter {
       return
     }
 
-    this.logAppErrorHead(caught)
+    const head = caught.getHead()
 
-    if (caught instanceof ServerError) {
+    if (caught instanceof ClientError) {
+      this.logger.warn(head)
+    } else if (caught instanceof ServerError) {
+      this.logger.error(head)
       this.logServerError(caught)
     }
   }
 
   private appErrorToHttpExceptionBody(error: AppError): HttpExceptionBody {
     const statusCode = +error.statusCode
-    const body: HttpExceptionBody = {
-      statusCode,
-      status: HttpStatus[statusCode],
-      errorId: error.id,
-    }
+    const status = HttpStatus[statusCode]
+    const errorId = error.id
 
     if (error instanceof ClientError) {
       return {
-        ...body,
+        statusCode,
+        status,
+        errorId,
         errorCode: error.code,
         message: error.message,
         details: error.getDetails(),
       }
     }
 
-    return body
+    return {
+      statusCode,
+      status,
+      errorId,
+    }
   }
 
   protected caughtToHttpException(caught: unknown): HttpException {
