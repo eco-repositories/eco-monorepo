@@ -3,7 +3,7 @@ dist
 dist-ssr
 *.local
 coverage
-packages/client/vite.*.timestamp-*.js
+packages/client/vite.config.ts*.js
 
 # Logs
 logs
