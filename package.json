@@ -15,7 +15,9 @@
     "stop": "npm run dc:down"
   },
   "overrides": {
-    "esbuild": "$esbuild"
+    "@anatine/esbuild-decorators": {
+      "esbuild": "$esbuild"
+    }
   },
   "devDependencies": {
     "esbuild": "0.17.19"
