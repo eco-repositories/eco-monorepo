@@ -1,7 +1,8 @@
+import { Suspense } from 'react'
 import { Routes, Route, BrowserRouter } from 'react-router-dom'
 import { useSelector } from './store/store.js'
-import { Home } from './modules/home/home.js'
-import { PageNotFound } from './modules/page-not-found/page-not-found.js'
+import { Home } from './modules/home/home.lazy.js'
+import { PageNotFound } from './modules/page-not-found/page-not-found.lazy.js'
 import { Loader } from './modules/common/loader/loader.js'
 
 export const App: React.FC = () => {
@@ -13,10 +14,12 @@ export const App: React.FC = () => {
 
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='*' element={<PageNotFound />} />
-      </Routes>
+      <Suspense fallback={<Loader />}>
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='*' element={<PageNotFound />} />
+        </Routes>
+      </Suspense>
     </BrowserRouter>
   )
 }
