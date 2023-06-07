@@ -1,5 +1,5 @@
 import { Suspense } from 'react'
-import { Routes, Route, BrowserRouter } from 'react-router-dom'
+import { Routes, Route, BrowserRouter, Navigate } from 'react-router-dom'
 import { useSelector } from './store/store.js'
 import { Home } from './modules/home/home.lazy.js'
 import { PageNotFound } from './modules/page-not-found/page-not-found.lazy.js'
@@ -16,6 +16,7 @@ export const App: React.FC = () => {
     <BrowserRouter>
       <Suspense fallback={<Loader />}>
         <Routes>
+          <Route path='/home' element={<Navigate to='/' />} />
           <Route path='/' element={<Home />} />
           <Route path='*' element={<PageNotFound />} />
         </Routes>
