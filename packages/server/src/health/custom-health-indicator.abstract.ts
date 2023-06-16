@@ -1,14 +1,11 @@
 import { HealthIndicator, type HealthIndicatorResult } from '@nestjs/terminus'
 
-/** @private */
-type CustomHealthIndicatorDataConstraint = Record<string, unknown> | undefined
-
-export abstract class CustomHealthIndicator<Data extends CustomHealthIndicatorDataConstraint = undefined> extends HealthIndicator {
+export abstract class CustomHealthIndicator<Data extends object | undefined = undefined> extends HealthIndicator {
   protected abstract readonly statusKey: string
 
-  protected abstract isHealthy(): boolean | Promise<boolean>
+  protected abstract isHealthy(): boolean | PromiseLike<boolean>
 
-  protected getData(): Data | Promise<Data> {
+  protected getData(): Data | PromiseLike<Data> {
     return undefined as Data
   }
 
