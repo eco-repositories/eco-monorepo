@@ -7,8 +7,8 @@ services:
       dockerfile: server.dockerfile
     environment:
       PORT: '${SERVER_PORT_CONTAINER}'
-    ports:
-      - '${SERVER_PORT_HOST}:${SERVER_PORT_CONTAINER}'
+    expose:
+      - '${SERVER_PORT_CONTAINER}'
 
   client:
     depends_on:
