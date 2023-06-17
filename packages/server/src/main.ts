@@ -12,11 +12,12 @@ async function bootstrap(): Promise<void> {
 
   const config = app.get(ConfigService)
   const port = config.get(config.keys.PORT)
+  const mode = config.get(config.keys.NODE_ENV)
 
   await app.listen(port, async () => {
     const url = await app.getUrl()
 
-    logger.log(`Server is running on ${url}`)
+    logger.log(`Server is running (mode: ${mode}) on ${url}`)
   })
 }
 
