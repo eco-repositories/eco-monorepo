@@ -8,9 +8,7 @@ COPY ./packages/client/package.json ./packages/client/
 RUN npm -w client ci
 
 COPY ./tsconfig*.json ./
-COPY --from=base /app/packages/shared/dist/ ./packages/shared/dist/
-COPY --from=base /app/packages/shared/package.json ./packages/shared/
-COPY --from=base /app/packages/shared/tsconfig*.json ./packages/shared/
+COPY --from=base /app/packages/shared/ ./packages/shared/
 COPY ./packages/client/src/ ./packages/client/src/
 COPY ./packages/client/index.html ./packages/client/
 COPY ./packages/client/tsconfig*.json ./packages/client/
