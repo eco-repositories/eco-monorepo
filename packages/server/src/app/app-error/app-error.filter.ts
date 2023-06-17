@@ -82,7 +82,7 @@ export class AppErrorFilter extends BaseExceptionFilter {
     return new HttpException(body, body.statusCode)
   }
 
-  catch(caught: unknown, host: ArgumentsHost): void {
+  override catch(caught: unknown, host: ArgumentsHost): void {
     this.logCaught(caught)
 
     const exception = this.caughtToHttpException(caught)
