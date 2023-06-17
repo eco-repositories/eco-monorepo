@@ -15,7 +15,7 @@ COPY ./packages/server/tsconfig*.json ./packages/server/
 
 RUN npm -w server run build
 
-FROM build AS production
+FROM build AS run
 
 WORKDIR /app
 
