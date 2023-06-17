@@ -32,7 +32,11 @@ export class AppErrorFilter extends BaseExceptionFilter {
   protected logCaught(caught: unknown): void {
     if (!(caught instanceof AppError)) {
       this.logger.error(caught)
-      this.logger.warn(`An error is thrown that's not an instance of ${AppError.name}`)
+
+      if (!(caught instanceof HttpException)) {
+        // HttpException instances are allowed though
+        this.logger.warn(`An error is thrown that's not an instance of ${AppError.name}`)
+      }
 
       return
     }
@@ -71,6 +75,10 @@ export class AppErrorFilter extends BaseExceptionFilter {
   }
 
   protected caughtToHttpException(caught: unknown): HttpException {
+    if (caught instanceof HttpException) {
+      return caught
+    }
+
     if (!(caught instanceof AppError)) {
       // No other info here, since it might be sensitive.
       // The assumption is that `caught` is properly logged.
