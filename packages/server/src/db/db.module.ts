@@ -18,7 +18,7 @@ import { DbHealthIndicator } from './db.health.js'
         database: config.get(config.keys.DB_NAME),
         autoLoadModels: true,
         sync: {
-          force: config.isDevelopment(),
+          alter: config.isDevelopment(),
         },
         logging(sql): void {
           DbModule.logger.debug(sql)
