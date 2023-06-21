@@ -8,6 +8,5 @@
   ],
   "compilerOptions": {
     "noEmit": false,
-    "outDir": "dist",
   },
 }

@@ -7,8 +7,10 @@
     "src/**/*.spec.ts",
     "src/**/*.e2e-spec.ts",
   ],
+  "references": [
+    { "path": "tsconfig.external.json" },
+  ],
   "compilerOptions": {
     "noEmit": false,
-    "outDir": "dist",
   },
 }
