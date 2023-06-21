@@ -52,7 +52,9 @@ export class UsersService {
   }
 
   async getExistingUserById(id: string): Promise<User> {
-    const user = await this.userModel.findByPk(id)
+    const user = await this.userModel
+      .scope(this.userModel.scopeNames.withAllAttributes)
+      .findByPk(id)
 
     if (user == null) {
       throw new UserNotFoundByIdError(id)
