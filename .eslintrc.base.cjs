@@ -39,5 +39,8 @@ module.exports = {
 
     'semi': 'off',
     'space-before-function-paren': 'off',
+
+    'quotes': 'off',
+    '@typescript-eslint/quotes': ['error', 'single', { 'avoidEscape': true }],
   },
 }
