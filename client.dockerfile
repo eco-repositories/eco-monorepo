@@ -19,7 +19,7 @@ ENV VITE_SERVER_BASE_URL $VITE_SERVER_BASE_URL
 
 RUN npm -w client run build
 
-FROM nginx:1.25-alpine
+FROM nginx:1.25-alpine as start
 
 COPY --from=build /app/packages/client/dist /usr/share/nginx/html
 
