@@ -1,5 +1,5 @@
 import { Type } from 'class-transformer'
-import { IsInt, IsPort, IsPositive, Min } from 'class-validator'
+import { IsInt, IsNotEmpty, IsPort, IsPositive, IsString, Min } from 'class-validator'
 import { EnvName } from './env-name.js'
 import { IsValidEnum } from './is-valid-enum.decorator.js'
 
@@ -19,11 +19,30 @@ export const defaults = {
   PORT: '3000',
   RATE_LIMITER_TIMEFRAME_MSEC: 1000,
   RATE_LIMITER_MAX_HITS_PER_TIMEFRAME: 5,
-} as const
+} satisfies Partial<ConfigDTO>
 
 export class ConfigDTO {
   @IsValidEnum(EnvName)
   readonly NODE_ENV: EnvName = defaults.NODE_ENV
+
+  @IsString()
+  @IsNotEmpty()
+  readonly DB_HOST!: string
+
+  @IsPort()
+  readonly DB_PORT!: string
+
+  @IsString()
+  @IsNotEmpty()
+  readonly DB_NAME: string = this.NODE_ENV // yes, "this"; by default, each environment is connected to its own database
+
+  @IsString()
+  @IsNotEmpty()
+  readonly DB_USER!: string
+
+  @IsString()
+  @IsNotEmpty()
+  readonly DB_PASS!: string
 
   @IsPort()
   readonly PORT: string = defaults.PORT
