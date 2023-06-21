@@ -17,37 +17,27 @@ interface HttpExceptionBody {
 export class AppErrorFilter extends BaseExceptionFilter {
   protected readonly logger = createLogger(this.constructor.name)
 
-  private logServerError(error: ServerError): void {
+  private logAppError(error: AppError): void {
+    const head = error.getHead()
     const details = error.getDetails({ publicOnly: false })
+
+    this.logger.error(head)
 
     for (const detail of details) {
       this.logger.error(detail)
     }
 
-    if (error.stack != null) {
+    if (error instanceof ServerError) {
       this.logger.error(error.stack)
     }
   }
 
   protected logCaught(caught: unknown): void {
-    if (!(caught instanceof AppError)) {
+    if (caught instanceof AppError) {
+      this.logAppError(caught)
+    } else if (!(caught instanceof HttpException)) {
       this.logger.error(caught)
-
-      if (!(caught instanceof HttpException)) {
-        // HttpException instances are allowed though
-        this.logger.warn(`An error is thrown that's not an instance of ${AppError.name}`)
-      }
-
-      return
-    }
-
-    const head = caught.getHead()
-
-    if (caught instanceof ClientError) {
-      this.logger.warn(head)
-    } else if (caught instanceof ServerError) {
-      this.logger.error(head)
-      this.logServerError(caught)
+      this.logger.debug(`An error is thrown that's not an instance of ${AppError.name}`)
     }
   }
 
