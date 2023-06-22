@@ -2,8 +2,8 @@ import bcrypt from 'bcrypt'
 import { Table, Column, DataType, Model } from 'sequelize-typescript'
 import { type ModelScopeOptions } from 'sequelize'
 import { randomUUID } from 'crypto'
-import { ServerError } from '@/app/app-error/app-error.js'
 import { toSetLikeOfKeys } from '@@shared/to-set-like-of-keys/to-set-like-of-keys.js'
+import { ServerError } from '@/app/app-error/app-error.js'
 
 /** @private */
 interface CreatePasswordHashParams {
