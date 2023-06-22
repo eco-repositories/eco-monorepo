@@ -1,5 +1,5 @@
-import { type Digit } from '@@shared/digit/digit.type.js'
 import { randomUUID } from 'crypto'
+import { type Digit } from '@@shared/digit/digit.type.js'
 
 /** @private */
 type ClientErrorStatusCode = `4${Digit}${Digit}`
