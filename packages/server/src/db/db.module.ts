@@ -1,15 +1,18 @@
 import { Global, Module } from '@nestjs/common'
 import { SequelizeModule } from '@nestjs/sequelize'
+import { createLogger } from '@/common/create-logger.js'
 import { ConfigService } from '@/config/config.service.js'
 import { DbHealthIndicator } from './db.health.js'
-import { DbLoggerProvider, type DbLogger } from './db-logger.provider.js'
+
+/** @private */
+const dbLogger = createLogger('DB_LOGGER')
 
 @Global()
 @Module({
   imports: [
     SequelizeModule.forRootAsync({
-      inject: [ConfigService, DbLoggerProvider],
-      useFactory: (config: ConfigService, dbLogger: DbLogger) => ({
+      inject: [ConfigService],
+      useFactory: (config: ConfigService) => ({
         dialect: 'postgres',
         host: config.get(config.keys.DB_HOST),
         port: +config.get(config.keys.DB_PORT),
@@ -28,7 +31,6 @@ import { DbLoggerProvider, type DbLogger } from './db-logger.provider.js'
   ],
   providers: [
     DbHealthIndicator,
-    DbLoggerProvider,
   ],
   exports: [
     SequelizeModule,
