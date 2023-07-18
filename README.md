@@ -15,13 +15,17 @@ Starting the application stack with `npm start` is the simplest approach and als
 
 - Set environment variables and build arguments in `/.docker-compose.env.local`
 
-  Read `/docker-compose.yaml` for the variables it uses.
+  > Read `/docker-compose.yaml` for the variables it uses.
+
+  - _(optionally)_ Copy the example file `/docker-compose.env.local.example` as `/docker-compose.env.local`. Beware that the file might be out of sync with the actual env variables used by Docker Compose.
 
 - Run application stack:
 
   ```sh
   npm start
   ```
+
+  - _(optionally)_ To run the application stack in development mode (with development overrides applied), copy the example file `/docker-compose.override.yaml.example` as `/docker-compose.override.yaml`. If present, this new file will automatically be picked up by Docker Compose, and all the specified overrides will be applied.
 
 - Observe the apps:
 

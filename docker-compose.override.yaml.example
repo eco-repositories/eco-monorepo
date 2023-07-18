@@ -1,0 +1,12 @@
+services:
+  db:
+    volumes:
+      - './volumes/db:/var/lib/postgresql/data'
+    ports:
+      - '${DB_PORT_HOST}:${DB_PORT_CONTAINER}'
+
+  server:
+    environment:
+      NODE_ENV: development
+    ports:
+      - '${SERVER_PORT_HOST}:${SERVER_PORT_CONTAINER}'
