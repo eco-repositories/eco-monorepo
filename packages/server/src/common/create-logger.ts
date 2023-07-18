@@ -33,9 +33,23 @@ export { type Logger } // disallow using constructor directly
 /** @private */
 class LoggerFactory {
   protected readonly instanceCache = Object.create(null) as Record<string, Logger>
+  private readonly defaultLoggerParamsHash = hash(defaultLoggerParams)
+  private readonly nullHash = hash(null)
+
+  private createParamsHash(params: LoggerParams | undefined): string {
+    if (params == null) {
+      return this.nullHash
+    }
+
+    if (params === defaultLoggerParams) {
+      return this.defaultLoggerParamsHash
+    }
+
+    return hash(params)
+  }
 
   protected createArgsHash(context: string, params: LoggerParams | undefined): string {
-    const paramsHash = hash(params ?? null)
+    const paramsHash = this.createParamsHash(params)
     const argsHash = `${context}${paramsHash}`
 
     return argsHash
