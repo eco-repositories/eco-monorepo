@@ -12,10 +12,16 @@ services:
       - '${DB_PORT_CONTAINER}'
     command: |2
       -p '${DB_PORT_CONTAINER}'
+    healthcheck:
+      test: pg_isready
+      interval: 1s
+      timeout: 10s
+      retries: 30
 
   server:
     depends_on:
-      - db
+      db:
+        condition: service_healthy
     build:
       context: '.'
       dockerfile: server.dockerfile
