@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "author": "Dmytro Parzhytskyi <parzhitsky@gmail.com>",
   "private": true,
+  "repository": "https://github.com/parzhitsky/try-monorepo",
   "workspaces": [
     "packages/*"
   ],
