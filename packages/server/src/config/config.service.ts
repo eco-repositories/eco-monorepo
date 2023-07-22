@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common'
 import { ConfigService as NestConfigService } from '@nestjs/config'
-import { toSetLikeOfKeys, type SetLike } from '@@shared/to-set-like-of-keys/to-set-like-of-keys.js'
+import { type SetLikeOfKeys, toSetLikeOfKeys } from '@@shared/to-set-like-of-keys/to-set-like-of-keys.js'
 import { type ConfigDTO } from './config.dto.js'
 import { EnvName } from './env-name.js'
 
@@ -9,7 +9,7 @@ type ConfigKey = keyof ConfigDTO
 
 @Injectable()
 export class ConfigService extends NestConfigService<ConfigDTO, true> {
-  public readonly keys: SetLike<keyof ConfigDTO> = (() => {
+  public readonly keys: SetLikeOfKeys<ConfigDTO> = (() => {
     const config = this.getInternalConfigObject()
     const keys = toSetLikeOfKeys(config)
 

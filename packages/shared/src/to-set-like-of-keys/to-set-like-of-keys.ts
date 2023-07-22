@@ -1,10 +1,10 @@
 import { entriesOf } from '@/entries-of/entries-of.js'
 
-export type SetLike<Item extends PropertyKey> = {
-  [I in Item]: I
+export type SetLikeOfKeys<O extends object> = {
+  [Key in keyof O]: Key
 }
 
-export function toSetLikeOfKeys<O extends object>(object: O): SetLike<keyof O> {
+export function toSetLikeOfKeys<O extends object>(object: O): SetLikeOfKeys<O> {
   const keysSet = Object.create(null)
 
   for (const [key] of entriesOf(object)) {
