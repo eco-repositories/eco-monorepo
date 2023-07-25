@@ -4,6 +4,8 @@ dist-ssr
 *.local
 coverage
 packages/client/vite.config.ts*.js
+packages/playground/src/*
+!packages/playground/src/.gitkeep
 
 # Docker compose override files are used for development (port forwarding to host, persistence volumes, etc.)
 docker-compose.override.yml
