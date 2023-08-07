@@ -1,15 +1,22 @@
 /** @private */
-interface ResultSuccess<Value> {
-  value: Value
-  error?: never
+interface ResultSuccess<Payload> {
+  success: true
+  payload: Payload
 }
 
 /** @private */
-interface ResultFailure<AnyError = unknown> {
-  value?: never
-  error: AnyError
+interface ResultFailureBase {
+  success: false
+  message: string
 }
 
-export type Result<Value, AnyError = unknown> =
+/** @private */
+type ResultFailure<AnyError = undefined> = ResultFailureBase & ([undefined] extends [AnyError] ? {
+  payload?: AnyError
+} : {
+  payload: AnyError
+})
+
+export type Result<Value, AnyError = undefined> =
   | ResultSuccess<Value>
   | ResultFailure<AnyError>

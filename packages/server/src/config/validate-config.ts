@@ -9,9 +9,9 @@ export function validateConfig(configPlain: object): ConfigDTO {
     },
   })
 
-  if (result.error != null) {
-    throw result.error
+  if (!result.success) {
+    throw result.payload ?? new Error(result.message)
   }
 
-  return result.value
+  return result.payload
 }

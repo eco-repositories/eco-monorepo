@@ -18,15 +18,19 @@ export function validateAgainstModel<ModelType extends object>(
   const errors = validateSync(model, params?.validate)
 
   if (errors.length > 0) {
-    const validationTarget = errors[0].target
+    const aggregateError =
+      new ValidateAgainstModelAggregateError(Model, errors[0].target, errors)
 
     return {
-      error: new ValidateAgainstModelAggregateError(Model, validationTarget, errors),
+      success: false,
+      message: aggregateError.message,
+      payload: aggregateError,
     }
   }
 
   return {
-    value: model,
+    success: true,
+    payload: model,
   }
 }
 
