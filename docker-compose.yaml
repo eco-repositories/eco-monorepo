@@ -42,6 +42,7 @@ services:
       context: '.'
       dockerfile: client.dockerfile
       args:
+        CLIENT_PORT_CONTAINER:
         VITE_SERVER_BASE_URL: 'http://localhost:${SERVER_PORT_CONTAINER}/'
     ports:
-      - '${CLIENT_PORT_HOST}:80'
+      - '${CLIENT_PORT_HOST}:${CLIENT_PORT_CONTAINER}'

@@ -21,8 +21,16 @@ RUN npm -w client run build
 
 FROM nginx:1.25-alpine as start
 
-COPY --from=build /app/packages/client/dist /usr/share/nginx/html
+WORKDIR /usr/share/nginx
 
-EXPOSE 80
+COPY --from=build /app/packages/client/dist ./html/
+COPY ./packages/client/nginx.conf ./nginx.conf.template
+
+ARG CLIENT_PORT_CONTAINER
+ENV CLIENT_PORT_CONTAINER $CLIENT_PORT_CONTAINER
+
+RUN cat nginx.conf.template | envsubst '$CLIENT_PORT_CONTAINER' > nginx.conf
+
+EXPOSE ${CLIENT_PORT_CONTAINER}
 
 CMD ["nginx", "-g", "daemon off;"]
