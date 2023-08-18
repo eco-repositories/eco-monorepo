@@ -27,7 +27,7 @@
     "eslint-plugin-import": "2.27.5",
     "eslint-plugin-n": "15.7.0",
     "eslint-plugin-promise": "6.1.1",
-    "tsc-alias": "1.8.6",
+    "tsc-alias": "1.8.7",
     "typescript": "5.1.6",
     "vitest": "0.31.4"
   }
