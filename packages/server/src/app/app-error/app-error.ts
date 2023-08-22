@@ -1,6 +1,8 @@
 import { randomUUID } from 'crypto'
-import { type Digit } from '@@shared/digit/digit.type.js'
 import { type JsonStringifiable } from '@@shared/json-stringifiable/json-stringifiable.type.js'
+
+/** @private */
+type Digit = `${0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9}`
 
 /** @private */
 type ClientErrorStatusCode = `4${Digit}${Digit}`
@@ -30,7 +32,10 @@ export abstract class AppError extends globalThis.Error {
   protected readonly details: Detail[] = []
   protected readonly detailsPublic: Detail[] = []
 
-  addDetail({ public: isPublic = false, ...detail }: DetailWithPublicity): this {
+  addDetail({
+    public: isPublic = false,
+    ...detail
+  }: DetailWithPublicity): this {
     this.details.push(detail)
 
     if (isPublic) {
