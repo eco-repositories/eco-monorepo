@@ -1,7 +1,7 @@
 import { Catch, type ArgumentsHost, HttpException, InternalServerErrorException, HttpStatus } from '@nestjs/common'
 import { BaseExceptionFilter } from '@nestjs/core'
 import { createLogger } from '@/common/create-logger.js'
-import { ClientError, ServerError, AppError } from './app-error.js'
+import { ClientError, ServerError, AppError, type Detail } from './app-error.js'
 
 /** @private */
 interface HttpExceptionBody {
@@ -9,7 +9,7 @@ interface HttpExceptionBody {
   readonly status: string
   readonly errorCode?: string
   readonly message?: string
-  readonly details?: readonly string[]
+  readonly details?: readonly Detail[]
   readonly errorId: string
 }
 
@@ -24,7 +24,9 @@ export class AppErrorFilter extends BaseExceptionFilter {
     this.logger.error(head)
 
     for (const detail of details) {
-      this.logger.error(detail)
+      const detailJson = JSON.stringify(detail, null, 2)
+
+      this.logger.error(detailJson)
     }
 
     if (error instanceof ServerError) {

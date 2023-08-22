@@ -1,5 +1,6 @@
 import { randomUUID } from 'crypto'
 import { type Digit } from '@@shared/digit/digit.type.js'
+import { type JsonStringifiable } from '@@shared/json-stringifiable/json-stringifiable.type.js'
 
 /** @private */
 type ClientErrorStatusCode = `4${Digit}${Digit}`
@@ -7,10 +8,14 @@ type ClientErrorStatusCode = `4${Digit}${Digit}`
 /** @private */
 type ServerErrorStatusCode = `5${Digit}${Digit}`
 
-/** @private */
-interface Detail {
-  readonly public: boolean
+export interface Detail {
   readonly message: string
+  readonly payload?: JsonStringifiable
+}
+
+/** @private */
+interface DetailWithPublicity extends Detail {
+  readonly public?: boolean
 }
 
 /** @private */
@@ -25,10 +30,10 @@ export abstract class AppError extends globalThis.Error {
   protected readonly details: Detail[] = []
   protected readonly detailsPublic: Detail[] = []
 
-  addDetail(detail: Detail): this {
+  addDetail({ public: isPublic = false, ...detail }: DetailWithPublicity): this {
     this.details.push(detail)
 
-    if (detail.public) {
+    if (isPublic) {
       this.detailsPublic.push(detail)
     }
 
@@ -41,11 +46,11 @@ export abstract class AppError extends globalThis.Error {
 
   getDetails({
     publicOnly = true,
-  }: GetDetailsParams = {}): readonly string[] {
+  }: GetDetailsParams = {}): readonly Detail[] {
     const details = publicOnly ? this.detailsPublic : this.details
-    const messages = details.map((detail) => detail.message)
+    const detailsCopy = details.slice()
 
-    return messages
+    return detailsCopy
   }
 }
 
