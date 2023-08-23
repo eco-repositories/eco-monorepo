@@ -10,7 +10,7 @@ export function validateConfig(configPlain: object): ConfigDTO {
   })
 
   if (!result.success) {
-    throw result.payload ?? new Error(result.message)
+    throw result.payload
   }
 
   return result.payload

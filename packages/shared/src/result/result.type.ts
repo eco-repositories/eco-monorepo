@@ -1,20 +1,20 @@
 /** @private */
 interface ResultSuccess<Payload> {
-  success: true
-  payload: Payload
+  readonly success: true
+  readonly payload: Payload
 }
 
 /** @private */
 interface ResultFailureBase {
-  success: false
-  message: string
+  readonly success: false
+  readonly message: string
 }
 
 /** @private */
 type ResultFailure<AnyError = undefined> = ResultFailureBase & ([undefined] extends [AnyError] ? {
-  payload?: AnyError
+  readonly payload?: unknown
 } : {
-  payload: AnyError
+  readonly payload: AnyError
 })
 
 export type Result<Value, AnyError = undefined> =
