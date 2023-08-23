@@ -5,7 +5,7 @@ import { ConfigService } from '@/config/config.service.js'
 import { DbHealthIndicator } from './db.health.js'
 
 /** @private */
-const dbLogger = createLogger('DB_LOGGER')
+const dbLogger = createLogger('DB')
 
 @Global()
 @Module({
