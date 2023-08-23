@@ -2,7 +2,7 @@ import { ConfigDTO } from './config.dto.js'
 import { EnvName } from './env-name.js'
 import { validateConfig } from './validate-config.js'
 
-describe('validateConfig', () => {
+describe(validateConfig.name, () => {
   const validPlain: ConfigDTO = {
     NODE_ENV: EnvName.test,
     PORT: '1234',

@@ -1,6 +1,6 @@
 import { entriesOf } from './entries-of.js'
 
-describe('entriesOf', () => {
+describe(entriesOf.name, () => {
   it('should iterate over entries of the given object without creating an array', () => {
     const iterator = entriesOf({
       foo: 'bar',

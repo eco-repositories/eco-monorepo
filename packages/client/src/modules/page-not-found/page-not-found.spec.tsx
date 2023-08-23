@@ -13,7 +13,7 @@ vitest.mock('react-router-dom', async () => {
   }
 })
 
-describe('PageNotFound', () => {
+describe(PageNotFound.name, () => {
   it('should render correctly', () => {
     const { container } = render(<PageNotFound />)
     expect(container).toMatchSnapshot()
