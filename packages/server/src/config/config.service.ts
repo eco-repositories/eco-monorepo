@@ -17,8 +17,10 @@ export class ConfigService extends NestConfigService<ConfigDTO, true> {
   })()
 
   protected getInternalConfigObject(): ConfigDTO {
-    // @ts-expect-error: "`internalConfig` is private" (it should be protected really)
-    return this.internalConfig._PROCESS_ENV_VALIDATED
+    return this
+      // @ts-expect-error: "`internalConfig` is private" (it should be `protected` really)
+      .internalConfig
+      ._PROCESS_ENV_VALIDATED
   }
 
   public override get<Key extends ConfigKey>(key: Key): ConfigDTO[Key] {
