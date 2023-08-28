@@ -19,7 +19,7 @@
     "@nestjs/common": "9.4.2",
     "@nestjs/config": "2.3.2",
     "@nestjs/core": "9.4.2",
-    "@nestjs/platform-express": "9.4.2",
+    "@nestjs/platform-express": "10.2.2",
     "@nestjs/sequelize": "10.0.0",
     "@nestjs/terminus": "^9.2.2",
     "class-transformer": "0.5.1",
