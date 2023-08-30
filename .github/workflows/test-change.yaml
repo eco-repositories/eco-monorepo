@@ -1,0 +1,29 @@
+on:
+  push:
+    paths:
+      - 'packages/**'
+      - '!packages/playground/**'
+      - '.eslintrc.base.cjs'
+      - 'tsconfig.json'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        workspace:
+          - client
+          - server
+          - shared
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 'v18'
+
+      - name: Install dependencies
+        run: npm ci --workspace shared --workspace ${{ matrix.workspace }}
+
+      - name: Run tests
+        run: npm --workspace ${{ matrix.workspace }} test
