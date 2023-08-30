@@ -1,6 +1,7 @@
 on:
   push:
     paths:
+      - '.github/workflows/**'
       - 'packages/**'
       - '!packages/playground/**'
       - '.eslintrc.base.cjs'
