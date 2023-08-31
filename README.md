@@ -13,11 +13,11 @@
 
 Starting the application stack with `npm start` is the simplest approach and also recommended.
 
-- Set environment variables and build arguments in `/docker-compose.env.local`
+- Set environment variables and build arguments in [`/docker-compose.env.local`](`/docker-compose.env.local`)
 
-  > Read `/docker-compose.yaml` for the variables it uses.
+  > Read [`/docker-compose.yaml`](/docker-compose.yaml) for the variables it uses. Also, normally, Docker produces a warning message for variables that are not set.
 
-  - _(optionally)_ Copy the example file `/docker-compose.env.local.example` as `/docker-compose.env.local`. Beware that the file might be out of sync with the actual env variables used by Docker Compose.
+  - _(optionally)_ Copy the example file [`/docker-compose.env.local.example`](/docker-compose.env.local.example) as [`/docker-compose.env.local`](/docker-compose.env.local). Beware that the example file might be out of sync with the actual env variables used by Docker Compose.
 
 - Run application stack:
 
@@ -25,7 +25,7 @@ Starting the application stack with `npm start` is the simplest approach and als
   npm start
   ```
 
-  - _(optionally)_ To run the application stack in development mode (with development overrides applied), copy the example file `/docker-compose.override.yaml.example` as `/docker-compose.override.yaml`. If present, this new file will automatically be picked up by Docker Compose, and all the specified overrides will be applied.
+  - _(optionally)_ To run the application stack in development mode (with development overrides applied), copy the example file [`/docker-compose.override.yaml.example`](/docker-compose.override.yaml.example) as [`/docker-compose.override.yaml`](/docker-compose.override.yaml). If present, this new file will automatically be picked up by Docker Compose, and all the specified overrides will be applied.
 
 - Observe the apps:
 
@@ -55,7 +55,7 @@ To start the application stack without Docker, it is necessary to setup/build/st
   npm run -w shared build
   ```
 
-- Set server port as `PORT` environment variable in `/packages/server/.env.local`:
+- Set server port as `PORT` environment variable in [`/packages/server/.env.local`](/packages/server/.env.local):
 
   ```sh
   echo PORT='<SERVER_PORT>' >> ./packages/server/.env.local
@@ -73,7 +73,7 @@ To start the application stack without Docker, it is necessary to setup/build/st
   npm run -w server start
   ```
 
-- Share server location with the client:
+- Share server location with the client through [`/packages/client/.env.local`](/packages/client/.env.local):
 
   ```sh
   echo VITE_SERVER_BASE_URL='http://localhost:<SERVER_PORT>' >> ./packages/client/.env.local
