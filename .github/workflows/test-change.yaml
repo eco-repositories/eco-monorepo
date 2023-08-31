@@ -6,6 +6,8 @@ on:
       - '.github/workflows/**'
       - 'packages/**'
       - '!packages/playground/**'
+      - 'package-lock.json'
+      - 'package.json'
       - '.eslintrc.base.cjs'
       - 'tsconfig.json'
 
