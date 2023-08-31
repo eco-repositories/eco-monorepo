@@ -13,7 +13,7 @@
 
 Starting the application stack with `npm start` is the simplest approach and also recommended.
 
-- Set environment variables and build arguments in `/.docker-compose.env.local`
+- Set environment variables and build arguments in `/docker-compose.env.local`
 
   > Read `/docker-compose.yaml` for the variables it uses.
 
