@@ -12,7 +12,20 @@ on:
       - 'tsconfig.json'
 
 jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version-file: '/.nvmrc'
+
+      - name: Run audit
+        run: npm audit
+
   test:
+    needs:
+      - audit
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
