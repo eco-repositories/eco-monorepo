@@ -13,13 +13,17 @@ on:
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
     strategy:
       matrix:
         workspace:
           - client
           - server
           - shared
+        os:
+          - ubuntu-latest
+          - macos-latest
+          - windows-latest
 
     steps:
       - uses: actions/checkout@v3
@@ -27,8 +31,8 @@ jobs:
         with:
           node-version-file: '/.nvmrc'
 
-      - name: Install dependencies
+      - name: Install dependencies of '${{ matrix.workspace }}'
         run: npm ci --workspace shared --workspace ${{ matrix.workspace }}
 
-      - name: Run tests
+      - name: Test '${{ matrix.workspace }}' on ${{ matrix.os }}
         run: npm --workspace ${{ matrix.workspace }} test
