@@ -17,7 +17,7 @@
   },
   "dependencies": {
     "@nestjs/common": "9.4.2",
-    "@nestjs/config": "2.3.2",
+    "@nestjs/config": "3.0.1",
     "@nestjs/core": "9.4.2",
     "@nestjs/platform-express": "9.4.2",
     "@nestjs/sequelize": "10.0.0",
