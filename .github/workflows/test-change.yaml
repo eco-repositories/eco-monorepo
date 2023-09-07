@@ -3,13 +3,17 @@ name: Test change
 on:
   push:
     paths:
-      - '.github/workflows/**'
       - 'packages/**'
       - '!packages/playground/**'
-      - 'package-lock.json'
-      - 'package.json'
       - '.eslintrc.base.cjs'
       - 'tsconfig.json'
+
+      - 'package-lock.json'
+      - 'package.json'
+
+      - '.github/workflows/**'
+      - '*.dockerfile'
+      - 'docker-compose.yaml'
 
 jobs:
   audit:
