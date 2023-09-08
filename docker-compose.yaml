@@ -4,6 +4,7 @@ services:
   db:
     image: postgres:15-alpine
     restart: always
+    user: '${DB_USER}'
     environment:
       POSTGRES_PASSWORD: '${DB_PASS}'
       POSTGRES_USER: '${DB_USER}'

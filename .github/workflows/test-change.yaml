@@ -3,13 +3,17 @@ name: Test change
 on:
   push:
     paths:
-      - '.github/workflows/**'
       - 'packages/**'
       - '!packages/playground/**'
-      - 'package-lock.json'
-      - 'package.json'
       - '.eslintrc.base.cjs'
       - 'tsconfig.json'
+
+      - 'package-lock.json'
+      - 'package.json'
+
+      - '.github/workflows/**'
+      - '*.dockerfile'
+      - 'docker-compose.yaml'
 
 jobs:
   audit:
@@ -42,7 +46,7 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
-          node-version: 'v18'
+          node-version-file: '/.nvmrc'
 
       - name: Install dependencies of '${{ matrix.workspace }}'
         run: npm ci --workspace shared --workspace ${{ matrix.workspace }}
