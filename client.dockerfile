@@ -19,18 +19,23 @@ ENV VITE_SERVER_BASE_URL $VITE_SERVER_BASE_URL
 
 RUN npm -w client run build
 
-FROM nginx:1.25-alpine as start
+FROM build as start
 
-WORKDIR /usr/share/nginx
+WORKDIR /app
 
-COPY --from=build /app/packages/client/dist ./html/
-COPY ./packages/client/nginx.conf ./nginx.conf.template
+COPY --from=build ./package*.json ./
+COPY --from=build /app/packages/shared/ ./packages/shared/
+COPY --from=build /app/packages/client/ ./packages/client/
+
+RUN npm -w client ci --omit=dev
 
 ARG CLIENT_PORT_CONTAINER
 ENV CLIENT_PORT_CONTAINER $CLIENT_PORT_CONTAINER
 
-RUN cat nginx.conf.template | envsubst '$CLIENT_PORT_CONTAINER' > nginx.conf
+COPY ./packages/client/serve.json ./packages/client
 
 EXPOSE ${CLIENT_PORT_CONTAINER}
 
-CMD ["nginx", "-g", "daemon off;"]
+CMD npx serve packages/client/dist \
+  --config /app/packages/client/serve.json \
+  -p ${CLIENT_PORT_CONTAINER}
