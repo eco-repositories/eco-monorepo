@@ -1,4 +1,4 @@
-FROM base:latest AS build
+FROM base:latest AS setup
 
 WORKDIR /app
 
@@ -7,12 +7,15 @@ COPY ./packages/client/package.json ./packages/client/
 
 RUN npm -w client ci
 
+FROM setup AS build
+
+WORKDIR /app
+
 COPY ./tsconfig*.json ./
-COPY --from=base /app/packages/shared/ ./packages/shared/
 COPY ./packages/client/src/ ./packages/client/src/
-COPY ./packages/client/index.html ./packages/client/
-COPY ./packages/client/tsconfig*.json ./packages/client/
-COPY ./packages/client/vite.config.ts ./packages/client/
+COPY \
+  ./packages/client/index.html ./packages/client/tsconfig*.json ./packages/client/vite.config.ts \
+  ./packages/client/
 
 ARG VITE_SERVER_BASE_URL
 ENV VITE_SERVER_BASE_URL $VITE_SERVER_BASE_URL
@@ -22,10 +25,6 @@ RUN npm -w client run build
 FROM build as start
 
 WORKDIR /app
-
-COPY --from=build ./package*.json ./
-COPY --from=build /app/packages/shared/ ./packages/shared/
-COPY --from=build /app/packages/client/ ./packages/client/
 
 RUN npm -w client ci --omit=dev
 
