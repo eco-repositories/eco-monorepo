@@ -14,6 +14,8 @@ jobs:
         with:
           node-version-file: '/.nvmrc'
 
+      - run: npm ci
+
       - name: Find override targets
         run: |2
           override_targets=$(node -p "Object.keys(require('./package.json').overrides).join('\n')")
