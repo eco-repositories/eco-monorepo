@@ -1,0 +1,37 @@
+name: Notify when 'overrides' in '/package.json' might have became outdated
+
+on:
+  push:
+    paths:
+      - '**/package*.json'
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version-file: '/.nvmrc'
+
+      - run: npm ci
+
+      - name: Find override targets
+        run: |2
+          override_targets=$(node -p "Object.keys(require('./package.json').overrides).join('\n')")
+          target_none=$RANDOM
+          failed_target=$target_none
+
+          for target in $override_targets; do
+            if ! npm ls "$target"; then
+              failed_target=$target
+              break
+            fi
+          done
+
+          if [ "$failed_target" != "$target_none" ]; then
+            echo ⛔️ Override target "$failed_target" is not found as a dependency
+            exit 1
+          else
+            echo ✅ All override targets found
+          fi
