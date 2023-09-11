@@ -1,4 +1,5 @@
-FROM base:latest AS setup
+# Setup
+FROM base:latest
 
 WORKDIR /app
 
@@ -7,10 +8,7 @@ COPY ./packages/client/package.json ./packages/client/
 
 RUN npm -w client ci
 
-FROM setup AS build
-
-WORKDIR /app
-
+# Build
 COPY ./tsconfig*.json ./
 COPY ./packages/client/src/ ./packages/client/src/
 COPY \
@@ -22,10 +20,7 @@ ENV VITE_SERVER_BASE_URL $VITE_SERVER_BASE_URL
 
 RUN npm -w client run build
 
-FROM build as start
-
-WORKDIR /app
-
+# Start
 RUN npm -w client ci --omit=dev
 
 ARG CLIENT_PORT_CONTAINER
