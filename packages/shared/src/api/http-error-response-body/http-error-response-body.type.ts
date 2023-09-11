@@ -5,7 +5,7 @@ export interface HttpErrorResponseDetail<Payload extends JsonStringifiable = Jso
   readonly payload?: Payload
 }
 
-export interface HttpErrorResponse {
+export interface HttpErrorResponseBody {
   readonly statusCode: number
   readonly status: string
   readonly errorId: string

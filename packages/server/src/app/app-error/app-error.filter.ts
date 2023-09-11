@@ -33,7 +33,7 @@ export class AppErrorFilter extends BaseExceptionFilter {
     }
   }
 
-  private appErrorToHttpErrorResponse(error: AppError): Api.HttpErrorResponse {
+  private appErrorToHttpErrorResponseBody(error: AppError): Api.HttpErrorResponseBody {
     const statusCode = +error.statusCode
     const status = HttpStatus[statusCode]
     const errorId = error.id
@@ -67,9 +67,9 @@ export class AppErrorFilter extends BaseExceptionFilter {
       return new InternalServerErrorException()
     }
 
-    const response = this.appErrorToHttpErrorResponse(caught)
+    const body = this.appErrorToHttpErrorResponseBody(caught)
 
-    return new HttpException(response, response.statusCode)
+    return new HttpException(body, body.statusCode)
   }
 
   override catch(caught: unknown, host: ArgumentsHost): void {

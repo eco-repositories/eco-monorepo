@@ -1,13 +1,13 @@
-import { client } from '@/api/client.js'
 import { isAxiosError } from 'axios'
+import { client } from '@/api/client.js'
 
 export type Health = Api.HealthCheckResult
 
 export async function getHealth(): Promise<Health> {
-  let health!: Health
+  let health: Health
 
   try {
-    const response = await client.get<Api.HttpResponse<Health>>('/v1/health')
+    const response = await client.get<Api.HttpResponseBody<Health>>('/v1/health')
 
     health = response.data.result
   } catch (error) {

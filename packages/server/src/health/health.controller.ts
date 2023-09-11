@@ -10,7 +10,7 @@ export class HealthController {
 
   @Get()
   @HealthCheck()
-  async checkHealth(): Promise<Api.HttpResponse<Api.HealthCheckResult>> {
+  async checkHealth(): Promise<Api.HttpResponseBody<Api.HealthCheckResult>> {
     const healthCheck = await this.healthService.getHealthCheck()
 
     return {
