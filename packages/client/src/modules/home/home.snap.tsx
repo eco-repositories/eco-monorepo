@@ -5,5 +5,8 @@ exports[`Home > should render correctly 1`] = `
   <main>
     Home
   </main>
+  <div
+    class="Health"
+  />
 </div>
 `;
