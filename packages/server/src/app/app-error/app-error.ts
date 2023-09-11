@@ -1,5 +1,5 @@
 import { randomUUID } from 'crypto'
-import { type JsonStringifiable } from '@@shared/json-stringifiable/json-stringifiable.type.js'
+import { type HttpErrorResponseDetail as Detail } from '@@shared/api/http-error-response/http-error-response.type.js'
 
 /** @private */
 type Digit = `${0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9}`
@@ -9,11 +9,6 @@ type ClientErrorStatusCode = `4${Digit}${Digit}`
 
 /** @private */
 type ServerErrorStatusCode = `5${Digit}${Digit}`
-
-export interface Detail {
-  readonly message: string
-  readonly payload?: JsonStringifiable
-}
 
 /** @private */
 interface DetailWithPublicity extends Detail {
