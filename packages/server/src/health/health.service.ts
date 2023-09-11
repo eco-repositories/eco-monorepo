@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common'
-import { type HealthCheckResult, HealthCheckService, type HealthIndicatorFunction } from '@nestjs/terminus'
+import { HealthCheckService, type HealthIndicatorFunction } from '@nestjs/terminus'
 import { DbHealthIndicator } from '@/db/db.health.js'
 import { BasicHealthIndicator } from './basic.health.js'
 import { type CustomHealthIndicator } from './custom-health-indicator.abstract.js'
@@ -20,7 +20,7 @@ export class HealthService {
     protected readonly dbHealth: DbHealthIndicator,
   ) {}
 
-  async getHealthCheck(): Promise<HealthCheckResult> {
+  async getHealthCheck(): Promise<Api.HealthCheckResult> {
     const healthCheck = await this.healthCheckService.check(this.healthIndicatorFunctions)
 
     return healthCheck
