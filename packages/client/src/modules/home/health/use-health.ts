@@ -10,7 +10,7 @@ export function useHealth(): readonly [Health | null, HealthRefresher] {
 
   const refreshHealth: HealthRefresher = useCallback(() => {
     setEffectID(effectID + Math.random())
-  }, [setEffectID])
+  }, [effectID, setEffectID])
 
   useEffect(() => {
     let mounted = true
