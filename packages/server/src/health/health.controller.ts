@@ -1,5 +1,5 @@
 import { Controller, Get } from '@nestjs/common'
-import { HealthCheck, type HealthCheckResult } from '@nestjs/terminus'
+import { HealthCheck } from '@nestjs/terminus'
 import { HealthService } from './health.service.js'
 
 @Controller('health')
@@ -10,7 +10,7 @@ export class HealthController {
 
   @Get()
   @HealthCheck()
-  async checkHealth(): Promise<ServerApp.HttpResponse<HealthCheckResult>> {
+  async checkHealth(): Promise<Api.HttpResponseBody<Api.HealthCheckResult>> {
     const healthCheck = await this.healthService.getHealthCheck()
 
     return {
