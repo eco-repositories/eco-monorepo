@@ -54,7 +54,7 @@
     "source-map-support": "0.5.21",
     "supertest": "6.3.3",
     "ts-node": "10.9.1",
-    "tsc-alias": "1.8.7",
+    "tsc-alias": "1.8.8",
     "tsconfig-paths": "4.2.0",
     "typescript": "5.2.2",
     "vitest": "0.34.4"
