@@ -6,7 +6,7 @@ interface IndexedList<Value> {
   readonly length: number
 }
 
-export function randomChoice<Value>(values: IndexedList<Value>): Value {
+export function randomChoice<const Value>(values: IndexedList<Value>): Value {
   const index = Math.floor(random(values.length))
   const value = values[index]
 
