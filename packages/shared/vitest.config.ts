@@ -14,6 +14,9 @@ export default defineConfig({
     root: __dirname,
     globals: true,
     mockReset: true,
+    setupFiles: [
+      './mock-math-random.ts',
+    ],
     resolveSnapshotPath(path, extension) {
       return path.replace('.spec', extension)
     },
