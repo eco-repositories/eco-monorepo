@@ -37,4 +37,4 @@ const dbLogger = createLogger('DB')
     DbHealthIndicator,
   ],
 })
-export class DbModule {}
+export class DbModule extends SequelizeModule {}
