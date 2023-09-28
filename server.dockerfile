@@ -1,4 +1,5 @@
-FROM base:latest AS setup
+# Setup
+FROM base:latest
 
 WORKDIR /app
 
@@ -7,10 +8,7 @@ COPY ./packages/server/package.json ./packages/server/
 
 RUN npm -w server ci
 
-FROM setup AS build
-
-WORKDIR /app
-
+# Build
 COPY ./tsconfig*.json ./
 COPY ./packages/server/src/ ./packages/server/src/
 COPY \
@@ -19,10 +17,7 @@ COPY \
 
 RUN npm -w server run build
 
-FROM build AS start
-
-WORKDIR /app
-
+# Start
 RUN npm -w server ci --omit=dev
 
 CMD npm -w server start
