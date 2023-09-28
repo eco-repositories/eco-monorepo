@@ -4,7 +4,6 @@ services:
   db:
     image: postgres:15-alpine
     restart: always
-    user: '${DB_USER}'
     environment:
       POSTGRES_PASSWORD: '${DB_PASS}'
       POSTGRES_USER: '${DB_USER}'
@@ -14,7 +13,7 @@ services:
     command: |2
       -p '${DB_PORT_CONTAINER}'
     healthcheck:
-      test: pg_isready
+      test: pg_isready -h db -U '${DB_USER}' -p '${DB_PORT_CONTAINER}'
       interval: 1s
       timeout: 10s
       retries: 30
