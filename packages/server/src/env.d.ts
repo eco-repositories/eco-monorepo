@@ -1,9 +1,2 @@
 import 'vitest/globals'
-
-declare global {
-  namespace ServerApp {
-    interface HttpResponse<Result> {
-      readonly result: Result
-    }
-  }
-}
+import { /* side effects */ } from '@@shared/api/api.type.js'
