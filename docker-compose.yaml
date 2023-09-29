@@ -3,7 +3,6 @@ version: '3.9'
 services:
   db:
     image: postgres:15-alpine
-    restart: always
     environment:
       POSTGRES_PASSWORD: '${DB_PASS}'
       POSTGRES_USER: '${DB_USER}'
@@ -12,6 +11,12 @@ services:
       - '${DB_PORT_CONTAINER}'
     command: |2
       -p '${DB_PORT_CONTAINER}'
+    deploy:
+      restart_policy:
+        condition: on-failure
+        delay: 2s
+        max_attempts: 5
+        window: 60s
     healthcheck:
       test: pg_isready -h db -U '${DB_USER}' -p '${DB_PORT_CONTAINER}'
       interval: 1s
