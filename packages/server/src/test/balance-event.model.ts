@@ -1,22 +1,54 @@
-import { Column, DataType, Model, Table } from 'sequelize-typescript'
+import { Column, Entity as Model, JoinColumn, ManyToOne, Relation } from 'typeorm'
+import { Transfer } from './transfer.model.js'
+import { Entity } from './entity.model.js'
 
-/** @private */
-interface BalanceEventType {
-  readonly timestamp: number
-  readonly entityBalance: number
-}
-
-@Table({})
-export class BalanceEvent extends Model<BalanceEventType> implements BalanceEventType {
+@Model({
+  name: 'balance_event',
+})
+export class BalanceEvent {
   @Column({
-    type: DataType.BIGINT,
-    field: 'balance_event_timestamp',
-    defaultValue: Date.now,
+    name: 'transfer_id',
+    type: 'uuid',
+    primary: true,
+    update: false,
   })
-  readonly timestamp!: number
+  readonly transferId!: string
 
   @Column({
-    field: 'entity_balance',
+    name: 'entity_id',
+    type: 'uuid',
+    primary: true,
+    update: false,
+  })
+  readonly entityId!: string
+
+  @Column({
+    name: 'entity_balance',
+    type: 'decimal',
+    precision: 10,
+    scale: 2,
+    transformer: {
+      from: parseFloat,
+      to: String,
+    },
   })
   readonly entityBalance!: number
+
+  // ***
+
+  @ManyToOne(() => Transfer, (transfer) => transfer.balanceEvents, {
+    eager: true,
+  })
+  @JoinColumn({
+    name: 'transfer_id',
+  })
+  readonly transfer!: Relation<Transfer>
+
+  @ManyToOne(() => Entity, (entity) => entity.balanceEvents, {
+    eager: true,
+  })
+  @JoinColumn({
+    name: 'entity_id',
+  })
+  readonly entity!: Relation<Entity>
 }
