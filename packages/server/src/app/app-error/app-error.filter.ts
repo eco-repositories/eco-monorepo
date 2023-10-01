@@ -28,7 +28,12 @@ export class AppErrorFilter extends BaseExceptionFilter {
     if (caught instanceof AppError) {
       this.logAppError(caught)
     } else if (!(caught instanceof HttpException)) {
-      this.logger.error(caught)
+      if (caught instanceof Error) {
+        this.logger.error(caught.stack)
+      } else {
+        this.logger.error(caught)
+      }
+
       this.logger.debug(`An error is thrown that's not an instance of ${AppError.name}`)
     }
   }
