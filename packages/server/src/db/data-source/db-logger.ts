@@ -14,7 +14,7 @@ export class DbLogger extends AbstractLogger {
 
   protected readonly logTypeToLoggerMethodNameMap = {
     error: 'error',
-    info: 'warn',
+    info: 'log',
     log: 'log',
     migration: 'log',
     query: 'debug',
