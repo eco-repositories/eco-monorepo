@@ -1,21 +1,25 @@
 import { Module } from '@nestjs/common'
 import { DbModule } from '@/db/db.module.js'
+import { EntitiesController } from './entities.controller.js'
+import { EntitiesService } from './entities.service.js'
 import { BalanceEvent } from './balance-event.model.js'
-import { Category } from './category.model.js'
-import { TestController } from './test.controller.js'
-import { TestService } from './test.service.js'
-import { User } from './user.model.js'
+import { Entity } from './entity.model.js'
+import { Transfer } from './transfer.model.js'
+import { TransfersService } from './transfers.service.js'
+import { TransfersController } from './transfer.controller.js'
 
 @Module({
   imports: [
     DbModule,
-    DbModule.forFeature([BalanceEvent, Category, User]),
+    DbModule.forFeature([BalanceEvent, Entity, Transfer]),
   ],
   providers: [
-    TestService,
+    EntitiesService,
+    TransfersService,
   ],
   controllers: [
-    TestController,
+    EntitiesController,
+    TransfersController,
   ],
 })
 export class TestModule {}
