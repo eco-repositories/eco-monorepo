@@ -1,28 +1,16 @@
 import { Global, Module } from '@nestjs/common'
 import { TypeOrmModule } from '@nestjs/typeorm'
-import { ConfigService } from '@/config/config.service.js'
 import { DbHealthIndicator } from './db.health.js'
-import { DbLogger } from './db-logger.js'
-
-/** @private */
-const dbLogger = new DbLogger()
+import { DataSourceModule } from './data-source/data-source.module.js'
+import { DATA_SOURCE_OPTIONS_PROVIDER, type DataSourceOptions } from './data-source/data-source-options.provider.js'
 
 @Global()
 @Module({
   imports: [
     TypeOrmModule.forRootAsync({
-      inject: [ConfigService],
-      useFactory: (config: ConfigService) => ({
-        type: 'postgres',
-        host: config.get(config.keys.DB_HOST),
-        port: +config.get(config.keys.DB_PORT),
-        username: config.get(config.keys.DB_USER),
-        password: config.get(config.keys.DB_PASS),
-        database: config.get(config.keys.DB_NAME),
-        autoLoadEntities: true,
-        synchronize: config.isDevelopment(),
-        logger: dbLogger,
-      }),
+      imports: [DataSourceModule],
+      inject: [DATA_SOURCE_OPTIONS_PROVIDER],
+      useFactory: (options: DataSourceOptions) => options,
     }),
   ],
   providers: [

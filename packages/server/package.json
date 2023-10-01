@@ -13,7 +13,10 @@
     "debug": "npm run --silent _sorry_no_watch_mode && nest start --watch --debug",
     "lint": "eslint \"src/**/*.ts\"",
     "pretest": "npm run -w shared build",
-    "test": "vitest"
+    "test": "vitest",
+    "_orm": "tsx ./scripts/orm.ts --dataSource ./src/db/data-source/data-source-instance.ts",
+    "migration:generate": "npm run _orm -- migration:generate ./src/db/migrations/migrate",
+    "migration:run": "npm run _orm -- migration:run"
   },
   "dependencies": {
     "@nestjs/common": "10.2.6",
@@ -53,7 +56,7 @@
     "supertest": "6.3.3",
     "ts-node": "10.9.1",
     "tsc-alias": "1.8.8",
-    "tsconfig-paths": "4.2.0",
+    "tsx": "3.13.0",
     "typescript": "5.2.2",
     "vitest": "0.34.5"
   }
