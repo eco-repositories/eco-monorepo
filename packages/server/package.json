@@ -14,7 +14,8 @@
     "lint": "eslint \"src/**/*.ts\"",
     "pretest": "npm run -w shared build",
     "test": "vitest",
-    "_orm": "tsx ./scripts/orm.ts --dataSource ./src/db/data-source/data-source-instance.ts",
+    "_typeorm-cli": "tsx ./aux/typeorm-tsx-esm-cli.ts",
+    "_orm": "npm run _typeorm-cli -- --dataSource ./src/db/data-source/data-source-instance.ts",
     "migration:generate": "npm run _orm -- migration:generate ./src/db/migrations/migrate",
     "migration:run": "npm run _orm -- migration:run"
   },
