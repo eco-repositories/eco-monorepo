@@ -1,40 +1,24 @@
 import { Global, Module } from '@nestjs/common'
-import { SequelizeModule } from '@nestjs/sequelize'
-import { createLogger } from '@/common/create-logger.js'
-import { ConfigService } from '@/config/config.service.js'
+import { TypeOrmModule } from '@nestjs/typeorm'
 import { DbHealthIndicator } from './db.health.js'
-
-/** @private */
-const dbLogger = createLogger('DB')
+import { DataSourceModule } from './data-source/data-source.module.js'
+import { DATA_SOURCE_OPTIONS_PROVIDER, type DataSourceOptions } from './data-source/data-source-options.provider.js'
 
 @Global()
 @Module({
   imports: [
-    SequelizeModule.forRootAsync({
-      inject: [ConfigService],
-      useFactory: (config: ConfigService) => ({
-        dialect: 'postgres',
-        host: config.get(config.keys.DB_HOST),
-        port: +config.get(config.keys.DB_PORT),
-        username: config.get(config.keys.DB_USER),
-        password: config.get(config.keys.DB_PASS),
-        database: config.get(config.keys.DB_NAME),
-        autoLoadModels: true,
-        sync: {
-          alter: config.isDevelopment(),
-        },
-        logging(sql): void {
-          dbLogger.debug(sql)
-        },
-      }),
+    TypeOrmModule.forRootAsync({
+      imports: [DataSourceModule],
+      inject: [DATA_SOURCE_OPTIONS_PROVIDER],
+      useFactory: (options: DataSourceOptions) => options,
     }),
   ],
   providers: [
     DbHealthIndicator,
   ],
   exports: [
-    SequelizeModule,
+    TypeOrmModule,
     DbHealthIndicator,
   ],
 })
-export class DbModule {}
+export class DbModule extends TypeOrmModule {}
