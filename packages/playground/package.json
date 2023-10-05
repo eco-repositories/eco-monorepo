@@ -5,16 +5,10 @@
   "type": "module",
   "exports": null,
   "scripts": {
-    "__touch_entry": "touch src/index.ts",
-    "__clean_dist": "rm -rf dist/*",
-    "prebuild": "npm run __touch_entry && npm run __clean_dist",
-    "build": "tsc --project tsconfig.build.json",
-    "postbuild": "tsc-alias --project tsconfig.build.json",
     "start": "tsx src/index.ts"
   },
   "devDependencies": {
     "@types/node": "18.18.0",
-    "tsc-alias": "1.8.8",
     "tsx": "3.13.0",
     "typescript": "5.2.2"
   }
