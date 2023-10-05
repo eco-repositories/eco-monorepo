@@ -17,6 +17,7 @@
     "stop": "npm run dc:down"
   },
   "overrides": {
+    "@types/node": "$@types/node",
     "vite@4.4.9": {
       "esbuild": "$esbuild"
     },
@@ -25,6 +26,7 @@
     }
   },
   "devDependencies": {
+    "@types/node": "^18",
     "esbuild": "0.18.20"
   }
 }
