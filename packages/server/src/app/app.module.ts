@@ -1,7 +1,10 @@
 import { type MiddlewareConsumer, Module, type NestModule, type DynamicModule } from '@nestjs/common'
+import { CommentsModule } from '@/comments/comments.module.js'
 import { ConfigModule } from '@/config/config.module.js'
 import { DbModule } from '@/db/db.module.js'
 import { HealthModule } from '@/health/health.module.js'
+import { PostsModule } from '@/posts/posts.module.js'
+import { UsersModule } from '@/users/users.module.js'
 import { AppErrorFilter } from './app-error/app-error.filter.js'
 import { DevModule } from './dev/dev.module.js'
 import { HttpLoggerMiddleware } from './http-logger.middleware.js'
@@ -17,6 +20,9 @@ interface RegisterParams {
     ConfigModule,
     DbModule,
     HealthModule,
+    CommentsModule,
+    PostsModule,
+    UsersModule,
   ],
   providers: [
     AppErrorFilter,
