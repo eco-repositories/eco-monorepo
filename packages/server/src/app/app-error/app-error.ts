@@ -38,6 +38,14 @@ export abstract class AppError extends globalThis.Error {
     return this
   }
 
+  addDetailIf(condition: boolean, getDetail: () => DetailWithPublicity): this {
+    if (condition) {
+      this.addDetail(getDetail())
+    }
+
+    return this
+  }
+
   getHead(): string {
     return `${this.code} (${this.id}): ${this.message}`
   }
