@@ -1,4 +1,5 @@
 import { type JsonStringifiable } from '@/json-stringifiable/json-stringifiable.type.js'
+import { type HttpStatusCode } from '@/api/http-status-code/http-status-code.type.js'
 
 export interface HttpErrorResponseDetail<Payload extends JsonStringifiable = JsonStringifiable> {
   readonly message: string
@@ -6,7 +7,7 @@ export interface HttpErrorResponseDetail<Payload extends JsonStringifiable = Jso
 }
 
 export interface HttpErrorResponseBody {
-  readonly statusCode: number
+  readonly statusCode: HttpStatusCode
   readonly status: string
   readonly errorId: string
   readonly errorCode?: string

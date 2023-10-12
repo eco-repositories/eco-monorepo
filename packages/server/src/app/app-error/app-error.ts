@@ -1,14 +1,10 @@
 import { randomUUID } from 'crypto'
 import { type HttpErrorResponseDetail as Detail } from '@@shared/api/http-error-response-body/http-error-response-body.type.js'
-
-/** @private */
-type Digit = `${0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9}`
-
-/** @private */
-type ClientErrorStatusCode = `4${Digit}${Digit}`
-
-/** @private */
-type ServerErrorStatusCode = `5${Digit}${Digit}`
+import {
+  type HttpStatusCodeError,
+  type HttpStatusCodeErrorClient,
+  type HttpStatusCodeErrorServer,
+} from '@@shared/api/http-status-code/http-status-code.type.js'
 
 /** @private */
 interface DetailWithPublicity extends Detail {
@@ -23,7 +19,7 @@ interface GetDetailsParams {
 export abstract class AppError extends globalThis.Error {
   readonly id = randomUUID()
   readonly code = this.constructor.name
-  abstract readonly statusCode: ClientErrorStatusCode | ServerErrorStatusCode
+  abstract readonly statusCode: HttpStatusCodeError
   protected readonly details: Detail[] = []
   protected readonly detailsPublic: Detail[] = []
 
@@ -55,9 +51,9 @@ export abstract class AppError extends globalThis.Error {
 }
 
 export abstract class ClientError extends AppError {
-  abstract override readonly statusCode: ClientErrorStatusCode
+  abstract override readonly statusCode: HttpStatusCodeErrorClient
 }
 
 export abstract class ServerError extends AppError {
-  abstract override readonly statusCode: ServerErrorStatusCode
+  abstract override readonly statusCode: HttpStatusCodeErrorServer
 }
