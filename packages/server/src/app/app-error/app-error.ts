@@ -1,10 +1,12 @@
 import { randomUUID } from 'crypto'
-import { type HttpErrorResponseDetail as Detail } from '@@shared/api/http-error-response-body/http-error-response-body.type.js'
 import {
   type HttpStatusCodeError,
   type HttpStatusCodeErrorClient,
   type HttpStatusCodeErrorServer,
 } from '@@shared/api/http-status-code/http-status-code.type.js'
+
+/** @private */
+type Detail = Api.HttpErrorResponseDetail // alias
 
 /** @private */
 interface DetailWithPublicity extends Detail {
