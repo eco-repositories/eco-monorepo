@@ -2,8 +2,11 @@ import { Catch, type ArgumentsHost, HttpException } from '@nestjs/common'
 import { BaseExceptionFilter } from '@nestjs/core'
 import { createLogger } from '@/common/create-logger.js'
 import { AppError } from './app-error.js'
+import { appErrorToHttpErrorResponseBody } from './app-error-to-http-error-response-body.js'
+import { createUnexpectedHttpErrorResponseBody } from './create-unexpected-http-error-response-body.js'
 import { ErrorLoggerAppError } from './error-logger-app-error.js'
 import { ErrorLoggerHttpException } from './error-logger-http-exception.js'
+import { httpExceptionToHttpErrorResponseBody } from './http-exception-to-http-error-response-body.js'
 
 @Catch()
 export class AppErrorFilter extends BaseExceptionFilter {
@@ -23,50 +26,25 @@ export class AppErrorFilter extends BaseExceptionFilter {
     }
   }
 
-  private appErrorToHttpErrorResponseBody(error: AppError): Api.HttpErrorResponseBody {
-    const statusCode = +error.statusCode
-    const status = HttpStatus[statusCode]
-    const errorId = error.id
-
-    if (error instanceof ClientError) {
-      return {
-        statusCode,
-        status,
-        errorId,
-        errorCode: error.code,
-        message: error.message,
-        details: error.getDetails(),
-      }
+  protected caughtToHttpErrorResponseBody(caught: unknown): Api.HttpErrorResponseBody {
+    if (caught instanceof AppError) {
+      return appErrorToHttpErrorResponseBody(caught)
     }
 
-    return {
-      statusCode,
-      status,
-      errorId,
-    }
-  }
-
-  protected caughtToHttpException(caught: unknown): HttpException {
     if (caught instanceof HttpException) {
-      return caught
+      return httpExceptionToHttpErrorResponseBody(caught)
     }
 
-    if (!(caught instanceof AppError)) {
-      // No other info here, since it might be sensitive.
-      // The assumption is that `caught` is properly logged.
-      return new InternalServerErrorException()
-    }
+    this.logger.debug('An unexpected value was thrown that could not be converted to an HTTP error response body')
 
-    const body = this.appErrorToHttpErrorResponseBody(caught)
-    const exception = new HttpException(body, +body.statusCode)
-
-    return exception
+    return createUnexpectedHttpErrorResponseBody()
   }
 
   override catch(caught: unknown, host: ArgumentsHost): void {
     this.logCaught(caught)
 
-    const exception = this.caughtToHttpException(caught)
+    const body = this.caughtToHttpErrorResponseBody(caught)
+    const exception = new HttpException(body, +body.statusCode)
 
     super.catch(exception, host)
   }
