@@ -1,40 +1,25 @@
-import { Catch, type ArgumentsHost, HttpException, InternalServerErrorException, HttpStatus } from '@nestjs/common'
+import { Catch, type ArgumentsHost, HttpException } from '@nestjs/common'
 import { BaseExceptionFilter } from '@nestjs/core'
 import { createLogger } from '@/common/create-logger.js'
-import { ClientError, ServerError, AppError } from './app-error.js'
+import { AppError } from './app-error.js'
+import { ErrorLoggerAppError } from './error-logger-app-error.js'
+import { ErrorLoggerHttpException } from './error-logger-http-exception.js'
 
 @Catch()
 export class AppErrorFilter extends BaseExceptionFilter {
   protected readonly logger = createLogger(this.constructor.name)
-
-  private logAppError(error: AppError): void {
-    const head = error.getHead()
-    const details = error.getDetails({ publicOnly: false })
-
-    this.logger.error(head)
-
-    for (const detail of details) {
-      const detailJson = JSON.stringify(detail, null, 2)
-
-      this.logger.error(detailJson)
-    }
-
-    if (error instanceof ServerError) {
-      this.logger.error(error.stack)
-    }
-  }
+  protected readonly errorLoggerAppError = new ErrorLoggerAppError(this.logger)
+  protected readonly errorLoggerHttpException = new ErrorLoggerHttpException(this.logger)
 
   protected logCaught(caught: unknown): void {
     if (caught instanceof AppError) {
-      this.logAppError(caught)
-    } else if (!(caught instanceof HttpException)) {
-      if (caught instanceof Error) {
-        this.logger.error(caught.stack)
-      } else {
-        this.logger.error(caught)
-      }
-
-      this.logger.debug(`An error is thrown that's not an instance of ${AppError.name}`)
+      this.errorLoggerAppError.log(caught)
+    } else if (caught instanceof HttpException) {
+      this.errorLoggerHttpException.log(caught)
+    } else if (caught instanceof Error) {
+      this.logger.error(caught.stack)
+    } else {
+      this.logger.error(caught)
     }
   }
 
