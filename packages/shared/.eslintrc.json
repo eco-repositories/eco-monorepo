@@ -1,0 +1,17 @@
+{
+  "extends": [
+    "../../.eslintrc.json"
+  ],
+  "env": {
+    "node": true,
+    "jest": true
+  },
+  "ignorePatterns": [
+    "*.snap.ts"
+  ],
+  "parserOptions": {
+    "project": [
+      "./tsconfig.json"
+    ]
+  }
+}
