@@ -6,6 +6,28 @@ export const MIN_OFFSET = 0
 
 export const MIN_LIMIT = 1
 
+/**
+ * @example
+ * import { PaginationParams } from '@/common/pagination-params.dto.js'
+ *
+ * \@Controller('items')
+ * class ItemsController {
+ *   // GET /items?offset=<offset>,limit=<limit>
+ *   \@Get('/')
+ *   async getItems(
+ *     \@Query() { offset, limit }: PaginationParams,
+ *   ) {
+ *     const items = await this.itemsService.getItems({
+ *       skip: offset ?? 0,
+ *       take: limit ?? 10,
+ *     })
+ *
+ *     return {
+ *       result: items,
+ *     }
+ *   }
+ * }
+ */
 export class PaginationParams implements PaginationParamsType {
   @IsOptional()
   @Type(() => Number)
