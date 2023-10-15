@@ -22,7 +22,7 @@ export abstract class ErrorLogger<E extends Error> {
 
   log(error: E): void {
     const logLevel = this.getLogLevel(error)
-    const log = this.logger[logLevel]
+    const log = this.logger[logLevel].bind(this.logger)
     const summary = this.getSummary(error)
 
     log(summary)
