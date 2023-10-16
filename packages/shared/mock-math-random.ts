@@ -9,14 +9,16 @@ declare global {
   var VITEST_MATH_RANDOM_MOCK_RETURN_VALUE: typeof MOCK_RETURN_VALUE
 }
 
+const mockMathRandom = vi.fn(() => MOCK_RETURN_VALUE)
 let mathRandom: typeof Math.random
 
 beforeAll(() => {
   mathRandom = globalThis.Math.random
+  globalThis.Math.random = mockMathRandom
 })
 
 beforeEach(() => {
-  globalThis.Math.random = vi.fn(() => MOCK_RETURN_VALUE)
+  mockMathRandom.mockReset()
 })
 
 afterEach(() => {
