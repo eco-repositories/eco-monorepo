@@ -11,7 +11,7 @@
     "_sorry_no_watch_mode": "echo \u001b[31mError\u001b[0m: Package \u001b[1mtsconfig-paths\u001b[0m, used by nest --watch, \u001b[1mdoes not support ESM\u001b[0m && exit 1",
     "dev": "npm run --silent _sorry_no_watch_mode && nest start --watch",
     "debug": "npm run --silent _sorry_no_watch_mode && nest start --watch --debug",
-    "lint": "eslint \"src/**/*.ts\"",
+    "lint": "eslint \"**/*.ts\"",
     "pretest": "npm run -w shared build",
     "test": "vitest",
     "_typeorm-cli": "tsx ./meta/typeorm-tsx-esm-cli.ts",

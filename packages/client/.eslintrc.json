@@ -1,0 +1,19 @@
+{
+  "extends": [
+    "../../.eslintrc.json"
+  ],
+  "env": {
+    "browser": true,
+    "jest": true
+  },
+  "ignorePatterns": [
+    "*.snap.ts",
+    "*.snap.tsx"
+  ],
+  "parserOptions": {
+    "project": [
+      "./tsconfig.json",
+      "./tsconfig.external.json"
+    ]
+  }
+}
