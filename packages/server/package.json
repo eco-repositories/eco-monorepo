@@ -16,7 +16,7 @@
     "test": "vitest",
     "_typeorm-cli": "tsx ./meta/typeorm-tsx-esm-cli.ts",
     "_orm": "npm run _typeorm-cli -- --dataSource ./src/db/data-source/data-source-instance.ts",
-    "migration:generate": "npm run _orm -- migration:generate ./src/db/migrations/migrate",
+    "migration:generate": "npm run _orm -- migration:generate ./src/db/migrations/${npm_config_name:-migrate}",
     "migration:run": "npm run _orm -- migration:run"
   },
   "dependencies": {
