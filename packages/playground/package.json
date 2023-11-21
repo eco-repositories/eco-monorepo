@@ -9,7 +9,7 @@
   },
   "devDependencies": {
     "@types/node": "*",
-    "tsx": "3.13.0",
+    "tsx": "4.2.0",
     "typescript": "5.2.2"
   }
 }
