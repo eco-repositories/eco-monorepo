@@ -12,7 +12,7 @@ declare global {
 let mathRandom: typeof Math.random
 
 beforeAll(() => {
-  mathRandom = globalThis.Math.random
+  mathRandom = Math.random
 })
 
 beforeEach(() => {
