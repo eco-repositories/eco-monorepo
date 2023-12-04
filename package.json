@@ -21,7 +21,7 @@
       "esbuild": "$esbuild"
     },
     "@types/node": "$@types/node",
-    "vite@5.0.2": {
+    "vite": {
       "esbuild": "$esbuild"
     }
   },
