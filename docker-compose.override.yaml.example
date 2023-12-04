@@ -8,5 +8,3 @@ services:
   server:
     environment:
       NODE_ENV: development
-    ports:
-      - '${SERVER_PORT_HOST}:${SERVER_PORT_CONTAINER}'

@@ -37,8 +37,8 @@ services:
       DB_NAME:
       DB_USER:
       DB_PASS:
-    expose:
-      - '${SERVER_PORT_CONTAINER}'
+    ports:
+      - '${SERVER_PORT_HOST}:${SERVER_PORT_CONTAINER}'
 
   client:
     depends_on:
@@ -48,6 +48,6 @@ services:
       dockerfile: client.dockerfile
       args:
         CLIENT_PORT_CONTAINER:
-        VITE_SERVER_BASE_URL: 'http://localhost:${SERVER_PORT_CONTAINER}/'
+        VITE_SERVER_BASE_URL: 'http://localhost:${SERVER_PORT_HOST}/'
     ports:
       - '${CLIENT_PORT_HOST}:${CLIENT_PORT_CONTAINER}'
