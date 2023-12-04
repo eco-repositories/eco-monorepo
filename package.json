@@ -17,16 +17,16 @@
     "stop": "npm run dc:down"
   },
   "overrides": {
-    "@types/node": "$@types/node",
-    "vite@4.4.9": {
+    "@anatine/esbuild-decorators@0.2.19": {
       "esbuild": "$esbuild"
     },
-    "@anatine/esbuild-decorators@0.2.19": {
+    "@types/node": "$@types/node",
+    "vite": {
       "esbuild": "$esbuild"
     }
   },
   "devDependencies": {
     "@types/node": "^18",
-    "esbuild": "0.19.5"
+    "esbuild": "0.19.8"
   }
 }
