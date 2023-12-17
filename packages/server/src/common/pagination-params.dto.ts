@@ -12,7 +12,7 @@ export const MIN_LIMIT = 1
  *
  * \@Controller('items')
  * class ItemsController {
- *   // GET /items?offset=<offset>,limit=<limit>
+ *   // GET /items?offset=<offset>&limit=<limit>
  *   \@Get('/')
  *   async getItems(
  *     \@Query() { offset, limit }: PaginationParams,
