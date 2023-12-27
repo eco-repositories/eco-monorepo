@@ -1,4 +1,4 @@
-import { createAction } from '@reduxjs/toolkit'
+import { forSlice } from '@/store/for-slice.js'
 import { app } from './slice.js'
 
 export const {
@@ -6,4 +6,4 @@ export const {
   stopLoading,
 } = app.actions
 
-export const initialize = createAction(`${app.name}/initialize`)
+export const initialize = forSlice(app).withName('initialize').createAction()
