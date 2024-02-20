@@ -45,37 +45,38 @@ class SliceContext<const out SliceName extends string> {
   }
 }
 
-/** 👍
+/**
  * Convenience function for creating Redux actions in a D.R.Y. and type-safe way.
+ * Best suited for creating actions *with* payload.
  *
  * @uses {@link createAction} from `@redux/toolkit` package internally
- *
- * **Example: actions without payload:**
- *
- * ```ts
- * const app = createSlice({ name: 'app', … })
- *
- * // 👍 declarative
- * const readMessages = forSlice(app).withName('readMessages').createAction()
- *
- * // ❌ low-level action type definition
- * const readMessages = createAction(`${app.name}/readMessages`)
- * ```
  *
  * **Example: actions with payload:**
  *
  * ```ts
  * const app = createSlice({ name: 'app', … })
  *
- * // 👍 concise, type-safe
+ * // 👍 declarative, 👍 concise, 👍 type-safe
  * const sendMessage = forSlice(app).withName('sendMessage').createAction<Message>()
  *
- * // ❌ too low-level, not type-sage (action type is `string`, not `app/sendMessage`)
+ * // ❌ low-level, 👍 concise, ❌ not type-safe (action type is `string`, not `app/sendMessage`)
  * const sendMessage = createAction<Message>(`${app.name}/sendMessage`)
  *
- * // ❌ verbose
+ * // ❌ low-level, ❌ verbose, 👍 type-safe
  * const sendMessageType = `${app.name}/sendMessage` as const
  * const sendMessage = createAction<Message, typeof sendMessageType>(sendMessageType)
+ * ```
+ *
+ * **Example: actions without payload:**
+ *
+ * ```ts
+ * const app = createSlice({ name: 'app', … })
+ *
+ * // 👍 declarative, ❌ verbose, 👍 type-safe
+ * const readMessages = forSlice(app).withName('readMessages').createAction()
+ *
+ * // ❌ low-level, 👍 concise, 👍 type-safe
+ * const readMessages = createAction(`${app.name}/readMessages`)
  * ```
  */
 export function forSlice<SliceName extends string>(slice: SliceNamed<SliceName>): SliceContext<SliceName> {
