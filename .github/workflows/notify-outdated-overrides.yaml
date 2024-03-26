@@ -44,8 +44,7 @@ jobs:
         with:
           node-version-file: '/.nvmrc'
 
-      - run: |2
-          npm i -D semver
+      - run: npm i --no-save -D semver
 
       - name: Check nested express version
         run: |2
