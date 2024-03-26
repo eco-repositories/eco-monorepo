@@ -47,7 +47,8 @@ jobs:
       - run: |2
           npm i -D semver
 
-      - run: |2
+      - name: Check nested express version
+        run: |2
           nestjs_express_dependency_version=$(npm view @nestjs/platform-express dependencies.express)
 
           npx semver \
