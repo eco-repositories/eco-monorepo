@@ -44,6 +44,8 @@ jobs:
         with:
           node-version-file: '/.nvmrc'
 
+      - run: npm i -D semver
+
       - run: |2
           nestjs_express_dependency_version=$(npm view @nestjs/platform-express dependencies.express)
 
