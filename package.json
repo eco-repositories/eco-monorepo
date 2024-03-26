@@ -20,6 +20,9 @@
     "@anatine/esbuild-decorators@0.2.19": {
       "esbuild": "$esbuild"
     },
+    "@nestjs/platform-express": {
+      "express": "$express-patched-CVE-2024-29041"
+    },
     "@types/node": "$@types/node",
     "vite": {
       "esbuild": "$esbuild"
@@ -27,6 +30,7 @@
   },
   "devDependencies": {
     "@types/node": "^18",
-    "esbuild": "0.19.8"
+    "esbuild": "0.19.8",
+    "express-patched-CVE-2024-29041": "npm:express@4.19.2"
   }
 }
