@@ -17,6 +17,6 @@
     "@types/node": "*",
     "tsc-alias": "1.8.8",
     "tsx": "4.2.0",
-    "typescript": "5.4.3"
+    "typescript": "*"
   }
 }
