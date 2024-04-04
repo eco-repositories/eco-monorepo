@@ -8,7 +8,7 @@
     "packages/*"
   ],
   "scripts": {
-    "play": "npm start -w playground",
+    "play": "npm -w playground run dev",
     "dc:build-base": "docker build -t base:latest -f base.dockerfile .",
     "dc:up": "docker compose --env-file docker-compose.env.local up --build --detach --remove-orphans",
     "dc:down": "docker compose --env-file docker-compose.env.local down",
