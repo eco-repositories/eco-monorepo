@@ -6,10 +6,16 @@
   "exports": null,
   "scripts": {
     "prestart": "touch src/index.ts",
-    "dev": "tsx src/index.ts"
+    "dev": "tsx src/index.ts",
+    "clean": "rm -rf ./dist/*",
+    "resolve-path-aliases": "tsc-alias --project tsconfig.json",
+    "prebuild": "npm run clean",
+    "build": "tsc --project tsconfig.json",
+    "postbuild": "npm run resolve-path-aliases"
   },
   "devDependencies": {
     "@types/node": "*",
+    "tsc-alias": "1.8.8",
     "tsx": "4.2.0",
     "typescript": "5.4.3"
   }
