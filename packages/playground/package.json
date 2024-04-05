@@ -5,7 +5,7 @@
   "type": "module",
   "exports": null,
   "scripts": {
-    "prestart": "touch src/index.ts",
+    "predev": "touch src/index.ts",
     "dev": "tsx src/index.ts",
     "clean": "rm -rf ./dist/*",
     "resolve-path-aliases": "tsc-alias --project tsconfig.json",
