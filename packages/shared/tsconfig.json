@@ -1,5 +1,8 @@
 {
   "extends": "../../tsconfig.json",
+  "references": [
+    { "path": "../../libs/@eco/utils/packages/utils/tsconfig.build.json" },
+  ],
   "compilerOptions": {
     "outDir": "dist",
     "composite": true,
@@ -7,6 +10,7 @@
     // Alias
     "baseUrl": ".",
     "paths": {
+      "@@utils/*": ["../../libs/@eco/utils/packages/utils/dist/src/*"],
       "@/*": ["./src/*"],
     },
   },

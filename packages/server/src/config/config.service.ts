@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common'
 import { ConfigService as NestConfigService } from '@nestjs/config'
-import { type SetLikeOfKeys, toSetLikeOfKeys } from '@@shared/to-set-like-of-keys/to-set-like-of-keys.js'
+import { type SetLikeOfKeys, toSetLikeOfKeys } from '@@utils/to-set-like-of-keys/to-set-like-of-keys.js'
 import { type ConfigDTO } from './config.dto.js'
 import { EnvName } from './env-name.js'
 

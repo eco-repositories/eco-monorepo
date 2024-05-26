@@ -1,0 +1,3 @@
+[submodule "libs/@eco/utils"]
+	path = libs/@eco/utils
+	url = https://github.com/eco-repositories/utils
