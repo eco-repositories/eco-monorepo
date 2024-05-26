@@ -33,6 +33,6 @@
     "@types/node": "^20",
     "esbuild": "0.19.8",
     "express-patched-CVE-2024-29041": "npm:express@4.19.2",
-    "typescript": "5.4.3"
+    "typescript": "5.4.5"
   }
 }
