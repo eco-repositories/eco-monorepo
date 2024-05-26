@@ -18,6 +18,7 @@ export default defineConfig({
     root: __dirname,
     globals: true,
     mockReset: true,
+    passWithNoTests: true,
     resolveSnapshotPath(path, extension) {
       return path.replace('.spec', extension)
     },
