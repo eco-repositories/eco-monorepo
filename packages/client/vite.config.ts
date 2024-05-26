@@ -10,6 +10,10 @@ export default defineConfig({
   resolve: {
     alias: [
       {
+        find: /^@@utils\/(.*)$/,
+        replacement: resolve(__dirname, '..', '../../libs/@eco/utils/packages/utils/dist/src/$1'),
+      },
+      {
         find: /^@@shared\/(.*)$/,
         replacement: resolve(__dirname, '..', 'shared/dist/src/$1'),
       },
