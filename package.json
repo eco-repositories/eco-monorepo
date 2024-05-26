@@ -28,8 +28,9 @@
       "esbuild": "$esbuild"
     }
   },
+  "TODO: update '@types/node' to '^22' once is it available": null,
   "devDependencies": {
-    "@types/node": "^18",
+    "@types/node": "^20",
     "esbuild": "0.19.8",
     "express-patched-CVE-2024-29041": "npm:express@4.19.2",
     "typescript": "5.4.3"
