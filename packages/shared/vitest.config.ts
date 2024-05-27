@@ -5,7 +5,7 @@ export default defineConfig({
   resolve: {
     alias: [
       {
-        find: /^@@utils\/(.*)$/,
+        find: /^@@libs\/@eco\/utils\/(.*)$/,
         replacement: resolve(__dirname, '../..', 'libs/@eco/utils/packages/utils/dist/src/$1'),
       },
       {

@@ -10,7 +10,7 @@
     // Alias
     "baseUrl": ".",
     "paths": {
-      "@@utils/*": ["../../libs/@eco/utils/packages/utils/dist/src/*"],
+      "@@libs/@eco/utils/*": ["../../libs/@eco/utils/packages/utils/dist/src/*"],
       "@/*": ["./src/*"],
     },
   },

@@ -11,7 +11,7 @@
     // Alias
     "baseUrl": ".",
     "paths": {
-      "@@utils/*": [
+      "@@libs/@eco/utils/*": [
         "../../libs/@eco/utils/packages/utils/dist/src/*",
 
         // FIXME: this is a workaround for tsc-alias's bug
