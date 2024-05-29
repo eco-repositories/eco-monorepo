@@ -10,7 +10,6 @@
   "scripts": {
     "play": "npm -w playground run dev",
     "libs:init": "git submodule update --init --recursive",
-    "libs:reset": "git submodule foreach \"git drop; git checkout main; git pap\"",
     "libs:install": "git submodule foreach \"npm ci\"",
     "libs:build": "git submodule foreach \"npm run build -ws --if-present\"",
     "dc:build-base": "docker build -t base:latest -f base.dockerfile .",
