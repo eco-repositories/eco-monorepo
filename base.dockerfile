@@ -8,8 +8,8 @@ COPY ./.git/ ./.git/
 COPY ./.gitmodules ./
 
 RUN apk add --no-cache git
-RUN git submodule update --init --recursive
-RUN git submodule foreach "npm ci"
+RUN npm run libs:init
+RUN npm run libs:install
 
 # Install npm dependencies
 COPY ./package*.json ./
@@ -18,7 +18,7 @@ COPY ./packages/shared/package.json ./packages/shared/
 RUN npm -w shared ci
 
 # Build git submodules
-RUN git submodule foreach "npm run build -ws --if-present"
+RUN npm run libs:build
 
 # Build npm dependencies
 COPY ./tsconfig*.json ./

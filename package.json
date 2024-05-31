@@ -9,6 +9,9 @@
   ],
   "scripts": {
     "play": "npm -w playground run dev",
+    "libs:init": "git submodule update --init --recursive",
+    "libs:install": "git submodule foreach \"npm ci\"",
+    "libs:build": "git submodule foreach \"npm run build -ws --if-present\"",
     "dc:build-base": "docker build -t base:latest -f base.dockerfile .",
     "dc:up": "docker compose --env-file docker-compose.env.local up --build --detach --remove-orphans",
     "dc:down": "docker compose --env-file docker-compose.env.local down",
