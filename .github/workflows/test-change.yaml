@@ -19,17 +19,57 @@ jobs:
   audit:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version-file: '/.nvmrc'
 
       - name: Run audit
         run: npm audit
 
-  test:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: '/.nvmrc'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint all source files
+        run: npm run lint -ws --if-present
+
+  build:
+    runs-on: ubuntu-latest
     needs:
       - audit
+      - lint
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: '/.nvmrc'
+
+      - name: Install submodules
+        run: npm run libs:install
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build all submodules
+        run: npm run libs:build
+
+      - name: Build all workspaces
+        run: npm run build -w shared -w client -w server
+
+  test:
+    needs:
+      - build
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
@@ -43,13 +83,22 @@ jobs:
           - windows-latest
 
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - uses: actions/setup-node@v4
         with:
           node-version-file: '/.nvmrc'
 
+      - name: Install submodules
+        run: npm run libs:install
+
       - name: Install dependencies of '${{ matrix.workspace }}'
         run: npm ci --workspace shared --workspace ${{ matrix.workspace }}
+
+      - name: Build all submodules
+        run: npm run libs:build
 
       - name: Test '${{ matrix.workspace }}' on ${{ matrix.os }}
         run: npm --workspace ${{ matrix.workspace }} test

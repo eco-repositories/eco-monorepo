@@ -5,17 +5,18 @@
   "type": "module",
   "exports": null,
   "scripts": {
-    "__touch_entry": "touch src/index.ts",
-    "__clean_dist": "rm -rf dist/*",
-    "prebuild": "npm run __touch_entry && npm run __clean_dist",
-    "build": "tsc --project tsconfig.build.json",
-    "postbuild": "tsc-alias --project tsconfig.build.json",
-    "prestart": "npm run build",
-    "start": "node dist/index.js"
+    "predev": "touch src/index.ts",
+    "dev": "tsx src/index.ts",
+    "clean": "rm -rf ./dist/*",
+    "resolve-path-aliases": "tsc-alias --project tsconfig.json",
+    "prebuild": "npm run clean",
+    "build": "tsc --project tsconfig.json",
+    "postbuild": "npm run resolve-path-aliases"
   },
   "devDependencies": {
-    "@types/node": "18.18.0",
+    "@types/node": "*",
     "tsc-alias": "1.8.8",
-    "typescript": "5.2.2"
+    "tsx": "4.2.0",
+    "typescript": "*"
   }
 }

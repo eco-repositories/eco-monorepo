@@ -1,14 +1,17 @@
 {
-  "name": "try-monorepo",
+  "name": "eco-monorepo",
   "version": "0.0.1",
   "author": "Dmytro Parzhytskyi <parzhitsky@gmail.com>",
   "private": true,
-  "repository": "https://github.com/parzhitsky/try-monorepo",
+  "repository": "https://github.com/eco-repositories/eco-monorepo",
   "workspaces": [
     "packages/*"
   ],
   "scripts": {
-    "play": "npm start -w playground",
+    "play": "npm -w playground run dev",
+    "libs:init": "git submodule update --init --recursive",
+    "libs:install": "git submodule foreach \"npm ci\"",
+    "libs:build": "git submodule foreach \"npm run build -ws --if-present\"",
     "dc:build-base": "docker build -t base:latest -f base.dockerfile .",
     "dc:up": "docker compose --env-file docker-compose.env.local up --build --detach --remove-orphans",
     "dc:down": "docker compose --env-file docker-compose.env.local down",
@@ -17,14 +20,22 @@
     "stop": "npm run dc:down"
   },
   "overrides": {
-    "vite@4.4.9": {
+    "@anatine/esbuild-decorators@0.2.19": {
       "esbuild": "$esbuild"
     },
-    "@anatine/esbuild-decorators@0.2.19": {
+    "@nestjs/platform-express": {
+      "express": "$express-patched-CVE-2024-29041"
+    },
+    "@types/node": "$@types/node",
+    "vite": {
       "esbuild": "$esbuild"
     }
   },
+  "TODO: update '@types/node' to '^22' once is it available": null,
   "devDependencies": {
-    "esbuild": "0.18.20"
+    "@types/node": "^20",
+    "esbuild": "0.21.4",
+    "express-patched-CVE-2024-29041": "npm:express@4.19.2",
+    "typescript": "5.4.5"
   }
 }

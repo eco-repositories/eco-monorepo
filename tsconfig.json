@@ -1,9 +1,10 @@
 {
   "compilerOptions": {
     // Output
-    "target": "es2020",
+    "target": "es2022",
     "module": "NodeNext",
     "moduleResolution": "NodeNext",
+    "useDefineForClassFields": false,
     "noEmit": true, // TODO: override in the derived configs if needed
     "sourceMap": true,
     "declaration": true,

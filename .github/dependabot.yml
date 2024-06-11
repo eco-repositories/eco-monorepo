@@ -8,8 +8,17 @@ updates:
   - package-ecosystem: 'npm'
     directory: '/'
     schedule:
-      interval: 'daily'
-    open-pull-requests-limit: 15
+      interval: 'weekly'
+    labels:
+      - "dependencies"
+      - "Domain: meta"
+      - "Priority: low"
+      - "Type: improvement"
+
+  - package-ecosystem: 'github-actions'
+    directory: '/'
+    schedule:
+      interval: 'weekly'
     labels:
       - "dependencies"
       - "Domain: meta"

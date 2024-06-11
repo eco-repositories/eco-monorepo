@@ -6,6 +6,10 @@ export default defineConfig({
   resolve: {
     alias: [
       {
+        find: /^@@libs\/@eco\/utils\/(.*)$/,
+        replacement: resolve(__dirname, '../..', 'libs/@eco/utils/packages/utils/dist/src/$1'),
+      },
+      {
         find: /^@@shared\/(.*)$/,
         replacement: resolve(__dirname, '..', 'shared/dist/src/$1'),
       },
@@ -44,6 +48,12 @@ export default defineConfig({
                 node_modules/vite[v4.4.9]/node_modules/esbuild[v0.18.20]/lib/main.d.ts
                 -> TsconfigRaw.compilerOptions.baseUrl
                 -> 'boolean'
+                  See https://github.com/evanw/esbuild/pull/3299
+          The solution:
+            Ideal:
+              @anatine/esbuild-decorators should depend on the version of esbuild with baseUrl being a string
+            Temporary:
+              Manually override esbuild to be of the same after-the-fix version for everyone
          */
         esbuildDecorators({
           tsconfig: resolve(__dirname, 'tsconfig.json'),
