@@ -55,7 +55,7 @@ jobs:
           # exit code 1: version is affected
           npx semver \
             --include-prerelease \
-            --range ">= 4.19.2 < 5 || > 5.0.0-beta.3" \
+            --range "> 4.19.2 < 5 || >= 5.0.0-beta.3" \
             --version "$nestjs_express_dependency_version"
 
           if [ $? -eq 0 ]
