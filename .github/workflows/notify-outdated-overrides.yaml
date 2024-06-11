@@ -56,7 +56,7 @@ jobs:
             --range ">= 4.19.2 < 5 || > 5.0.0-beta.3" \
             --version "$nestjs_express_dependency_version"
 
-          if [ $? -eq 0]
+          if [ $? -eq 0 ]
           then
             echo "@nestjs/platform-express has been updated to use 'express@$nestjs_express_dependency_version', the override is outdated"
             exit 1
