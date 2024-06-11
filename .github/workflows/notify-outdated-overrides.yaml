@@ -49,14 +49,14 @@ jobs:
       - name: Check nested express version
         shell: bash {0}
         run: |2
-          nestjs_express_dependency_version=$(npm view @nestjs/platform-express dependencies.express)
+          nestjs_express_dependency_version=$(npm view @nestjs/platform-express@latest dependencies.express)
 
           npx semver \
             --include-prerelease \
             --range ">= 4.19.2 < 5 || > 5.0.0-beta.3" \
             --version "$nestjs_express_dependency_version"
 
-          if [ $? -eq 0]
+          if [ $? -eq 0 ]
           then
             echo "@nestjs/platform-express has been updated to use 'express@$nestjs_express_dependency_version', the override is outdated"
             exit 1
