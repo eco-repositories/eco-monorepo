@@ -49,7 +49,7 @@ jobs:
       - name: Check nested express version
         shell: bash {0}
         run: |2
-          nestjs_express_dependency_version=$(npm view @nestjs/platform-express dependencies.express)
+          nestjs_express_dependency_version=$(npm view @nestjs/platform-express@latest dependencies.express)
 
           npx semver \
             --include-prerelease \
