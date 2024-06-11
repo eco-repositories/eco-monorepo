@@ -31,7 +31,7 @@
       "esbuild": "$esbuild"
     }
   },
-  "TODO: update '@types/node' to '^22' once is it available": null,
+  "TODO: update '@types/node' to '^22' once is it available": "",
   "devDependencies": {
     "@types/node": "^20",
     "esbuild": "0.21.4",

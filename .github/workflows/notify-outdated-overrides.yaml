@@ -47,13 +47,15 @@ jobs:
       - run: npm i --no-save -D semver
 
       - name: Check nested express version
-        shell: bash {0}
+        shell: bash {0} # disable fail-fast
         run: |2
           nestjs_express_dependency_version=$(npm view @nestjs/platform-express@latest dependencies.express)
 
+          # exit code 0: version is patched
+          # exit code 1: version is affected
           npx semver \
             --include-prerelease \
-            --range ">= 4.19.2 < 5 || > 5.0.0-beta.3" \
+            --range "> 4.19.2 < 5 || >= 5.0.0-beta.3" \
             --version "$nestjs_express_dependency_version"
 
           if [ $? -eq 0 ]
