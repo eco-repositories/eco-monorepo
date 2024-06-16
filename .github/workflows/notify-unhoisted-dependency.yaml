@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - '**/package*.json'
+      - '.github/workflows/**'
 
 jobs:
   notify:
@@ -18,7 +19,7 @@ jobs:
 
       - name: Find nested 'node_modules' dirs
         run: |2
-          directories=$(find packages -type d -name 'node_modules' | tr -d '[:space:]')
+          directories=$(find packages -type d -name 'node_modules')
 
           if [ -n "$directories" ]; then
             echo ⛔️ "Error: Found nested 'node_modules' directories:"
