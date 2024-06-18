@@ -34,7 +34,7 @@
     "pg": "8.11.5",
     "reflect-metadata": "0.1.14",
     "rxjs": "7.8.1",
-    "typeorm": "0.3.17"
+    "typeorm": "0.3.20"
   },
   "devDependencies": {
     "@anatine/esbuild-decorators": "0.2.19",
