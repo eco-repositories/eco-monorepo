@@ -1,4 +1,11 @@
-import { Controller } from '@nestjs/common'
+import { Controller, Get } from '@nestjs/common'
 
-@Controller()
-export class DevController {}
+@Controller('dev')
+export class DevController {
+  @Get()
+  async getDev(): Promise<Api.HttpResponseBody<string>> {
+    return {
+      result: 'Hello from dev module!',
+    }
+  }
+}
