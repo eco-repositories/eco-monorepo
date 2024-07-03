@@ -98,3 +98,5 @@ To start the application stack without Docker, it is necessary to setup/build/st
   - Stop the client (press <kbd>Q</kbd> in the client terminal)
 
   - Stop the server (press <kbd>Ctrl</kbd>+<kbd>C</kbd> in the server terminal)
+
+<!-- This line is here to allow triggering CI … -->

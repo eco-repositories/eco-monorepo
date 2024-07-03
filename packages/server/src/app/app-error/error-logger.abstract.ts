@@ -1,5 +1,5 @@
+import { type JsonStringifiable } from '@@libs/@eco/utils/json-stringifiable/json-stringifiable.type.js'
 import { createLogger } from '@/common/create-logger.js'
-import { type JsonStringifiable } from '@@shared/json-stringifiable/json-stringifiable.type.js'
 
 export type ErrorLogLevel = 'error' | 'warn'
 

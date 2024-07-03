@@ -2,6 +2,7 @@
   "extends": "../../tsconfig.json",
   "references": [
     { "path": "../shared/tsconfig.build.json" },
+    { "path": "../../libs/@eco/utils/packages/utils/tsconfig.build.json" },
   ],
   "compilerOptions": {
     "outDir": "dist",
@@ -10,6 +11,14 @@
     // Alias
     "baseUrl": ".",
     "paths": {
+      "@@libs/@eco/utils/*": [
+        "../../libs/@eco/utils/packages/utils/dist/src/*",
+
+        // FIXME: this is a workaround for tsc-alias's bug
+        // https://github.com/justkey007/tsc-alias/issues/134
+        // Remove this when the bug is fixed
+        "../../../libs/@eco/utils/packages/utils/dist/src/*",
+      ],
       "@@shared/*": [
         "../shared/dist/src/*",
 
