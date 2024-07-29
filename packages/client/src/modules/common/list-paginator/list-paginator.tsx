@@ -1,6 +1,6 @@
 import { Button, Stack } from 'react-bootstrap'
-import { type Pagination } from '@@shared/pagination/pagination.type.js'
-import { type PaginationParams } from '@@shared/pagination/pagination-params.type.js'
+import { type Pagination } from '@@libs/@eco/utils/pagination/pagination.type.js'
+import { type PaginationParams } from '@@libs/@eco/utils/pagination/pagination-params.type.js'
 
 /** @private */
 interface Props {

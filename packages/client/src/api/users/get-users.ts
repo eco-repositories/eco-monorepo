@@ -1,5 +1,5 @@
-import { type ListPaginated } from '@@shared/pagination/list-paginated.type.js'
-import { type PaginationParams } from '@@shared/pagination/pagination-params.type.js'
+import { type ListPaginated } from '@@libs/@eco/utils/pagination/list-paginated.type.js'
+import { type PaginationParams } from '@@libs/@eco/utils/pagination/pagination-params.type.js'
 import { client } from '@/api/client.js'
 
 export const DEFAULT_OFFSET = 0

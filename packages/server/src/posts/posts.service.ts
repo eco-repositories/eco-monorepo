@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common'
 import { InjectRepository } from '@nestjs/typeorm'
 import { Repository } from 'typeorm'
-import { type ListPaginated } from '@@shared/pagination/list-paginated.type.js'
+import { type ListPaginated } from '@@libs/@eco/utils/pagination/list-paginated.type.js'
 import { ClientError } from '@/app/app-error/app-error.js'
 import { type PaginationParams } from '@/common/pagination-params.dto.js'
 import { type User } from '@/users/user.entity.js'

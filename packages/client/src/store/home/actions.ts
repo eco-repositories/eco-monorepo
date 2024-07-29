@@ -1,4 +1,4 @@
-import { type PaginationParams } from '@@shared/pagination/pagination-params.type.js'
+import { type PaginationParams } from '@@libs/@eco/utils/pagination/pagination-params.type.js'
 import { forSlice } from '@/store/for-slice.js'
 import { home } from './slice.js'
 

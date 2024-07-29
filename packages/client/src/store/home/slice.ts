@@ -1,5 +1,5 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit'
-import { type ListPaginated } from '@@shared/pagination/list-paginated.type.js'
+import { type ListPaginated } from '@@libs/@eco/utils/pagination/list-paginated.type.js'
 
 export interface State {
   allUsersMap: Record<string, Api.User>
