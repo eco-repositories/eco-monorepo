@@ -16,7 +16,7 @@ COPY \
   ./packages/client/
 
 ARG VITE_SERVER_BASE_URL
-ENV VITE_SERVER_BASE_URL $VITE_SERVER_BASE_URL
+ENV VITE_SERVER_BASE_URL=$VITE_SERVER_BASE_URL
 
 RUN npm -w client run build
 
@@ -24,11 +24,13 @@ RUN npm -w client run build
 RUN npm -w client ci --omit=dev
 
 ARG CLIENT_PORT_CONTAINER
-ENV CLIENT_PORT_CONTAINER $CLIENT_PORT_CONTAINER
+ENV CLIENT_PORT_CONTAINER=$CLIENT_PORT_CONTAINER
 
 COPY ./packages/client/serve.json ./packages/client
 
 EXPOSE ${CLIENT_PORT_CONTAINER}
+
+SHELL [ "/bin/sh", "-c" ]
 
 CMD npx serve packages/client/dist \
   --config /app/packages/client/serve.json \
