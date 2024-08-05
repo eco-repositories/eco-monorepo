@@ -20,4 +20,6 @@ RUN npm -w server run build
 # Start
 RUN npm -w server ci --omit=dev
 
+SHELL [ "/bin/sh", "-c" ]
+
 CMD npm -w server start
