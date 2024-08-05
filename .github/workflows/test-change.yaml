@@ -8,6 +8,7 @@ on:
       - '.eslintrc.jsonc'
       - 'tsconfig.json'
 
+      - '.gitmodules'
       - 'package-lock.json'
       - 'package.json'
 
