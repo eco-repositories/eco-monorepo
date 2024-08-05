@@ -14,8 +14,7 @@
     "libs:build": "git submodule foreach \"npm run build -ws --if-present\"",
     "dc:build-base": "docker build -t base:latest -f base.dockerfile .",
     "dc:config": "docker compose --env-file docker-compose.env.local config",
-    "dc:resolve-env":
-      "npm run dc:config --silent -- --format=json | jq --arg service \"${SERVICE_NAME?}\" -r '.services[$service].environment // {} | to_entries | .[] | \"\\(.key)=\\(.value)\"'",
+    "dc:resolve-env": "npm run dc:config --silent -- --format=json | jq --arg service \"${SERVICE_NAME?}\" -r '.services[$service].environment // {} | to_entries | .[] | \"\\(.key)=\\(.value)\"'",
     "dc:up": "docker compose --env-file docker-compose.env.local up --build --detach --remove-orphans",
     "dc:down": "docker compose --env-file docker-compose.env.local down",
     "prestart": "npm run dc:build-base",
@@ -24,14 +23,14 @@
   },
   "overrides": {
     "@anatine/esbuild-decorators@0.2.19": {
-      "esbuild": "$esbuild"
+      "esbuild": "0.21.5"
     },
     "@nestjs/platform-express": {
-      "express": "$express-patched-CVE-2024-29041"
+      "express": "npm:express@4.19.2"
     },
-    "@types/node": "$@types/node",
+    "@types/node": "^20",
     "vite": {
-      "esbuild": "$esbuild"
+      "esbuild": "0.21.5"
     }
   },
   "TODO: update '@types/node' to '^22' once is it available": "",
