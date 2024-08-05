@@ -35,6 +35,7 @@
     "@typescript-eslint/strict-boolean-expressions": "off",
     "@typescript-eslint/no-misused-promises": "off",
     "@typescript-eslint/restrict-template-expressions": "off", // FIXME: the rule seems to be broken
+    "@typescript-eslint/no-throw-literal": "off", // FIXME: the rule doesn't go outside of the file to check the base class
 
     "semi": "off",
     "space-before-function-paren": "off"
