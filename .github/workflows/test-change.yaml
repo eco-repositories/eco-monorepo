@@ -5,7 +5,7 @@ on:
     paths:
       - 'packages/**'
       - '!packages/playground/**'
-      - '.eslintrc.base.cjs'
+      - '.eslintrc.jsonc'
       - 'tsconfig.json'
 
       - 'package-lock.json'
