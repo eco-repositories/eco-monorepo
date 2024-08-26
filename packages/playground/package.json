@@ -16,7 +16,7 @@
   "devDependencies": {
     "@types/node": "*",
     "tsc-alias": "1.8.10",
-    "tsx": "4.16.5",
+    "tsx": "4.18.0",
     "typescript": "*"
   }
 }
