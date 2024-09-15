@@ -1,4 +1,9 @@
 services:
+  mq:
+    ports:
+      - '${MQ_PORT_HOST}:${MQ_PORT_CONTAINER}'
+      - '${MQ_MANAGEMENT_PORT_HOST}:15672'
+
   db:
     volumes:
       - './volumes/db:/var/lib/postgresql/data'

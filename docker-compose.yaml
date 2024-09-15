@@ -1,4 +1,26 @@
 services:
+  mq:
+    image: rabbitmq:3-management-alpine
+    expose:
+      - '${MQ_PORT_CONTAINER}'
+    environment:
+      RABBITMQ_DEFAULT_USER: '${MQ_USER}'
+      RABBITMQ_DEFAULT_PASS: '${MQ_PASS}'
+      RABBITMQ_NODE_PORT: '${MQ_PORT_CONTAINER}'
+      RABBITMQ_CONSOLE_LOG: reuse
+    # deploy:
+    #   restart_policy:
+    #     condition: on-failure
+    #     delay: 2s
+    #     max_attempts: 5
+    #     window: 60s
+    # healthcheck:
+    #   test: rabbitmq-diagnostics -q ping
+    #   interval: 30s
+    #   timeout: 10s
+    #   retries: 5
+    #   start_period: 10s
+
   db:
     image: postgres:15-alpine
     environment:
@@ -23,6 +45,8 @@ services:
 
   server:
     depends_on:
+      mq:
+        condition: service_started # TODO: update to "service_healthy" after adding healthcheck
       db:
         condition: service_healthy
     build:
