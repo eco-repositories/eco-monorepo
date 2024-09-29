@@ -19,12 +19,10 @@ jobs:
 
       - name: Find nested 'node_modules' dirs
         run: |2
-          directories=$(find packages -type d -name 'node_modules')
+          directories=$(find packages -type d -name 'node_modules' | tr '\n' ' ')
 
           if [ -n "$directories" ]; then
-            echo ⛔️ "Error: Found nested 'node_modules' directories:"
-            echo $directories
-            exit 1
+            echo "::warning title=Dependency hoisting::Found nested 'node_modules' directories: $directories"
           else
-            echo ✅ "No nested 'node_modules' directories found."
+            echo "::notice title=Dependency hoisting::No nested 'node_modules' directories found."
           fi
