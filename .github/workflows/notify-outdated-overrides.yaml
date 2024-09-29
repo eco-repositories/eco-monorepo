@@ -36,31 +36,3 @@ jobs:
           else
             echo ✅ All override targets found
           fi
-
-  notify-CVE-2024-29041:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version-file: '/.nvmrc'
-
-      - run: npm i --no-save -D semver
-
-      - name: Check nested express version
-        shell: bash {0} # disable fail-fast
-        run: |2
-          nestjs_express_dependency_version=$(npm view @nestjs/platform-express@latest dependencies.express)
-
-          # exit code 0: version is patched
-          # exit code 1: version is affected
-          npx semver \
-            --include-prerelease \
-            --range "> 4.19.2 < 5 || >= 5.0.0-beta.3" \
-            --version "$nestjs_express_dependency_version"
-
-          if [ $? -eq 0 ]
-          then
-            echo "@nestjs/platform-express has been updated to use 'express@$nestjs_express_dependency_version', the override is outdated"
-            exit 1
-          fi

@@ -4,6 +4,7 @@ dist-ssr
 *.local
 coverage
 packages/client/vite.config.ts*.js
+packages/client/nginx.conf
 packages/playground/src/*
 !packages/playground/src/.gitkeep
 
