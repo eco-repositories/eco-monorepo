@@ -1,0 +1,12 @@
+events {}
+http {
+  server {
+    listen ${CLIENT_PORT_CONTAINER};
+
+    root /usr/share/nginx/html;
+
+    location / {
+      try_files $uri /index.html =404;
+    }
+  }
+}
