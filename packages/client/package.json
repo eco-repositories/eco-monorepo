@@ -29,7 +29,7 @@
     "@types/react": "18.3.3",
     "@types/react-dom": "18.3.0",
     "@typescript-eslint/eslint-plugin": "7.16.0",
-    "@typescript-eslint/parser": "6.13.2",
+    "@typescript-eslint/parser": "8.8.1",
     "@vitejs/plugin-react": "4.2.1",
     "eslint": "8.57.0",
     "eslint-config-standard-with-typescript": "40.0.0",
