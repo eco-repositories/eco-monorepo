@@ -15,7 +15,7 @@
     "build": "npm run build:ts && npm run build:vite"
   },
   "dependencies": {
-    "@reduxjs/toolkit": "2.2.6",
+    "@reduxjs/toolkit": "2.3.0",
     "axios": "1.7.7",
     "react": "18.3.1",
     "react-dom": "18.3.1",
