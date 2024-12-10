@@ -30,7 +30,7 @@
     "@types/react-dom": "18.3.0",
     "@typescript-eslint/eslint-plugin": "8.11.0",
     "@typescript-eslint/parser": "8.10.0",
-    "@vitejs/plugin-react": "4.3.3",
+    "@vitejs/plugin-react": "4.3.4",
     "eslint": "8.57.0",
     "eslint-config-standard-with-typescript": "40.0.0",
     "eslint-plugin-import": "2.29.1",
@@ -39,7 +39,7 @@
     "eslint-plugin-react": "7.37.2",
     "jsdom": "25.0.1",
     "typescript": "*",
-    "vite": "5.4.8",
-    "vitest": "2.0.5"
+    "vite": "5.4.11",
+    "vitest": "2.1.8"
   }
 }
