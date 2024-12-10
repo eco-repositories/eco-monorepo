@@ -15,7 +15,6 @@ export abstract class ErrorLogger<E extends Error> {
     return JSON.stringify(payload, null, 2)
   }
 
-  // eslint-disable-next-line n/handle-callback-err
   protected getDetails(error: E): readonly Api.HttpErrorResponseDetail[] {
     return []
   }
