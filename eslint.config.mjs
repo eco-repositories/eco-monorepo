@@ -1,4 +1,4 @@
-import typescriptEslint from "@typescript-eslint/eslint-plugin"
+import tsEslint from "@typescript-eslint/eslint-plugin"
 import tsParser from "@typescript-eslint/parser"
 import js from "@eslint/js"
 import { FlatCompat } from "@eslint/eslintrc"
@@ -19,7 +19,7 @@ export default [
   ...compat.extends("eslint:recommended", "plugin:@typescript-eslint/recommended"),
   {
     plugins: {
-      "@typescript-eslint": typescriptEslint,
+      "@typescript-eslint": tsEslint,
     },
 
     languageOptions: {
