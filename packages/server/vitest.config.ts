@@ -1,30 +1,33 @@
 import { defineConfig } from 'vitest/config'
 import { esbuildDecorators } from '@anatine/esbuild-decorators'
-import { resolve } from 'path'
+import { resolve, dirname } from 'path'
+import { fileURLToPath } from 'url'
+
+const rootDir = dirname(fileURLToPath(import.meta.url))
 
 export default defineConfig({
   resolve: {
     alias: [
       {
         find: /^@@libs\/@eco\/utils\/(.*)$/,
-        replacement: resolve(__dirname, '../..', 'libs/@eco/utils/packages/utils/dist/src/$1'),
+        replacement: resolve(rootDir, '../..', 'libs/@eco/utils/packages/utils/dist/src/$1'),
       },
       {
         find: /^@@shared\/(.*)$/,
-        replacement: resolve(__dirname, '..', 'shared/dist/src/$1'),
+        replacement: resolve(rootDir, '..', 'shared/dist/src/$1'),
       },
       {
         find: /^@\/(.*)$/,
-        replacement: resolve(__dirname, 'src/$1'),
+        replacement: resolve(rootDir, 'src/$1'),
       },
     ],
   },
   test: {
-    root: __dirname,
+    root: rootDir,
     globals: true,
     mockReset: true,
     setupFiles: [
-      resolve(__dirname, 'vitest.setup.ts'),
+      resolve(rootDir, 'vitest.setup.ts'),
     ],
     resolveSnapshotPath(path, extension) {
       return path
@@ -56,7 +59,7 @@ export default defineConfig({
               Manually override esbuild to be of the same after-the-fix version for everyone
          */
         esbuildDecorators({
-          tsconfig: resolve(__dirname, 'tsconfig.json'),
+          tsconfig: resolve(rootDir, 'tsconfig.json'),
         }),
       ],
     },
