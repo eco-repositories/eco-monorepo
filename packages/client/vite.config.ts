@@ -1,6 +1,9 @@
 import react from '@vitejs/plugin-react'
 import { defineConfig, ViteUserConfig } from 'vitest/config'
-import { resolve } from 'path'
+import { resolve, dirname } from 'path'
+import { fileURLToPath } from 'url'
+
+const rootDir = dirname(fileURLToPath(import.meta.url))
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -11,15 +14,15 @@ export default defineConfig({
     alias: [
       {
         find: /^@@libs\/@eco\/utils\/(.*)$/,
-        replacement: resolve(__dirname, '..', '../../libs/@eco/utils/packages/utils/dist/src/$1'),
+        replacement: resolve(rootDir, '..', '../../libs/@eco/utils/packages/utils/dist/src/$1'),
       },
       {
         find: /^@@shared\/(.*)$/,
-        replacement: resolve(__dirname, '..', 'shared/dist/src/$1'),
+        replacement: resolve(rootDir, '..', 'shared/dist/src/$1'),
       },
       {
         find: /^@\/(.*)$/,
-        replacement: resolve(__dirname, 'src/$1'),
+        replacement: resolve(rootDir, 'src/$1'),
       },
     ],
   },
@@ -31,7 +34,7 @@ export default defineConfig({
     environment: 'jsdom',
     restoreMocks: true,
     setupFiles: [
-      resolve(__dirname, 'vitest.setup.ts'),
+      resolve(rootDir, 'vitest.setup.ts'),
     ],
     resolveSnapshotPath(path, extension) {
       return path.replace('.spec', extension)
