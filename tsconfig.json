@@ -12,6 +12,8 @@
 
     // Development
     "strict": true,
+    "allowJs": true,
+    "checkJs": true,
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
     "noImplicitOverride": true,

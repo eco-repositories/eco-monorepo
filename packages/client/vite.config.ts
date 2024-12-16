@@ -1,11 +1,11 @@
 import react from '@vitejs/plugin-react'
-import { defineConfig } from 'vitest/config'
+import { defineConfig, ViteUserConfig } from 'vitest/config'
 import { resolve } from 'path'
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
-    react(),
+    react() as ViteUserConfig['plugins'], // FIXME: https://github.com/vitest-dev/vitest/issues/4048
   ],
   resolve: {
     alias: [
