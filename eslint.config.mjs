@@ -26,7 +26,6 @@ export default [
       parser: tsParser,
       ecmaVersion: 5,
       sourceType: "module",
-
       parserOptions: {
         project: "./tsconfig.json",
       },
@@ -38,7 +37,6 @@ export default [
       indent: ["error", 2, {
         SwitchCase: 1,
         flatTernaryExpressions: false,
-
         ignoredNodes: [
           "PropertyDefinition[decorators]",
           "TSUnionType",
