@@ -3,17 +3,13 @@ import configBase from "../../eslint.config.mjs"
 
 export default [
   {
-    ignores: [
-      "**/*.snap.ts",
-      "**/*.snap.tsx",
-    ],
+    ignores: ["**/*.snap.ts"],
   },
   ...configBase,
   {
     languageOptions: {
       globals: {
-        ...globals.browser,
-        AudioWorkletGlobalScope: false,
+        ...globals.node,
         ...globals.jest,
       },
 
