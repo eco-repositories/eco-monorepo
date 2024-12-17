@@ -1,6 +1,7 @@
 import { NestFactory } from '@nestjs/core'
 import { AppModule } from './app/app.module.js'
 import { decorateApp } from './app/decorate-app.js'
+import { setupDocsEndpoint } from './app/setup-docs-endpoint.js'
 import { createLogger } from './common/create-logger.js'
 import { ConfigModule } from './config/config.module.js'
 import { ConfigService } from './config/config.service.js'
@@ -27,6 +28,18 @@ async function bootstrap(): Promise<void> {
   const app = await NestFactory.create(appModule, { logger })
 
   decorateApp(app)
+
+  const docsEndpointEnabled = config.get(config.keys.DOCS_ENDPOINT_ENABLED)
+
+  if (docsEndpointEnabled) {
+    setupDocsEndpoint(app, {
+      pathname: config.get(config.keys.DOCS_ENDPOINT_PATHNAME),
+      title: config.get(config.keys.DOCS_TITLE),
+      version: config.get(config.keys.DOCS_VERSION),
+      basePath: config.get(config.keys.DOCS_BASE_PATH),
+      description: config.get(config.keys.DOCS_DESCRIPTION),
+    })
+  }
 
   const port = config.get(config.keys.PORT)
   const mode = config.get(config.keys.NODE_ENV)
