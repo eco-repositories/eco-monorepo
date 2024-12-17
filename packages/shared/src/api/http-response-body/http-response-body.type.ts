@@ -1,4 +1,4 @@
-import { type Pagination } from '@/pagination/pagination.type.js'
+import { type Pagination } from '@@libs/@eco/utils/pagination/pagination.type.js'
 
 export interface HttpResponseBody<Result> {
   readonly result: Result

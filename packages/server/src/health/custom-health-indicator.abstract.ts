@@ -24,7 +24,6 @@ export abstract class CustomHealthIndicator<
 // eslint-disable-next-line @typescript-eslint/no-namespace
 export namespace CustomHealthIndicator {
   export interface WithCheckHealth {
-    // eslint-disable-next-line @typescript-eslint/method-signature-style
     checkHealth(): HealthIndicatorResult | PromiseLike<HealthIndicatorResult>
   }
 }

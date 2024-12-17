@@ -2,11 +2,11 @@
 
 | path to file | path to text | current text |
 -|-|-
-[`/package.json`](/package.json) | `$.name` | `"try-monorepo"`
+[`/package.json`](/package.json) | `$.name` | `"eco-monorepo"`
 [`/package.json`](/package.json) | `$.author` | `"Dmytro Parzhytskyi <parzhitsky@gmail.com>"`
-[`/package.json`](/package.json) | `$.repository` | `"https://github.com/parzhitsky/try-monorepo"`
-[`/package-lock.json`](/package-lock.json) | `$.name` | `"try-monorepo"`
-[`/package-lock.json`](/package-lock.json) | `$.packages[""].name` | `"try-monorepo"`
+[`/package.json`](/package.json) | `$.repository` | `"https://github.com/eco-repositories/eco-monorepo"`
+[`/package-lock.json`](/package-lock.json) | `$.name` | `"eco-monorepo"`
+[`/package-lock.json`](/package-lock.json) | `$.packages[""].name` | `"eco-monorepo"`
 [`/packages/client/index.html`](/packages/client/index.html) | `html>head>title` | `"Client App"`
 
 ## Starting the application stack
@@ -98,3 +98,5 @@ To start the application stack without Docker, it is necessary to setup/build/st
   - Stop the client (press <kbd>Q</kbd> in the client terminal)
 
   - Stop the server (press <kbd>Ctrl</kbd>+<kbd>C</kbd> in the server terminal)
+
+<!-- This line is here to allow triggering CI … -->

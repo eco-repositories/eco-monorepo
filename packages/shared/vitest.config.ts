@@ -1,22 +1,27 @@
 import { defineConfig } from 'vitest/config'
-import { resolve } from 'path'
+import { resolve, dirname } from 'path'
+import { fileURLToPath } from 'url'
+
+const rootDir = dirname(fileURLToPath(import.meta.url))
 
 export default defineConfig({
   resolve: {
     alias: [
       {
+        find: /^@@libs\/@eco\/utils\/(.*)$/,
+        replacement: resolve(rootDir, '../..', 'libs/@eco/utils/packages/utils/dist/src/$1'),
+      },
+      {
         find: /^@\/(.*)$/,
-        replacement: resolve(__dirname, 'src/$1'),
+        replacement: resolve(rootDir, 'src/$1'),
       },
     ],
   },
   test: {
-    root: __dirname,
+    root: rootDir,
     globals: true,
     mockReset: true,
-    setupFiles: [
-      './mock-math-random.ts',
-    ],
+    passWithNoTests: true,
     resolveSnapshotPath(path, extension) {
       return path.replace('.spec', extension)
     },

@@ -1,5 +1,5 @@
+import { type JsonStringifiable } from '@@libs/@eco/utils/json-stringifiable/json-stringifiable.type.js'
 import { createLogger } from '@/common/create-logger.js'
-import { type JsonStringifiable } from '@@shared/json-stringifiable/json-stringifiable.type.js'
 
 export type ErrorLogLevel = 'error' | 'warn'
 
@@ -15,7 +15,6 @@ export abstract class ErrorLogger<E extends Error> {
     return JSON.stringify(payload, null, 2)
   }
 
-  // eslint-disable-next-line n/handle-callback-err
   protected getDetails(error: E): readonly Api.HttpErrorResponseDetail[] {
     return []
   }

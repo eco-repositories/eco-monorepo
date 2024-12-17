@@ -1,0 +1,28 @@
+name: Notify when a new '/packages/**/node_modules' directory appears
+
+on:
+  push:
+    paths:
+      - '**/package*.json'
+      - '.github/workflows/**'
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: '/.nvmrc'
+
+      - run: npm ci
+
+      - name: Find nested 'node_modules' dirs
+        run: |2
+          directories=$(find packages -type d -name 'node_modules' | tr '\n' ' ')
+
+          if [ -n "$directories" ]; then
+            echo "::warning title=Dependency hoisting::Found nested 'node_modules' directories: $directories"
+          else
+            echo "::notice title=Dependency hoisting::No nested 'node_modules' directories found."
+          fi
