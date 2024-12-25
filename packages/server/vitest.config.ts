@@ -20,6 +20,10 @@ export default defineConfig({
         find: /^@\/(.*)$/,
         replacement: resolve(rootDir, 'src/$1'),
       },
+      {
+        find: /^@@\/(.*)$/,
+        replacement: __dirname,
+      },
     ],
   },
   test: {

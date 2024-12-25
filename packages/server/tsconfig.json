@@ -12,6 +12,7 @@
     "paths": {
       "@@libs/@eco/utils/*": ["../../libs/@eco/utils/packages/utils/dist/src/*"],
       "@@shared/*": ["../shared/dist/src/*"],
+      "@@/*": ["./*"],
       "@/*": ["./src/*"],
     },
   },
