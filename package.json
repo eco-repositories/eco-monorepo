@@ -34,7 +34,7 @@
     "@eslint/eslintrc": "3.2.0",
     "@types/eslint__eslintrc": "2.1.2",
     "@types/node": "^22",
-    "esbuild": "0.24.0",
+    "esbuild": "0.24.2",
     "typescript": "5.7.2"
   }
 }
