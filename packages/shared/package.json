@@ -24,7 +24,7 @@
     "@nestjs/terminus": "10.2.3",
     "@types/node": "*",
     "@typescript-eslint/eslint-plugin": "8.18.1",
-    "@typescript-eslint/parser": "8.18.1",
+    "@typescript-eslint/parser": "8.19.1",
     "eslint": "9.17.0",
     "eslint-plugin-import": "2.31.0",
     "eslint-plugin-n": "17.15.1",
