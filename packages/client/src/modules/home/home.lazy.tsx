@@ -1,6 +1,6 @@
-import React from 'react'
+import { lazy } from 'react'
 
-export const Home = React.lazy(async () => {
+export const Home = lazy(async () => {
   const module = await import('./home.js')
 
   return {
