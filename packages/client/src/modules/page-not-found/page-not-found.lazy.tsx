@@ -1,6 +1,6 @@
-import React from 'react'
+import { lazy } from 'react'
 
-export const PageNotFound = React.lazy(async () => {
+export const PageNotFound = lazy(async () => {
   const module = await import('./page-not-found.js')
 
   return {
