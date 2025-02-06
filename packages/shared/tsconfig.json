@@ -3,6 +3,10 @@
   "references": [
     { "path": "../../libs/@eco/utils/packages/utils/tsconfig.build.json" },
   ],
+  "include": [
+    "src",
+    "./*.ts",
+  ],
   "compilerOptions": {
     "outDir": "dist",
     "composite": true,
