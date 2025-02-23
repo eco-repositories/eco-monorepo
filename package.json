@@ -22,8 +22,8 @@
     "stop": "npm run dc:down"
   },
   "overrides": {
-    "esbuild": "0.25.0",
-    "@types/node": "^22"
+    "esbuild": "$esbuild",
+    "@types/node": "$@types/node"
   },
   "devDependencies": {
     "@eslint/eslintrc": "3.2.0",
