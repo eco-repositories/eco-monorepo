@@ -1,5 +1,7 @@
 events {}
 http {
+  include mime.types;
+
   server {
     listen ${CLIENT_PORT_CONTAINER};
 
