@@ -22,13 +22,8 @@
     "stop": "npm run dc:down"
   },
   "overrides": {
-    "@anatine/esbuild-decorators@0.2.19": {
-      "esbuild": "$esbuild"
-    },
-    "@types/node": "$@types/node",
-    "vite": {
-      "esbuild": "$esbuild"
-    }
+    "esbuild": "0.25.0",
+    "@types/node": "^22"
   },
   "devDependencies": {
     "@eslint/eslintrc": "3.2.0",
