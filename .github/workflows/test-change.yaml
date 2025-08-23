@@ -39,7 +39,7 @@ jobs:
         run: npm ci
 
       - name: Lint all source files
-        run: npm run lint -ws --if-present
+        run: npm run lint --ws --if-present
 
   build:
     runs-on: ubuntu-latest
