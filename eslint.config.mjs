@@ -34,15 +34,16 @@ export default [
     rules: {
       "comma-dangle": ["error", "always-multiline"],
 
-      indent: ["error", 2, {
-        SwitchCase: 1,
-        flatTernaryExpressions: false,
-        ignoredNodes: [
-          "PropertyDefinition[decorators]",
-          "TSUnionType",
-          "FunctionExpression[params]:has(Identifier[decorators])",
-        ],
-      }],
+      indent: "off",
+      // indent: ["error", 2, {
+      //   SwitchCase: 1,
+      //   flatTernaryExpressions: false,
+      //   ignoredNodes: [
+      //     "PropertyDefinition[decorators]",
+      //     "TSUnionType",
+      //     "FunctionExpression[params]:has(Identifier[decorators])",
+      //   ],
+      // }],
 
       "@typescript-eslint/no-unused-vars": "off",
       "@typescript-eslint/no-empty-object-type": "off",
