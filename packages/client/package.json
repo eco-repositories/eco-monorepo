@@ -18,7 +18,7 @@
     "@reduxjs/toolkit": "2.5.1",
     "axios": "1.11.0",
     "react": "18.3.1",
-    "react-dom": "18.3.1",
+    "react-dom": "19.1.1",
     "react-redux": "9.2.0",
     "react-router-dom": "7.8.2"
   },
@@ -29,7 +29,7 @@
     "@testing-library/react": "16.2.0",
     "@types/node": "*",
     "@types/react": "18.3.14",
-    "@types/react-dom": "18.3.3",
+    "@types/react-dom": "19.1.7",
     "@typescript-eslint/eslint-plugin": "*",
     "@typescript-eslint/parser": "*",
     "@vitejs/plugin-react": "4.3.4",
