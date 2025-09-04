@@ -5,7 +5,7 @@ export type ErrorLogLevel = 'error' | 'warn'
 
 export abstract class ErrorLogger<E extends Error> {
   constructor(
-    protected readonly logger = createLogger(new.target.name),
+    protected readonly logger = createLogger(new.target),
   ) {}
 
   protected abstract getLogLevel(error: E): ErrorLogLevel

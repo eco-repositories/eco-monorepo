@@ -10,7 +10,7 @@ import { httpExceptionToHttpErrorResponseBody } from './http-exception-to-http-e
 
 @Catch()
 export class AppErrorFilter extends BaseExceptionFilter {
-  protected readonly logger = createLogger(this.constructor.name)
+  protected readonly logger = createLogger(this.constructor)
   protected readonly errorLoggerAppError = new ErrorLoggerAppError(this.logger)
   protected readonly errorLoggerHttpException = new ErrorLoggerHttpException(this.logger)
 
