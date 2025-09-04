@@ -10,15 +10,12 @@ export { type DataSourceOptions } from 'typeorm'
 /** @private Path to `/src` or `/dist` */
 const packageSourceCodeDirPath = fileURLToPath(new URL('../..', import.meta.url))
 
-/** @private */
-const dbLogger = new DbLogger()
-
 export const DATA_SOURCE_OPTIONS_PROVIDER = Symbol('DATA_SOURCE_OPTIONS_PROVIDER')
 
 export const dataSourceOptionsProvider: Provider<DataSourceOptions> = {
   provide: DATA_SOURCE_OPTIONS_PROVIDER,
-  inject: [ConfigService],
-  useFactory: (config: ConfigService) => ({
+  inject: [ConfigService, DbLogger],
+  useFactory: (config: ConfigService, dbLogger: DbLogger) => ({
     type: 'postgres',
     host: config.get(config.keys.DB_HOST),
     port: +config.get(config.keys.DB_PORT),
