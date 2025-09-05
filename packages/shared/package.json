@@ -33,5 +33,9 @@
     "eslint-plugin-promise": "7.2.1",
     "typescript": "*",
     "vitest": "3.2.4"
+  },
+  "dependencies": {
+    "class-transformer": "0.5.1",
+    "class-validator": "0.14.1"
   }
 }
