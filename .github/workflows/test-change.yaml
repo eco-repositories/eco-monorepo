@@ -12,7 +12,7 @@ on:
       - 'package.json'
 
       - '.github/workflows/**'
-      - '*.dockerfile'
+      - 'dockerfile'
       - 'docker-compose.yaml'
 
 jobs:
