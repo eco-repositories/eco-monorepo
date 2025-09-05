@@ -21,12 +21,15 @@
     "migration:run": "npm run _orm -- migration:run"
   },
   "dependencies": {
+    "@keyv/redis": "5.1.1",
+    "@nestjs/cache-manager": "3.0.1",
     "@nestjs/common": "11.1.6",
     "@nestjs/config": "4.0.0",
     "@nestjs/core": "11.1.6",
     "@nestjs/platform-express": "11.1.6",
     "@nestjs/terminus": "11.0.0",
     "@nestjs/typeorm": "11.0.0",
+    "cache-manager": "7.2.0",
     "class-transformer": "0.5.1",
     "class-validator": "0.14.1",
     "express-rate-limit": "7.5.0",
