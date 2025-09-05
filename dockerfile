@@ -70,7 +70,7 @@ ENV VITE_SERVER_BASE_URL=$VITE_SERVER_BASE_URL
 RUN npm -w client run build
 
 # Start
-FROM nginx:1-alpine
+FROM nginx:1-alpine AS client
 
 WORKDIR /
 
