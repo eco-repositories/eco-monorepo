@@ -21,9 +21,29 @@ services:
       timeout: 10s
       retries: 30
 
+  cache:
+    image: redis:8-alpine
+    expose:
+      - '${CACHE_PORT_CONTAINER}'
+    command: |2
+      redis-server --port '${CACHE_PORT_CONTAINER}' --requirepass '${CACHE_PASS}' --save 60 1 --loglevel warning
+    deploy:
+      restart_policy:
+        condition: on-failure
+        delay: 2s
+        max_attempts: 5
+        window: 60s
+    healthcheck:
+      test: redis-cli ping
+      interval: 1s
+      timeout: 10s
+      retries: 30
+
   server:
     depends_on:
       db:
+        condition: service_healthy
+      cache:
         condition: service_healthy
     build:
       context: '.'
@@ -35,6 +55,11 @@ services:
       DB_NAME:
       DB_USER:
       DB_PASS:
+      CACHE_PROTOCOL: redis
+      CACHE_HOST: cache
+      CACHE_PORT: '${CACHE_PORT_CONTAINER}'
+      CACHE_USER: 'default'
+      CACHE_PASS: '${CACHE_PASS}'
     ports:
       - '${SERVER_PORT_HOST}:${SERVER_PORT_CONTAINER}'
 

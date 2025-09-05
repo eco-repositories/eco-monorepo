@@ -13,6 +13,11 @@ describe(validateConfig.name, () => {
     DB_NAME: 'db',
     DB_USER: 'dbUser',
     DB_PASS: 'dbPass',
+    CACHE_PROTOCOL: 'redis',
+    CACHE_HOST: 'cache',
+    CACHE_PORT: '6379',
+    CACHE_USER: '',
+    CACHE_PASS: 'cachePass',
   }
 
   it(`should convert plain valid config objects to instances of ${ConfigDTO.name}`, () => {

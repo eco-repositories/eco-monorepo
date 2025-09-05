@@ -1,4 +1,5 @@
 import { type MiddlewareConsumer, Module, type NestModule, type DynamicModule } from '@nestjs/common'
+import { CacheModule } from '@/cache/cache.module.js'
 import { ConfigModule } from '@/config/config.module.js'
 import { DbModule } from '@/db/db.module.js'
 import { HealthModule } from '@/health/health.module.js'
@@ -16,6 +17,7 @@ interface RegisterParams {
   imports: [
     ConfigModule,
     DbModule,
+    CacheModule,
     HealthModule,
   ],
   providers: [
