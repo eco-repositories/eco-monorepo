@@ -11,6 +11,12 @@ services:
     ports:
       - '${CACHE_PORT_HOST}:${CACHE_PORT_CONTAINER}'
 
+  greeter:
+    environment:
+      NODE_ENV: development
+    ports:
+      - '${GREETER_PORT_HOST}:${GREETER_PORT_CONTAINER}'
+
   server:
     environment:
       NODE_ENV: development
