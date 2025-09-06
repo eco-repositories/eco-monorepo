@@ -10,22 +10,6 @@ export default defineConfig({
   plugins: [
     react() as ViteUserConfig['plugins'], // FIXME: https://github.com/vitest-dev/vitest/issues/4048
   ],
-  resolve: {
-    alias: [
-      {
-        find: /^@@libs\/@eco\/utils\/(.*)$/,
-        replacement: resolve(rootDir, '..', '../../libs/@eco/utils/packages/utils/dist/src/$1'),
-      },
-      {
-        find: /^@@shared\/(.*)$/,
-        replacement: resolve(rootDir, '..', 'shared/dist/src/$1'),
-      },
-      {
-        find: /^@\/(.*)$/,
-        replacement: resolve(rootDir, 'src/$1'),
-      },
-    ],
-  },
   build: {
     sourcemap: true,
   },

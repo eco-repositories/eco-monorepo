@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common'
 import { NestFactory } from '@nestjs/core'
 import { DataSource } from 'typeorm'
-import { ConfigModule } from '@/config/config.module.js'
+import { ConfigModule } from '#@/config/config.module.js'
 import { DataSourceModule } from './data-source.module.js'
 import { DATA_SOURCE_OPTIONS_PROVIDER, type DataSourceOptions } from './data-source-options.provider.js'
 
@@ -12,7 +12,7 @@ import { DATA_SOURCE_OPTIONS_PROVIDER, type DataSourceOptions } from './data-sou
     DataSourceModule,
   ],
 })
-class TempModule {}
+class TempModule { }
 
 /** @private */
 async function getDataSourceInstance(): Promise<DataSource> {

@@ -1,6 +1,6 @@
 import { Injectable, type LogLevel as LoggerMethodName } from '@nestjs/common'
 import { AbstractLogger, type LogLevel, type LogMessage, type LogMessageType } from 'typeorm'
-import { createLogger } from '@/common/create-logger.js'
+import { createLogger } from '#@/common/create-logger.js'
 
 /** @private */
 type LogType = LogMessageType | LogLevel

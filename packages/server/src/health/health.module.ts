@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common'
 import { TerminusModule } from '@nestjs/terminus'
-import { DbModule } from '@/db/db.module.js'
+import { DbModule } from '#@/db/db.module.js'
 import { BasicHealthIndicator } from './basic.health.js'
 import { HealthController } from './health.controller.js'
 import { HealthService } from './health.service.js'
@@ -20,4 +20,4 @@ import { HealthService } from './health.service.js'
     HealthController,
   ],
 })
-export class HealthModule {}
+export class HealthModule { }

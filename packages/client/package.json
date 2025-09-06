@@ -3,6 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "type": "module",
+  "imports": {
+    "#@/*": "./src/*"
+  },
   "scripts": {
     "test": "vitest",
     "preview": "vite preview",
@@ -39,6 +42,7 @@
     "eslint-plugin-promise": "7.2.1",
     "eslint-plugin-react": "7.37.4",
     "jsdom": "26.0.0",
+    "shared": "file:../shared",
     "typescript": "*",
     "vite": "6.3.5",
     "vitest": "3.0.6"

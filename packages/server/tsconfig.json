@@ -5,14 +5,7 @@
     { "path": "../../libs/@eco/utils/packages/utils/tsconfig.build.json" },
   ],
   "compilerOptions": {
+    "rootDir": ".",
     "outDir": "dist",
-
-    // Alias
-    "baseUrl": ".",
-    "paths": {
-      "@@libs/@eco/utils/*": ["../../libs/@eco/utils/packages/utils/dist/src/*"],
-      "@@shared/*": ["../shared/dist/src/*"],
-      "@/*": ["./src/*"],
-    },
   },
 }

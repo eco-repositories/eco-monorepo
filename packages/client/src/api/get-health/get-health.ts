@@ -1,5 +1,5 @@
 import { isAxiosError } from 'axios'
-import { client } from '@/api/client.js'
+import { client } from '#@/api/client.js'
 
 export type Health = Api.HealthCheckResult
 

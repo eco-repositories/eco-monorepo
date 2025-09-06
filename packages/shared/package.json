@@ -3,11 +3,13 @@
   "version": "0.0.1",
   "private": true,
   "type": "module",
+  "imports": {
+    "#@/*": "./src/*"
+  },
   "exports": {
-    ".": null,
     "./*.js": {
-      "types": "./dist/*.d.ts",
-      "import": "./dist/*.js"
+      "types": "./dist/src/*.d.ts",
+      "import": "./dist/src/*.js"
     }
   },
   "scripts": {
@@ -21,6 +23,7 @@
   "devDependencies": {
     "@eslint/eslintrc": "*",
     "@eslint/js": "*",
+    "@libs--eco/utils": "file:../../libs/@eco/utils/packages/utils",
     "@nestjs/terminus": "11.0.0",
     "@types/node": "*",
     "@typescript-eslint/eslint-plugin": "*",

@@ -22,9 +22,7 @@
     // Alias
     "baseUrl": ".",
     "paths": {
-      "@@libs/@eco/utils/*": ["../../libs/@eco/utils/packages/utils/dist/src/*"],
-      "@@shared/*": ["../shared/dist/src/*"],
-      "@/*": ["./src/*"],
+      "shared/*": ["../shared/dist/src/*"], // FIXME: shouldn't be needed
     },
   },
 }

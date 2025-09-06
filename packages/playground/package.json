@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
+  "imports": {
+    "#@/*": "./src/*"
+  },
   "exports": null,
   "scripts": {
     "predev": "touch src/index.ts",
@@ -14,7 +17,9 @@
     "postbuild": "npm run resolve-path-aliases"
   },
   "devDependencies": {
+    "@libs--eco/utils": "file:../../libs/@eco/utils/packages/utils",
     "@types/node": "*",
+    "shared": "file:../shared",
     "tsc-alias": "1.8.10",
     "tsx": "4.19.2",
     "typescript": "*"

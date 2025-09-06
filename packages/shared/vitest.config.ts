@@ -8,10 +8,6 @@ export default defineConfig({
   resolve: {
     alias: [
       {
-        find: /^@@libs\/@eco\/utils\/(.*)$/,
-        replacement: resolve(rootDir, '../..', 'libs/@eco/utils/packages/utils/dist/src/$1'),
-      },
-      {
         find: /^@\/(.*)$/,
         replacement: resolve(rootDir, 'src/$1'),
       },

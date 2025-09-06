@@ -1,4 +1,4 @@
-import { validateAgainstModel } from '@/common/validate-against-model.js'
+import { validateAgainstModel } from '#@/common/validate-against-model.js'
 import { ConfigDTO } from './config.dto.js'
 
 export function validateConfig(configPlain: object): ConfigDTO {
