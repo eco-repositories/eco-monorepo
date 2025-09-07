@@ -23,7 +23,7 @@ RUN npm run libs:build
 RUN npm -w shared run build
 
 # Setup
-FROM base:latest AS server
+FROM base AS server
 
 WORKDIR /app
 
@@ -50,7 +50,7 @@ SHELL [ "/bin/sh", "-c" ]
 CMD npm -w server start
 
 # Setup
-FROM base:latest AS client-setup
+FROM base AS client-setup
 
 WORKDIR /app
 
