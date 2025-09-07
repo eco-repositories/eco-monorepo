@@ -1,17 +1,15 @@
-import { defineConfig } from 'vitest/config'
 import esbuildPluginTsc from 'esbuild-plugin-tsc'
-import { resolve, dirname } from 'path'
-import { fileURLToPath } from 'url'
+import { defineConfig } from 'vitest/config'
+import { resolvePath } from 'shared/resolve-path/resolve-path.js'
 
-const rootDir = dirname(fileURLToPath(import.meta.url))
+const resolve = resolvePath.bind(null, import.meta.url)
 
 export default defineConfig({
   test: {
-    root: rootDir,
     globals: true,
     mockReset: true,
     setupFiles: [
-      resolve(rootDir, 'vitest.setup.ts'),
+      resolve('vitest.setup.ts'),
     ],
     resolveSnapshotPath(path, extension) {
       return path
@@ -23,7 +21,7 @@ export default defineConfig({
     esbuildOptions: {
       plugins: [
         esbuildPluginTsc({
-          tsconfigPath: resolve(rootDir, 'tsconfig.json'),
+          tsconfigPath: resolve('tsconfig.json'),
         }),
       ],
     },
