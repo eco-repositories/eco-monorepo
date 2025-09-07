@@ -5,6 +5,7 @@
     { "path": "../../libs/@eco/utils/packages/utils/tsconfig.build.json" },
   ],
   "compilerOptions": {
+    "rootDir": "src",
     "outDir": "dist",
     "noEmit": false,
   }

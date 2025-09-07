@@ -28,14 +28,13 @@
   "devDependencies": {
     "@eslint/eslintrc": "*",
     "@eslint/js": "*",
-    "@testing-library/jest-dom": "6.6.3",
-    "@testing-library/react": "16.2.0",
+    "@testing-library/react": "16.3.0",
     "@types/node": "*",
     "@types/react": "18.3.14",
     "@types/react-dom": "18.3.3",
     "@typescript-eslint/eslint-plugin": "*",
     "@typescript-eslint/parser": "*",
-    "@vitejs/plugin-react": "4.3.4",
+    "@vitejs/plugin-react": "5.0.2",
     "eslint": "*",
     "eslint-plugin-import": "2.31.0",
     "eslint-plugin-n": "17.15.1",
@@ -44,7 +43,7 @@
     "jsdom": "26.0.0",
     "shared": "file:../shared",
     "typescript": "*",
-    "vite": "6.3.5",
-    "vitest": "3.0.6"
+    "vite": "7.1.4",
+    "vitest": "3.2.4"
   }
 }

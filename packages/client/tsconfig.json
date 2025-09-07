@@ -9,20 +9,11 @@
     { "path": "../../libs/@eco/utils/packages/utils/tsconfig.build.json" },
   ],
   "compilerOptions": {
-    // Output
     "esModuleInterop": true,
-
-    // Development
     "jsx": "react-jsx",
     "lib": [
       "dom",
       "esnext",
     ],
-
-    // Alias
-    "baseUrl": ".",
-    "paths": {
-      "shared/*": ["../shared/dist/src/*"], // FIXME: shouldn't be needed
-    },
   },
 }
