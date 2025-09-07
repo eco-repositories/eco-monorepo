@@ -100,9 +100,5 @@ jobs:
       - name: Build all submodules
         run: npm run libs:build
 
-      - name: Build shared package
-        if: matrix.workspace != 'shared'
-        run: npm --workspace shared run build
-
       - name: Test '${{ matrix.workspace }}' on ${{ matrix.os }}
         run: npm --workspace ${{ matrix.workspace }} test
