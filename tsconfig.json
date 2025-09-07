@@ -20,6 +20,6 @@
     "resolveJsonModule": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
-    "skipLibCheck": false, // TODO: set to `true`
+    "skipLibCheck": true,
   }
 }
