@@ -9,6 +9,7 @@
   "scripts": {
     "prebuild": "rm -rf dist/*",
     "build": "nest build",
+    "postbuild": "test -f .env.local && cp .env.local dist || true",
     "start": "node --enable-source-maps dist/src/main.js",
     "_sorry_no_watch_mode": "echo \u001b[31mError\u001b[0m: Package \u001b[1mtsconfig-paths\u001b[0m, used by nest --watch, \u001b[1mdoes not support ESM\u001b[0m && exit 1",
     "dev": "npm run --silent _sorry_no_watch_mode && nest start --watch",
