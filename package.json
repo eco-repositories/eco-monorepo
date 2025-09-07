@@ -5,8 +5,7 @@
   "private": true,
   "repository": "https://github.com/eco-repositories/eco-monorepo",
   "workspaces": [
-    "packages/**/*",
-    "libs/**/*"
+    "packages/**/*"
   ],
   "scripts": {
     "play": "npm -w playground run dev",
