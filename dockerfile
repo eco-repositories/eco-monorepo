@@ -33,6 +33,7 @@ COPY ./packages/server/package.json ./packages/server/
 RUN npm -w server ci
 
 # Build
+COPY --from=base /app/packages/shared/dist/ ./packages/shared/dist/
 COPY ./tsconfig*.json ./
 COPY ./packages/server/src/ ./packages/server/src/
 COPY \
@@ -59,6 +60,7 @@ COPY ./packages/client/package.json ./packages/client/
 RUN npm -w client ci
 
 # Build
+COPY --from=base /app/packages/shared/dist/ ./packages/shared/dist/
 COPY ./tsconfig*.json ./
 COPY ./packages/client/src/ ./packages/client/src/
 COPY \
