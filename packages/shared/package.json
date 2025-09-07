@@ -4,7 +4,10 @@
   "private": true,
   "type": "module",
   "imports": {
-    "#@/*": "./dist/src/*"
+    "#@/*": [
+      "./dist/src/*",
+      "./src/*"
+    ]
   },
   "exports": {
     "./*.js": {
