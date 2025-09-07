@@ -10,6 +10,7 @@ COPY ./packages/shared/package.json ./packages/shared/
 
 RUN apk add --no-cache git
 RUN npm run libs:init
+RUN npm run libs:pull
 RUN npm run libs:install
 RUN npm -w shared ci
 

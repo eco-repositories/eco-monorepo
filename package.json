@@ -11,6 +11,7 @@
   "scripts": {
     "play": "npm -w playground run dev",
     "libs:init": "git submodule update --init --recursive",
+    "libs:pull": "git submodule foreach \"git checkout main && git pull --all --prune\"",
     "libs:install": "git submodule foreach \"npm ci\"",
     "libs:build": "git submodule foreach \"npm run build --ws --if-present\"",
     "dc:config": "docker compose --env-file docker-compose.env.local config",
