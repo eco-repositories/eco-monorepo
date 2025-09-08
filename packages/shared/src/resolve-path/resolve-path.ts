@@ -8,7 +8,9 @@ export function resolvePath(this: unknown, baseUrl: string | URL, ...parts: read
     throw new PathPartAbsoluteError(absolute)
   }
 
-  baseUrl = new URL(baseUrl)
+  if (!(baseUrl instanceof URL)) {
+    baseUrl = new URL(baseUrl)
+  }
 
   if (baseUrl.protocol !== 'file:') {
     throw new BaseUrlNotFileUrlError(baseUrl)
