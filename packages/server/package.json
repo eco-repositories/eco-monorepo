@@ -4,10 +4,7 @@
   "private": true,
   "type": "module",
   "imports": {
-    "#@/*": [
-      "./dist/src/*",
-      "./src/*"
-    ]
+    "#@/*": "./dist/src/*"
   },
   "scripts": {
     "prebuild": "rm -rf dist/*",
@@ -18,7 +15,7 @@
     "dev": "npm run --silent _sorry_no_watch_mode && nest start --watch",
     "debug": "npm run --silent _sorry_no_watch_mode && nest start --watch --debug",
     "lint": "eslint \"**/*.ts\"",
-    "pretest": "npm run -w shared build",
+    "pretest": "npm run -w shared -w server build",
     "test": "vitest",
     "_typeorm-cli": "tsx ./meta/typeorm-tsx-esm-cli.ts",
     "_orm": "npm run _typeorm-cli -- --dataSource ./src/db/data-source/data-source-instance.ts",
