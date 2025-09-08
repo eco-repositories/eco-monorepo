@@ -8,6 +8,6 @@ describe(resolvePath, () => {
     const baseUrl = pathToFileURL(basePath)
     const resolved = resolvePath(baseUrl, 'other/file', 'bar.baz')
 
-    expect(resolved).toEqual('/path/to/other/file/bar.baz')
+    expect(resolved).toEqual(resolve('/path/to/other/file/bar.baz'))
   })
 })
