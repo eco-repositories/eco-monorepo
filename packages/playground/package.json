@@ -12,7 +12,7 @@
     "dev": "tsx src/index.ts",
     "clean": "rm -rf ./dist/*",
     "prebuild": "npm run clean",
-    "build": "tsc --project tsconfig.json"
+    "build": "tsc --project tsconfig.json --noEmit false"
   },
   "devDependencies": {
     "@libs--eco/utils": "file:../../libs/@eco/utils/packages/utils",
