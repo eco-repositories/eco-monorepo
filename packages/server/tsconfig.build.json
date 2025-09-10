@@ -11,6 +11,7 @@
     { "path": "./tsconfig.external.json" },
   ],
   "compilerOptions": {
+    "rootDir": "src",
     "noEmit": false,
   },
 }
