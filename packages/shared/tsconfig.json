@@ -7,5 +7,12 @@
     "rootDir": ".",
     "outDir": "dist",
     "composite": true,
+
+    "baseUrl": ".",
+    "paths": {
+      "#utils/*": [
+        "../../libs/@eco/utils/packages/utils/dist/*",
+      ],
+    },
   },
 }

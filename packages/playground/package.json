@@ -4,6 +4,7 @@
   "private": true,
   "type": "module",
   "imports": {
+    "#utils/*": "../../libs/@eco/utils/packages/utils/*",
     "#@/*": "./src/*"
   },
   "exports": null,
@@ -15,7 +16,6 @@
     "build": "tsc --project tsconfig.json --noEmit false"
   },
   "devDependencies": {
-    "@libs--eco/utils": "file:../../libs/@eco/utils/packages/utils",
     "@types/node": "*",
     "shared": "file:../shared",
     "tsx": "4.20.5",

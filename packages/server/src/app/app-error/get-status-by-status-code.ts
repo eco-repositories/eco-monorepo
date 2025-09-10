@@ -1,6 +1,6 @@
 import { HttpStatus } from '@nestjs/common'
 import { STATUS_CODES } from 'http'
-import { type HttpStatusCode } from 'shared/api/http-status-code/http-status-code.type.js'
+import { type HttpStatusCode } from '#shared/api/http-status-code/http-status-code.type.js'
 
 /** @private */
 const unknownStatus = 'UNKNOWN'

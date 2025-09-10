@@ -4,6 +4,8 @@
   "private": true,
   "type": "module",
   "imports": {
+    "#utils/*": "../../libs/@eco/utils/packages/utils/dist/*",
+    "#shared/*": "shared/*",
     "#@/*": "./src/*"
   },
   "scripts": {

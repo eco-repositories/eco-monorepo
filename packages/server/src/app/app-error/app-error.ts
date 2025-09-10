@@ -3,7 +3,7 @@ import {
   type HttpStatusCodeError,
   type HttpStatusCodeErrorClient,
   type HttpStatusCodeErrorServer,
-} from 'shared/api/http-status-code/http-status-code.type.js'
+} from '#shared/api/http-status-code/http-status-code.type.js'
 
 /** @private */
 type Detail = Api.HttpErrorResponseDetail // alias

@@ -1,6 +1,6 @@
 import esbuildPluginTsc from 'esbuild-plugin-tsc'
 import { defineConfig } from 'vitest/config'
-import { resolvePath } from 'shared/resolve-path/resolve-path.js'
+import { resolvePath } from '#shared/resolve-path/resolve-path.js'
 
 const resolve = resolvePath.bind(null, import.meta.url)
 

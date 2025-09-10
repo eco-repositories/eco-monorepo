@@ -7,5 +7,12 @@
   "compilerOptions": {
     "rootDir": ".",
     "outDir": "dist",
+
+    "baseUrl": ".",
+    "paths": {
+      "#utils/*": [
+        "../../libs/@eco/utils/packages/utils/dist/*",
+      ],
+    },
   },
 }

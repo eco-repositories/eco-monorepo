@@ -4,6 +4,8 @@
   "private": true,
   "type": "module",
   "imports": {
+    "#utils/*": "../../libs/@eco/utils/packages/utils/dist/*",
+    "#shared/*": "shared/*",
     "#@/*": "./dist/*"
   },
   "scripts": {
@@ -24,7 +26,6 @@
   },
   "dependencies": {
     "@keyv/redis": "5.1.1",
-    "@libs--eco/utils": "file:../../libs/@eco/utils/packages/utils",
     "@nestjs/cache-manager": "3.0.1",
     "@nestjs/common": "11.1.6",
     "@nestjs/config": "4.0.0",

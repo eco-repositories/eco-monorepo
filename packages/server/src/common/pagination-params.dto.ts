@@ -1,6 +1,6 @@
 import { Type } from 'class-transformer'
 import { IsInt, IsOptional, IsPositive, Min } from 'class-validator'
-import { type PaginationParams as PaginationParamsType } from '@libs--eco/utils/pagination/pagination-params.type.js'
+import { type PaginationParams as PaginationParamsType } from '#utils/pagination/pagination-params.type.js'
 
 export const MIN_OFFSET = 0
 

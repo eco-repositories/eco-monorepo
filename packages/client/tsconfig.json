@@ -15,5 +15,12 @@
       "dom",
       "esnext",
     ],
+
+    "baseUrl": ".",
+    "paths": {
+      "#utils/*": [
+        "../../libs/@eco/utils/packages/utils/dist/*",
+      ],
+    },
   },
 }
