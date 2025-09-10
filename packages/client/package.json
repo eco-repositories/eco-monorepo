@@ -46,7 +46,7 @@
     "jsdom": "26.0.0",
     "shared": "file:../shared",
     "typescript": "*",
-    "vite": "7.1.4",
+    "vite": "7.1.5",
     "vitest": "3.2.4"
   }
 }
