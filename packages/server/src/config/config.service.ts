@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common'
-import { SharedConfigService } from '#shared/config/config.service.js'
+import { SharedConfigService } from '#shared/microservice/config/config.service.js'
 import { type ConfigDTO } from './config.dto.js'
 
 @Injectable()

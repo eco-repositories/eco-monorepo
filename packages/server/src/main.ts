@@ -1,4 +1,5 @@
 import { NestFactory } from '@nestjs/core'
+import { resolveConfig } from '@@shared/microservice/config/resolve-config.js'
 import { AppModule } from './app/app.module.js'
 import { decorateApp } from './app/decorate-app.js'
 import { createLogger } from './common/create-logger.js'
@@ -7,11 +8,10 @@ import { ConfigService } from './config/config.service.js'
 
 async function bootstrap(): Promise<void> {
   const logger = createLogger(bootstrap)
-  const configContext = await NestFactory.createApplicationContext(ConfigModule, { logger })
-  const config = configContext.get(ConfigService)
 
-  configContext.flushLogs()
-  configContext.close()
+  const [config, contextClosed] = await resolveConfig(ConfigModule, ConfigService)
+
+  contextClosed
     .then(() => {
       logger.debug('Config context closed')
     })

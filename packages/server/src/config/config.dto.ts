@@ -1,12 +1,12 @@
 import { Type } from 'class-transformer'
 import { IsInt, IsNotEmpty, IsPort, IsPositive, IsString, Matches, Min } from 'class-validator'
-import { EnvName } from '#shared/config/env-name.js'
+import { EnvName } from '#shared/microservice/config/env-name.js'
 import { IsValidEnum } from '#shared/is-valid-enum/is-valid-enum.decorator.js'
 
 declare global {
   // eslint-disable-next-line @typescript-eslint/no-namespace
   namespace NodeJS {
-    interface ProcessEnv extends Record<keyof ConfigDTO, string> {}
+    interface ProcessEnv extends Record<keyof ConfigDTO, string> { }
   }
 }
 
@@ -62,6 +62,13 @@ export class ConfigDTO {
   @IsString()
   @IsNotEmpty()
   readonly CACHE_PASS!: string
+
+  @IsString()
+  @IsNotEmpty()
+  readonly GREETER_HOST!: string
+
+  @IsPort()
+  readonly GREETER_PORT!: string
 
   @IsPort()
   readonly PORT: string = defaults.PORT

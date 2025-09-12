@@ -27,6 +27,33 @@ RUN npm run libs:build
 RUN npm -w shared run build
 
 # Setup
+FROM base AS greeter
+
+WORKDIR /app
+
+COPY ./package*.json ./
+COPY ./packages/greeter/package.json ./packages/greeter/
+
+RUN npm -w greeter ci
+
+# Build
+COPY --from=base /app/packages/shared/dist/ ./packages/shared/dist/
+COPY ./tsconfig*.json ./
+COPY ./packages/greeter/src/ ./packages/greeter/src/
+COPY \
+  ./packages/greeter/nest-cli.json ./packages/greeter/tsconfig*.json \
+  ./packages/greeter/
+
+RUN npm -w greeter run build
+
+# Start
+RUN npm -w greeter ci --omit=dev
+
+SHELL [ "/bin/sh", "-c" ]
+
+CMD npm -w greeter start
+
+# Setup
 FROM base AS server
 
 WORKDIR /app
@@ -37,6 +64,7 @@ COPY ./packages/server/package.json ./packages/server/
 RUN npm -w server ci
 
 # Build
+COPY --from=greeter /app/packages/greeter/dist/ ./packages/greeter/dist/
 COPY --from=base /app/packages/shared/dist/ ./packages/shared/dist/
 COPY ./tsconfig*.json ./
 COPY ./packages/server/src/ ./packages/server/src/

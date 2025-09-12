@@ -2,6 +2,7 @@ import { type MiddlewareConsumer, Module, type NestModule, type DynamicModule } 
 import { CacheModule } from '#@/cache/cache.module.js'
 import { ConfigModule } from '#@/config/config.module.js'
 import { DbModule } from '#@/db/db.module.js'
+import { GreeterModule } from '#@/greeter/greeter.module.js'
 import { HealthModule } from '#@/health/health.module.js'
 import { AppErrorFilter } from './app-error/app-error.filter.js'
 import { DevModule } from './dev/dev.module.js'
@@ -19,6 +20,7 @@ interface RegisterParams {
     DbModule,
     CacheModule,
     HealthModule,
+    GreeterModule,
   ],
   providers: [
     AppErrorFilter,
