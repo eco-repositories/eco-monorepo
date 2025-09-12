@@ -1,5 +1,5 @@
 import { NestFactory } from '@nestjs/core'
-import { resolveConfig } from '@@shared/microservice/config/resolve-config.js'
+import { resolveConfig } from '#shared/microservice/config/resolve-config.js'
 import { AppModule } from './app/app.module.js'
 import { decorateApp } from './app/decorate-app.js'
 import { createLogger } from './common/create-logger.js'

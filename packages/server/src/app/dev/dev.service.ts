@@ -1,5 +1,5 @@
 import { Inject, Injectable } from '@nestjs/common'
-import { Greeter, GREETER, greeter } from '@/greeter/greeter.module.js'
+import { Greeter, GREETER, greeter } from '#@/greeter/greeter.module.js'
 import { firstValueFrom } from 'rxjs'
 
 @Injectable()

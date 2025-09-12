@@ -6,6 +6,7 @@
   "imports": {
     "#utils/*": "../../libs/@eco/utils/packages/utils/dist/*",
     "#shared/*": "shared/*",
+    "#greeter/*": "greeter/*",
     "#@/*": {
       "@parzh/map-src-to-dist": "./dist/*",
       "default": "./src/*"

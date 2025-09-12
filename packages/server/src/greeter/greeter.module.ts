@@ -1,10 +1,10 @@
 import { Global, Module } from "@nestjs/common"
 import { ClientsModule, Transport } from "@nestjs/microservices"
-import { Microservice } from '@@shared/microservice/microservice.type.js'
-import { ConfigService } from "@/config/config.service.js"
-import { Comms } from '@@greeter/index.js'
+import { Microservice } from '#shared/microservice/microservice.type.js'
+import { ConfigService } from "#@/config/config.service.js"
+import { Comms } from '#greeter'
 
-export { greeter } from '@@greeter/index.js'
+export { greeter } from '#greeter'
 
 export const GREETER = Symbol('Greeter')
 
