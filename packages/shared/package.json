@@ -3,8 +3,11 @@
   "version": "0.0.1",
   "private": true,
   "type": "module",
+  "imports": {
+    "#utils/*": "../../libs/@eco/utils/packages/utils/*",
+    "#@/*": "./src/*"
+  },
   "exports": {
-    ".": null,
     "./*.js": {
       "types": "./dist/*.d.ts",
       "import": "./dist/*.js"
@@ -15,8 +18,7 @@
     "lint": "eslint \"**/*.ts\"",
     "clean": "rm -rf dist/* ./*.tsbuildinfo",
     "prebuild": "npm run clean",
-    "build": "tsc --project tsconfig.build.json",
-    "postbuild": "tsc-alias --project tsconfig.build.json"
+    "build": "tsc --project tsconfig.build.json"
   },
   "devDependencies": {
     "@eslint/eslintrc": "*",
@@ -29,8 +31,7 @@
     "eslint-plugin-import": "2.31.0",
     "eslint-plugin-n": "17.15.1",
     "eslint-plugin-promise": "7.2.1",
-    "tsc-alias": "1.8.10",
     "typescript": "*",
-    "vitest": "3.0.6"
+    "vitest": "3.2.4"
   }
 }

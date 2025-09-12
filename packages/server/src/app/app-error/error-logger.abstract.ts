@@ -1,12 +1,12 @@
-import { type JsonStringifiable } from '@@libs/@eco/utils/json-stringifiable/json-stringifiable.type.js'
-import { createLogger } from '@/common/create-logger.js'
+import { type JsonStringifiable } from '#utils/json-stringifiable/json-stringifiable.type.js'
+import { createLogger } from '#@/common/create-logger.js'
 
 export type ErrorLogLevel = 'error' | 'warn'
 
 export abstract class ErrorLogger<E extends Error> {
   constructor(
     protected readonly logger = createLogger(new.target),
-  ) {}
+  ) { }
 
   protected abstract getLogLevel(error: E): ErrorLogLevel
   protected abstract getSummary(error: E): string

@@ -1,7 +1,7 @@
 import { CACHE_MANAGER } from "@nestjs/cache-manager"
 import { Inject, Injectable } from "@nestjs/common"
 import { Cache } from "cache-manager"
-import { ServerError } from "@/app/app-error/app-error.js"
+import { ServerError } from "#@/app/app-error/app-error.js"
 
 type Landscape = {
   readonly [storeId: string]: {

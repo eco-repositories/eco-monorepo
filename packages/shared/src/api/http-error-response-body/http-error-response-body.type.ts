@@ -1,5 +1,5 @@
-import { type JsonStringifiable } from '@@libs/@eco/utils/json-stringifiable/json-stringifiable.type.js'
-import { type HttpStatusCode } from '@/api/http-status-code/http-status-code.type.js'
+import { type JsonStringifiable } from '#utils/json-stringifiable/json-stringifiable.type.js'
+import { type HttpStatusCode } from '#@/api/http-status-code/http-status-code.type.js'
 
 export interface HttpErrorResponseDetail<Payload extends JsonStringifiable = JsonStringifiable> {
   readonly message: string

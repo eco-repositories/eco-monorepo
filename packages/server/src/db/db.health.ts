@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common'
 import { type HealthIndicatorResult, TypeOrmHealthIndicator, type TypeOrmPingCheckSettings } from '@nestjs/terminus'
-import { type CustomHealthIndicator } from '@/health/custom-health-indicator.abstract.js'
+import { type CustomHealthIndicator } from '#@/health/custom-health-indicator.abstract.js'
 
 @Injectable()
 export class DbHealthIndicator extends TypeOrmHealthIndicator implements CustomHealthIndicator.WithCheckHealth {

@@ -1,6 +1,6 @@
-import { type HttpStatusCode } from '@@shared/api/http-status-code/http-status-code.type.js'
 import { type HttpException } from '@nestjs/common'
 import { randomUUID } from 'crypto'
+import { type HttpStatusCode } from '#shared/api/http-status-code/http-status-code.type.js'
 import { getHttpExceptionMessages } from './get-http-exception-messages.js'
 import { getStatusByStatusCode } from './get-status-by-status-code.js'
 

@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from 'react'
-import { getHealth, type Health } from '@/api/get-health/get-health.js'
+import { getHealth, type Health } from '#@/api/get-health/get-health.js'
 
 /** @private */
 type HealthRefresher = () => void

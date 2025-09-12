@@ -2,7 +2,7 @@ import { type Provider } from '@nestjs/common'
 import { type DataSourceOptions } from 'typeorm'
 import { fileURLToPath } from 'url'
 import { resolve } from 'path'
-import { ConfigService } from '@/config/config.service.js'
+import { ConfigService } from '#@/config/config.service.js'
 import { DbLogger } from './db-logger.js'
 
 export { type DataSourceOptions } from 'typeorm'

@@ -1,4 +1,4 @@
-import { forSlice } from '@/store/for-slice.js'
+import { forSlice } from '#@/store/for-slice.js'
 import { app } from './slice.js'
 
 export const {

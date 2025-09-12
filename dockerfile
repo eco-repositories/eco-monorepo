@@ -10,7 +10,12 @@ COPY ./packages/shared/package.json ./packages/shared/
 
 RUN apk add --no-cache git
 RUN npm run libs:init
+RUN npm run libs:pull
 RUN npm run libs:install
+
+# Use this line to temporarily test local changes in libs
+# COPY ./libs/@eco/utils/packages/utils/package.json ./libs/@eco/utils/packages/utils/
+
 RUN npm -w shared ci
 
 # Build
@@ -22,7 +27,7 @@ RUN npm run libs:build
 RUN npm -w shared run build
 
 # Setup
-FROM base:latest AS server
+FROM base AS server
 
 WORKDIR /app
 
@@ -32,6 +37,7 @@ COPY ./packages/server/package.json ./packages/server/
 RUN npm -w server ci
 
 # Build
+COPY --from=base /app/packages/shared/dist/ ./packages/shared/dist/
 COPY ./tsconfig*.json ./
 COPY ./packages/server/src/ ./packages/server/src/
 COPY \
@@ -48,7 +54,7 @@ SHELL [ "/bin/sh", "-c" ]
 CMD npm -w server start
 
 # Setup
-FROM base:latest AS client-setup
+FROM base AS client-setup
 
 WORKDIR /app
 
@@ -58,6 +64,7 @@ COPY ./packages/client/package.json ./packages/client/
 RUN npm -w client ci
 
 # Build
+COPY --from=base /app/packages/shared/dist/ ./packages/shared/dist/
 COPY ./tsconfig*.json ./
 COPY ./packages/client/src/ ./packages/client/src/
 COPY \

@@ -3,20 +3,22 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
+  "imports": {
+    "#utils/*": "../../libs/@eco/utils/packages/utils/*",
+    "#@/*": "./src/*"
+  },
   "exports": null,
   "scripts": {
     "predev": "touch src/index.ts",
     "dev": "tsx src/index.ts",
     "clean": "rm -rf ./dist/*",
-    "resolve-path-aliases": "tsc-alias --project tsconfig.json",
     "prebuild": "npm run clean",
-    "build": "tsc --project tsconfig.json",
-    "postbuild": "npm run resolve-path-aliases"
+    "build": "tsc --project tsconfig.json --noEmit false"
   },
   "devDependencies": {
     "@types/node": "*",
-    "tsc-alias": "1.8.10",
-    "tsx": "4.19.2",
+    "shared": "file:../shared",
+    "tsx": "4.20.5",
     "typescript": "*"
   }
 }

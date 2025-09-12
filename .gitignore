@@ -2,6 +2,7 @@ node_modules
 dist
 dist-ssr
 *.local
+*.tsbuildinfo
 coverage
 packages/client/vite.config.ts*.js
 packages/client/nginx.conf
