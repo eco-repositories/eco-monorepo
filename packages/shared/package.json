@@ -33,5 +33,11 @@
     "eslint-plugin-promise": "7.2.1",
     "typescript": "*",
     "vitest": "3.2.4"
+  },
+  "dependencies": {
+    "@nestjs/config": "4.0.0",
+    "@nestjs/core": "11.1.6",
+    "class-transformer": "0.5.1",
+    "class-validator": "0.14.1"
   }
 }

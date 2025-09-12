@@ -1,0 +1,43 @@
+{
+  "name": "greeter",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "prebuild": "rm -rf dist/*",
+    "build": "nest build",
+    "postbuild": "tsc-alias --project tsconfig.build.json",
+    "start": "node --enable-source-maps dist/src/main.js",
+    "lint": "eslint \"**/*.ts\"",
+    "pretest": "npm run -w shared build",
+    "test": "vitest"
+  },
+  "dependencies": {
+    "@nestjs/common": "11.1.6",
+    "@nestjs/core": "11.1.6",
+    "@nestjs/microservices": "11.1.6",
+    "@nestjs/platform-express": "11.1.6",
+    "class-transformer": "0.5.1",
+    "class-validator": "0.14.1",
+    "rxjs": "7.8.1"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "*",
+    "@eslint/js": "*",
+    "@nestjs/cli": "11.0.10",
+    "@nestjs/schematics": "11.0.7",
+    "@types/node": "*",
+    "@typescript-eslint/eslint-plugin": "*",
+    "@typescript-eslint/parser": "*",
+    "eslint": "*",
+    "tsc-alias": "1.8.10",
+    "typescript": "*",
+    "vitest": "3.0.6"
+  }
+}

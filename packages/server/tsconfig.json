@@ -2,6 +2,7 @@
   "extends": "../../tsconfig.json",
   "references": [
     { "path": "../shared/tsconfig.build.json" },
+    { "path": "../greeter/tsconfig.build.json" },
     { "path": "../../libs/@eco/utils/packages/utils/tsconfig.build.json" },
   ],
   "compilerOptions": {
