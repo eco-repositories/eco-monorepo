@@ -12,6 +12,10 @@ RUN apk add --no-cache git
 RUN npm run libs:init
 RUN npm run libs:pull
 RUN npm run libs:install
+
+# Use this line to temporarily test local changes in libs
+# COPY ./libs/@eco/utils/packages/utils/package.json ./libs/@eco/utils/packages/utils/
+
 RUN npm -w shared ci
 
 # Build

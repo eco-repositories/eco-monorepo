@@ -5,7 +5,7 @@
   "type": "module",
   "imports": {
     "#utils/*": "../../libs/@eco/utils/packages/utils/*",
-    "#@/*": "./dist/*"
+    "#@/*": "./src/*"
   },
   "exports": {
     "./*.js": {
