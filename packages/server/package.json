@@ -57,7 +57,7 @@
     "@nestjs/testing": "11.1.6",
     "@swc/core": "1.13.5",
     "@types/express": "5.0.0",
-    "@types/morgan": "1.9.9",
+    "@types/morgan": "1.9.10",
     "@types/node": "*",
     "@types/object-hash": "3.0.6",
     "@types/supertest": "6.0.2",
