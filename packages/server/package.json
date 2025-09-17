@@ -20,6 +20,7 @@
     "lint": "eslint \"**/*.ts\"",
     "pretest": "npm run -w shared build",
     "test": "vitest",
+    "test:e2e": "vitest --config vitest.e2e.config.ts",
     "_typeorm-cli": "tsx ./meta/typeorm-tsx-esm-cli.ts",
     "_orm": "npm run _typeorm-cli -- --dataSource ./src/db/data-source/data-source-instance.ts",
     "premigration:generate": "echo Ensure that the database is running and the file \u001b[1mpackages/server/.env.local\u001b[0m exists",

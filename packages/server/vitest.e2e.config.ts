@@ -11,15 +11,15 @@ export default defineConfig({
   test: {
     globals: true,
     mockReset: true,
-    setupFiles: [
-      'reflect-metadata',
+    globalSetup: [
+      './mock-process-env.ts',
     ],
     include: [
-      '**/*.spec.ts',
+      '**/*.e2e-spec.ts',
     ],
     resolveSnapshotPath(path, extension) {
       return path
-        .replace('.spec', extension)
+        .replace('.e2e-spec', extension)
     },
   },
 })
