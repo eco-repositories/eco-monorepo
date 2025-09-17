@@ -1,5 +1,5 @@
 import globals from "globals"
-import configBase from "../../eslint.config.mjs"
+import configBase from "#utils/eslint/eslint.config.mjs"
 
 export default [
   {
