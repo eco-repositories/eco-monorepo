@@ -32,9 +32,9 @@
     "@typescript-eslint/eslint-plugin": "*",
     "@typescript-eslint/parser": "*",
     "eslint": "*",
-    "eslint-plugin-import": "2.31.0",
-    "eslint-plugin-n": "17.15.1",
-    "eslint-plugin-promise": "7.2.1",
+    "eslint-plugin-import": "*",
+    "eslint-plugin-n": "*",
+    "eslint-plugin-promise": "*",
     "typescript": "*",
     "vitest": "3.2.4"
   }
