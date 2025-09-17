@@ -20,5 +20,8 @@ export default [
         project: "./tsconfig.eslint.json",
       },
     },
+    rules: {
+      indent: "off", // FIXME: enable back when it doesn't give "RangeError: Maximum call stack size exceeded"
+    },
   },
 ]
