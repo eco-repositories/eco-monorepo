@@ -14,7 +14,7 @@ export default defineConfig({
     globals: true,
     mockReset: true,
     setupFiles: [
-      resolve('vitest.setup.ts'),
+      'reflect-metadata',
     ],
     resolveSnapshotPath(path, extension) {
       return path
