@@ -21,7 +21,6 @@
     "stop": "npm run dc:down"
   },
   "overrides": {
-    "esbuild": "$esbuild",
     "@types/node": "$@types/node"
   },
   "devDependencies": {
@@ -31,7 +30,6 @@
     "@types/node": "^22",
     "@typescript-eslint/eslint-plugin": "8.40.0",
     "@typescript-eslint/parser": "8.40.0",
-    "esbuild": "0.25.9",
     "eslint": "9.34.0",
     "typescript": "5.9.2"
   }

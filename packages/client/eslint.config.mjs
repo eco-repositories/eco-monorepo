@@ -16,15 +16,8 @@ export default [
         AudioWorkletGlobalScope: false,
         ...globals.jest,
       },
-
-      ecmaVersion: 5,
-      sourceType: "script",
-
       parserOptions: {
-        project: [
-          "./tsconfig.json",
-          "./tsconfig.external.json",
-        ],
+        project: "./tsconfig.eslint.json",
       },
     },
   },

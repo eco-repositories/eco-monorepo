@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "imports": {
-    "#utils/*": "../../libs/@eco/utils/packages/utils/dist/*",
+    "#utils/*": "@libs/eco__utils/*",
     "#shared/*": "shared/*",
     "#@/*": "./src/*"
   },
@@ -15,12 +15,13 @@
     "dev": "vite",
     "lint": "eslint **/*.{ts,tsx}",
     "clean": "rm -rf dist/*",
-    "build:ts": "tsc",
+    "build:ts": "tsc --build --verbose",
     "build:vite": "vite build",
     "prebuild": "npm run clean",
     "build": "npm run build:ts && npm run build:vite"
   },
   "dependencies": {
+    "@libs/eco__utils": "file:../../libs/@eco/utils/packages/utils",
     "@reduxjs/toolkit": "2.8.2",
     "axios": "1.12.0",
     "react": "18.3.1",

@@ -1,12 +1,13 @@
 {
   "extends": "../../tsconfig.json",
   "references": [
-    { "path": "../shared/tsconfig.build.json" },
-    { "path": "../../libs/@eco/utils/packages/utils/tsconfig.build.json" },
+    { "path": "../shared" },
+    { "path": "../../libs/@eco/utils/packages/utils" },
   ],
   "compilerOptions": {
     "rootDir": "src",
     "outDir": "dist",
+    "noEmit": false,
 
     "baseUrl": ".",
     "paths": {

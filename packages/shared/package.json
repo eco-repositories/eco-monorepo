@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "imports": {
-    "#utils/*": "../../libs/@eco/utils/packages/utils/*",
+    "#utils/*": "@libs/eco__utils/*",
     "#@/*": "./src/*"
   },
   "exports": {
@@ -16,9 +16,10 @@
   "scripts": {
     "test": "vitest",
     "lint": "eslint \"**/*.ts\"",
-    "clean": "rm -rf dist/* ./*.tsbuildinfo",
-    "prebuild": "npm run clean",
-    "build": "tsc --project tsconfig.build.json"
+    "build": "tsc --build --verbose"
+  },
+  "dependencies": {
+    "@libs/eco__utils": "file:../../libs/@eco/utils/packages/utils"
   },
   "devDependencies": {
     "@eslint/eslintrc": "*",

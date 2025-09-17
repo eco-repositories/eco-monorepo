@@ -20,6 +20,6 @@
     "resolveJsonModule": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
-    "skipLibCheck": true,
+    "skipLibCheck": false,
   }
 }

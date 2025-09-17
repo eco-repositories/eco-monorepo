@@ -4,21 +4,22 @@
   "private": true,
   "type": "module",
   "imports": {
-    "#utils/*": "../../libs/@eco/utils/packages/utils/*",
+    "#utils/*": "@libs/eco__utils/*",
     "#@/*": "./src/*"
   },
   "exports": null,
   "scripts": {
     "predev": "touch src/index.ts",
     "dev": "tsx src/index.ts",
-    "clean": "rm -rf ./dist/*",
-    "prebuild": "npm run clean",
-    "build": "tsc --project tsconfig.json --noEmit false"
+    "build": "tsc --build --verbose"
   },
   "devDependencies": {
     "@types/node": "*",
     "shared": "file:../shared",
     "tsx": "4.20.5",
     "typescript": "*"
+  },
+  "dependencies": {
+    "@libs/eco__utils": "file:../../libs/@eco/utils/packages/utils"
   }
 }

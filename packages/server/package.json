@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "imports": {
-    "#utils/*": "../../libs/@eco/utils/packages/utils/dist/*",
+    "#utils/*": "@libs/eco__utils/*",
     "#shared/*": "shared/*",
     "#@/*": {
       "@parzh/map-src-to-dist": "./dist/*",
@@ -12,8 +12,7 @@
     }
   },
   "scripts": {
-    "prebuild": "rm -rf dist/*",
-    "build": "nest build",
+    "build": "tsc --build --verbose",
     "start": "node --enable-source-maps --conditions=@parzh/map-src-to-dist dist/main.js",
     "_sorry_no_watch_mode": "echo \u001b[31mError\u001b[0m: Package \u001b[1mtsconfig-paths\u001b[0m, used by nest --watch, \u001b[1mdoes not support ESM\u001b[0m && exit 1",
     "dev": "npm run --silent _sorry_no_watch_mode && nest start --watch",
@@ -29,6 +28,7 @@
   },
   "dependencies": {
     "@keyv/redis": "5.1.1",
+    "@libs/eco__utils": "file:../../libs/@eco/utils/packages/utils",
     "@nestjs/cache-manager": "3.0.1",
     "@nestjs/common": "11.1.6",
     "@nestjs/config": "4.0.0",
