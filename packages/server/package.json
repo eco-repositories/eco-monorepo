@@ -20,6 +20,7 @@
     "lint": "eslint \"**/*.ts\"",
     "pretest": "npm run -w shared build",
     "test": "vitest",
+    "test:e2e": "vitest --config vitest.e2e.config.ts",
     "_typeorm-cli": "tsx ./meta/typeorm-tsx-esm-cli.ts",
     "_orm": "npm run _typeorm-cli -- --dataSource ./src/db/data-source/data-source-instance.ts",
     "premigration:generate": "echo Ensure that the database is running and the file \u001b[1mpackages/server/.env.local\u001b[0m exists",
@@ -54,6 +55,7 @@
     "@nestjs/cli": "11.0.10",
     "@nestjs/schematics": "11.0.7",
     "@nestjs/testing": "11.1.6",
+    "@swc/core": "1.13.5",
     "@types/express": "5.0.0",
     "@types/morgan": "1.9.9",
     "@types/node": "*",
@@ -61,7 +63,6 @@
     "@types/supertest": "6.0.2",
     "@typescript-eslint/eslint-plugin": "*",
     "@typescript-eslint/parser": "*",
-    "esbuild-plugin-tsc": "0.5.0",
     "eslint": "*",
     "eslint-plugin-import": "2.31.0",
     "eslint-plugin-n": "17.15.1",
@@ -71,6 +72,7 @@
     "ts-node": "10.9.2",
     "tsx": "4.20.5",
     "typescript": "*",
+    "unplugin-swc": "1.5.7",
     "vitest": "3.2.4"
   }
 }

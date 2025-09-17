@@ -5,7 +5,10 @@
   "type": "module",
   "imports": {
     "#utils/*": "@libs/eco__utils/*",
-    "#@/*": "./src/*"
+    "#@/*": {
+      "@parzh/map-src-to-dist": "./dist/*",
+      "default": "./src/*"
+    }
   },
   "exports": {
     "./*.js": {
