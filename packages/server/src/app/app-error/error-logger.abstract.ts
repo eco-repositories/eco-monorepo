@@ -1,5 +1,5 @@
 import { type JsonStringifiable } from '#utils/json-stringifiable/json-stringifiable.type.js'
-import { createLogger } from '#@/common/create-logger.js'
+import { createLogger } from '#shared/microservice/create-logger/create-logger.js'
 
 export type ErrorLogLevel = 'error' | 'warn'
 
