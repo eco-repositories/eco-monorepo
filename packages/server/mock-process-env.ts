@@ -1,12 +1,13 @@
 import 'reflect-metadata'
-import { validateConfig } from './src/config/validate-config.js'
-import { EnvName } from './src/config/env-name.js'
+import { validateConfig } from '#shared/microservices/config/validate-config.js'
+import { EnvName } from '#shared/microservices/config/env-name.js'
+import { ConfigDTO } from '#@/config/config.dto.js'
 
 const envOriginal = { ...process.env }
 
-const envMock = validateConfig({
+const envMock = validateConfig(ConfigDTO, {
   NODE_ENV: EnvName.test,
-  PORT: '2999',
+  PORT: '3500',
   CACHE_HOST: 'localhost',
   CACHE_PASS: 'cache_password',
   CACHE_PORT: '6379',

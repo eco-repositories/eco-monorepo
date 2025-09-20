@@ -1,7 +1,6 @@
 {
   "extends": "../../tsconfig.json",
   "references": [
-    { "path": "../greeter" },
     { "path": "../shared" },
     { "path": "../../libs/@eco/utils/packages/utils" },
   ],
@@ -12,6 +11,7 @@
     "rootDir": "src",
     "outDir": "dist",
     "noEmit": false,
+    "composite": true,
 
     "baseUrl": ".",
     "paths": {

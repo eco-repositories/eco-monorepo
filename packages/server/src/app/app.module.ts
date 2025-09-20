@@ -3,6 +3,7 @@ import { CacheModule } from '#@/cache/cache.module.js'
 import { ConfigModule } from '#@/config/config.module.js'
 import { DbModule } from '#@/db/db.module.js'
 import { HealthModule } from '#@/health/health.module.js'
+import { MicroservicesModule } from '#@/microservices/microservices.module.js'
 import { AppErrorFilter } from './app-error/app-error.filter.js'
 import { DevModule } from './dev/dev.module.js'
 import { HttpLoggerMiddleware } from './http-logger.middleware.js'
@@ -19,6 +20,7 @@ interface RegisterParams {
     DbModule,
     CacheModule,
     HealthModule,
+    MicroservicesModule,
   ],
   providers: [
     AppErrorFilter,

@@ -15,6 +15,7 @@
     "libs:build": "git submodule foreach \"npm run build --ws --if-present\"",
     "dc:config": "docker compose --env-file docker-compose.env.local config",
     "dc:resolve-env": "npm run dc:config --silent -- --format=json | jq --arg service \"${SERVICE_NAME?}\" -r '.services[$service].environment // {} | to_entries | .[] | \"\\(.key)=\\(.value)\"'",
+    "dc:resolve-env:server": "SERVICE_NAME=server npm run dc:resolve-env --silent > packages/server/.env.local",
     "dc:up": "docker compose --env-file docker-compose.env.local up --build --detach --remove-orphans",
     "dc:down": "docker compose --env-file docker-compose.env.local down",
     "start": "npm run dc:up",

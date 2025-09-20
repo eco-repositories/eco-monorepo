@@ -1,24 +1,17 @@
 import { NestFactory } from '@nestjs/core'
+import { resolveConfig } from '#shared/microservices/config/resolve-config.js'
+import { createLogger } from '#shared/microservices/create-logger/create-logger.js'
 import { AppModule } from './app/app.module.js'
 import { decorateApp } from './app/decorate-app.js'
-import { createLogger } from './common/create-logger.js'
 import { ConfigModule } from './config/config.module.js'
 import { ConfigService } from './config/config.service.js'
 
 async function bootstrap(): Promise<void> {
   const logger = createLogger(bootstrap)
-  const configContext = await NestFactory.createApplicationContext(ConfigModule, { logger })
-  const config = configContext.get(ConfigService)
 
-  configContext.flushLogs()
-  configContext.close()
-    .then(() => {
-      logger.debug('Config context closed')
-    })
-    .catch((reason: unknown) => {
-      logger.warn('Error while closing config context')
-      logger.warn(reason)
-    })
+  const [config, contextClosed] = await resolveConfig(ConfigModule, ConfigService)
+
+  contextClosed.catch(logger.warn)
 
   const appModule = AppModule.register({
     importDevModule: config.isDevelopment(),

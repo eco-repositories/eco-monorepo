@@ -1,20 +1,16 @@
 import { Global, Module } from '@nestjs/common'
-import { ConfigModule as NestConfigModule } from '@nestjs/config'
-import { resolvePath } from '#shared/resolve-path/resolve-path.js'
+import { ConfigModule as SharedConfigModule } from '#shared/microservices/config/config.module.js'
+import { ConfigDTO } from './config.dto.js'
 import { ConfigService } from './config.service.js'
-import { validateConfig } from './validate-config.js'
 
 @Global()
 @Module({
   imports: [
-    NestConfigModule.forRoot({
-      envFilePath: [
-        resolvePath(import.meta.url, '../..', '.env.local'),
-      ],
-      validate: validateConfig,
+    SharedConfigModule.forRoot(ConfigDTO, {
+      envFileUrl: new URL('../../.env.local', import.meta.url),
     }),
   ],
   providers: [ConfigService],
   exports: [ConfigService],
 })
-export class ConfigModule {}
+export class ConfigModule { }
