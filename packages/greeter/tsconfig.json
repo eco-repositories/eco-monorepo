@@ -1,0 +1,23 @@
+{
+  "extends": "../../tsconfig.json",
+  "references": [
+    { "path": "../shared" },
+    { "path": "../../libs/@eco/utils/packages/utils" },
+  ],
+  "include": [
+    "src",
+  ],
+  "compilerOptions": {
+    "rootDir": "src",
+    "outDir": "dist",
+    "noEmit": false,
+    "composite": true,
+
+    "baseUrl": ".",
+    "paths": {
+      "#utils/*": [
+        "../../libs/@eco/utils/packages/utils/dist/*",
+      ],
+    },
+  },
+}

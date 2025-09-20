@@ -24,6 +24,25 @@ RUN npm run libs:pull
 RUN npm run libs:install
 RUN npm -w shared ci
 
+FROM base AS greeter
+
+WORKDIR /app
+
+COPY \
+  ./packages/greeter/package.json ./packages/greeter/tsconfig*.json ./packages/greeter/nest-cli.json \
+  ./packages/greeter/
+COPY \
+  ./packages/greeter/src/ \
+  ./packages/greeter/src/
+
+RUN npm -w greeter ci
+RUN npm -w greeter run build
+RUN npm -w greeter ci --omit=dev
+
+SHELL [ "/bin/sh", "-c" ]
+
+CMD npm -w greeter start
+
 FROM base AS server
 
 WORKDIR /app

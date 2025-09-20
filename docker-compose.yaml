@@ -39,6 +39,15 @@ services:
       timeout: 10s
       retries: 30
 
+  greeter:
+    build:
+      context: '.'
+      target: greeter
+    environment:
+      PORT: '${GREETER_PORT_CONTAINER}'
+    expose:
+      - '${GREETER_PORT_CONTAINER}'
+
   server:
     depends_on:
       db:
