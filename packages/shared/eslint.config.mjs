@@ -12,10 +12,6 @@ export default [
         ...globals.node,
         ...globals.jest,
       },
-
-      ecmaVersion: 5,
-      sourceType: "script",
-
       parserOptions: {
         project: "./tsconfig.eslint.json",
       },

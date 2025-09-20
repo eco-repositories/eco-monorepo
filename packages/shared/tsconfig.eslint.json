@@ -2,6 +2,7 @@
   "extends": "./tsconfig.json",
   "include": [
     "**/*.ts",
+    "**/*.mjs",
   ],
   "exclude": [
     "node_modules",
