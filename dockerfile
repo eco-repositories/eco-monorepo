@@ -47,6 +47,9 @@ FROM base AS server
 
 WORKDIR /app
 
+COPY --from=greeter \
+  /app/packages/greeter/ \
+  ./packages/greeter/
 COPY \
   ./packages/server/package.json ./packages/server/tsconfig*.json ./packages/server/nest-cli.json \
   ./packages/server/

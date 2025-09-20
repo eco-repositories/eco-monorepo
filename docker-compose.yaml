@@ -69,6 +69,8 @@ services:
       CACHE_PORT: '${CACHE_PORT_CONTAINER}'
       CACHE_USER: 'default'
       CACHE_PASS: '${CACHE_PASS}'
+      GREETER_HOST: greeter
+      GREETER_PORT: '${GREETER_PORT_CONTAINER}'
     ports:
       - '${SERVER_PORT_HOST}:${SERVER_PORT_CONTAINER}'
 

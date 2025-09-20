@@ -63,6 +63,13 @@ export class ConfigDTO {
   @IsNotEmpty()
   readonly CACHE_PASS!: string
 
+  @IsString()
+  @IsNotEmpty()
+  readonly GREETER_HOST!: string
+
+  @IsPort()
+  readonly GREETER_PORT!: string
+
   @IsPort()
   readonly PORT: string = defaults.PORT
 
