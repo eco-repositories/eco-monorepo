@@ -1,6 +1,6 @@
-import { Yields } from '#shared/microservice/action.type.js'
-import { CommsBy } from '#shared/microservice/comms-by.type.js'
-import { createPatterns } from '#shared/microservice/create-patterns.js'
+import { Yields } from '#shared/microservices/action.type.js'
+import { CommsBy } from '#shared/microservices/comms-by.type.js'
+import { createPatterns } from '#shared/microservices/create-patterns.js'
 
 export type Comms = CommsBy<{
   readonly greeter: {

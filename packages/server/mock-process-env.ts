@@ -1,6 +1,6 @@
 import 'reflect-metadata'
-import { validateConfig } from '#shared/microservice/config/validate-config.js'
-import { EnvName } from '#shared/microservice/config/env-name.js'
+import { validateConfig } from '#shared/microservices/config/validate-config.js'
+import { EnvName } from '#shared/microservices/config/env-name.js'
 import { ConfigDTO } from '#@/config/config.dto.js'
 
 const envOriginal = { ...process.env }

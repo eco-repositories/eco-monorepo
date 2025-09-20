@@ -1,5 +1,5 @@
 import { IsPort } from 'class-validator'
-import { EnvName } from '#shared/microservice/config/env-name.js'
+import { EnvName } from '#shared/microservices/config/env-name.js'
 import { IsValidEnum } from '#shared/is-valid-enum/is-valid-enum.decorator.js'
 
 export const defaults = {

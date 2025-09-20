@@ -1,8 +1,8 @@
 import { NestFactory } from '@nestjs/core'
 import { MicroserviceOptions, Transport } from "@nestjs/microservices"
-import { createLogger } from '#shared/microservice/create-logger/create-logger.js'
-import { ConfigService } from "#shared/microservice/config/config.service.js"
-import { resolveConfig } from "#shared/microservice/config/resolve-config.js"
+import { createLogger } from '#shared/microservices/create-logger/create-logger.js'
+import { ConfigService } from "#shared/microservices/config/config.service.js"
+import { resolveConfig } from "#shared/microservices/config/resolve-config.js"
 import { AppModule } from "./app/app.module.js"
 import { ConfigDTO } from "./app/config.dto.js"
 

@@ -1,6 +1,6 @@
 import { Injectable, type NestMiddleware } from '@nestjs/common'
 import morgan from 'morgan'
-import { createLogger } from '#shared/microservice/create-logger/create-logger.js'
+import { createLogger } from '#shared/microservices/create-logger/create-logger.js'
 
 @Injectable()
 export class HttpLoggerMiddleware implements NestMiddleware {

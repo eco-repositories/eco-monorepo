@@ -1,6 +1,6 @@
 import { Type } from 'class-transformer'
 import { IsInt, IsNotEmpty, IsPort, IsPositive, IsString, Matches, Min } from 'class-validator'
-import { EnvName } from '#shared/microservice/config/env-name.js'
+import { EnvName } from '#shared/microservices/config/env-name.js'
 import { IsValidEnum } from '#shared/is-valid-enum/is-valid-enum.decorator.js'
 
 declare global {

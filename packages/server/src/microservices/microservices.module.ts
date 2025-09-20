@@ -1,6 +1,6 @@
 import { Global, Module } from '@nestjs/common'
 import { ClientsModule, Transport } from '@nestjs/microservices'
-import { Microservice } from '#shared/microservice/microservice.type.js'
+import { Microservice } from '#shared/microservices/microservice.type.js'
 import { Comms } from '#greeter'
 import { ConfigModule } from '#@/config/config.module.js'
 import { ConfigService } from '#@/config/config.service.js'

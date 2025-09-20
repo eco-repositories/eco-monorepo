@@ -1,5 +1,5 @@
 import { Global, Module } from '@nestjs/common'
-import { ConfigModule as SharedConfigModule } from '#shared/microservice/config/config.module.js'
+import { ConfigModule as SharedConfigModule } from '#shared/microservices/config/config.module.js'
 import { ConfigDTO } from './config.dto.js'
 import { ConfigService } from './config.service.js'
 

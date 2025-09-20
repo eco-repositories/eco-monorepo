@@ -1,6 +1,6 @@
 import { Catch, type ArgumentsHost, HttpException } from '@nestjs/common'
 import { BaseExceptionFilter } from '@nestjs/core'
-import { createLogger } from '#shared/microservice/create-logger/create-logger.js'
+import { createLogger } from '#shared/microservices/create-logger/create-logger.js'
 import { AppError } from './app-error.js'
 import { appErrorToHttpErrorResponseBody } from './app-error-to-http-error-response-body.js'
 import { createUnexpectedHttpErrorResponseBody } from './create-unexpected-http-error-response-body.js'
