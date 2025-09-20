@@ -25,13 +25,15 @@
     "@libs/eco__utils": "file:../../libs/@eco/utils/packages/utils",
     "@nestjs/config": "4.0.0",
     "class-transformer": "0.5.1",
-    "class-validator": "0.14.1"
+    "class-validator": "0.14.1",
+    "object-hash": "3.0.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "*",
     "@eslint/js": "*",
     "@nestjs/terminus": "11.0.0",
     "@types/node": "*",
+    "@types/object-hash": "3.0.6",
     "@typescript-eslint/eslint-plugin": "*",
     "@typescript-eslint/parser": "*",
     "eslint": "*",
