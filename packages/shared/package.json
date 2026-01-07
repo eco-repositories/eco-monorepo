@@ -36,6 +36,7 @@
     "eslint-plugin-n": "*",
     "eslint-plugin-promise": "*",
     "typescript": "*",
+    "vite": "7.3.1",
     "vitest": "3.2.4"
   }
 }
