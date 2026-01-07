@@ -1,9 +1,24 @@
 import { Suspense } from 'react'
-import { Routes, Route, BrowserRouter, Navigate } from 'react-router-dom'
+import { createBrowserRouter, RouterProvider, Navigate } from 'react-router-dom'
 import { useSelector } from './store/store.js'
 import { Home } from './modules/home/home.lazy.js'
 import { PageNotFound } from './modules/page-not-found/page-not-found.lazy.js'
 import { Loader } from './modules/common/loader/loader.js'
+
+const router = createBrowserRouter([
+  {
+    path: '/home',
+    element: <Navigate to='/' replace />,
+  },
+  {
+    path: '/',
+    element: <Home />,
+  },
+  {
+    path: '*',
+    element: <PageNotFound />,
+  },
+])
 
 export const App: React.FC = () => {
   const isLoading = useSelector((state) => state.app.loading)
@@ -13,14 +28,8 @@ export const App: React.FC = () => {
   }
 
   return (
-    <BrowserRouter>
-      <Suspense fallback={<Loader />}>
-        <Routes>
-          <Route path='/home' element={<Navigate to='/' />} />
-          <Route path='/' element={<Home />} />
-          <Route path='*' element={<PageNotFound />} />
-        </Routes>
-      </Suspense>
-    </BrowserRouter>
+    <Suspense fallback={<Loader />}>
+      <RouterProvider router={router} />
+    </Suspense>
   )
 }
