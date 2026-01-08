@@ -1,4 +1,6 @@
 name: Notify when 'overrides' in '/package.json' might have became outdated
+permissions:
+  contents: read
 
 on:
   push:
