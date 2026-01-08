@@ -1,5 +1,8 @@
 name: Notify when a new '/packages/**/node_modules' directory appears
 
+permissions:
+  contents: read
+
 on:
   push:
     paths:
