@@ -15,6 +15,9 @@ on:
       - 'dockerfile'
       - 'docker-compose.yaml'
 
+permissions:
+  contents: read
+
 jobs:
   audit:
     runs-on: ubuntu-latest
