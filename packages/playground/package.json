@@ -16,7 +16,7 @@
   "devDependencies": {
     "@types/node": "*",
     "shared": "file:../shared",
-    "tsx": "4.20.5",
+    "tsx": "4.21.0",
     "typescript": "*"
   },
   "dependencies": {
