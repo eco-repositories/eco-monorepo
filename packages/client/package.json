@@ -34,7 +34,7 @@
     "@eslint/js": "*",
     "@testing-library/react": "16.3.2",
     "@types/node": "*",
-    "@types/react": "19.2.7",
+    "@types/react": "19.2.3",
     "@types/react-dom": "19.2.3",
     "@typescript-eslint/eslint-plugin": "*",
     "@typescript-eslint/parser": "*",
