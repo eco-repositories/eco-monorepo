@@ -23,7 +23,7 @@
   "dependencies": {
     "@libs/eco__utils": "file:../../libs/@eco/utils/packages/utils",
     "@reduxjs/toolkit": "2.8.2",
-    "axios": "1.12.0",
+    "axios": "1.13.5",
     "react": "19.2.3",
     "react-dom": "19.2.3",
     "react-redux": "9.2.0",
