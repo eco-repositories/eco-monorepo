@@ -31,7 +31,7 @@
     "@keyv/redis": "5.1.1",
     "@libs/eco__utils": "file:../../libs/@eco/utils/packages/utils",
     "@nestjs/cache-manager": "3.0.1",
-    "@nestjs/common": "11.1.6",
+    "@nestjs/common": "11.1.13",
     "@nestjs/config": "4.0.3",
     "@nestjs/core": "11.1.6",
     "@nestjs/platform-express": "11.1.13",
